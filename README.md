@@ -1,177 +1,162 @@
 # KeRo SKU Skill
 
-> SKU 详情页导演 Skill Lite V1.2.1｜真实产品分析 × 三方向策划 × 防同质化分屏 × 商业图生产
+> 先看懂真实产品，再制作不套模板的电商详情页。
 
-上传真实产品图，让 AI 先看懂产品、判断保真风险，再给出 3 个详情页方向。用户确认方向后，继续输出分屏方案、镜头设计、生图 Prompt 和质检要求。
+**产品深度分析 · 三方向策划 · 防同质化分屏 · 商业图生产**
 
-[下载可导入的 SKU 详情页导演 Skill](./SKU详情页导演Skill/SKU详情页导演Skill.skill)
+[下载 Skill](./SKU详情页导演Skill/SKU详情页导演Skill.skill) · [查看完整规则](./SKU详情页导演Skill/sku-detail-page-director/references/SKU详情页导演Skill_Lite_V1.2.1_防同质化生产优化版.md) · [X：@Isonlyonenice](https://x.com/Isonlyonenice)
 
-## 目录
+---
 
-- [项目简介](#项目简介)
-- [适用平台与内容](#适用平台与内容)
-- [核心原则](#核心原则)
-- [安装与启动](#安装与启动)
-- [使用前准备](#使用前准备)
-- [完整生产流程](#完整生产流程)
-- [竞品参考与产品迁移](#竞品参考与产品迁移)
-- [国内电商与 Amazon 资料整理](#国内电商与-amazon-资料整理)
-- [常用图片处理指令](#常用图片处理指令)
-- [三种产品处理模式](#三种产品处理模式)
-- [最终质检](#最终质检)
-- [项目结构](#项目结构)
-- [关于我](#关于我)
+## 这是什么
 
-## 项目简介
+KeRo SKU Skill 是一个面向电商运营、设计师和 AIGC 创作者的 Codex Skill。
 
-这是一个面向电商运营、设计师和 AIGC 创作者的 Codex Skill，适合从真实产品素材开始制作商品详情页、主图、副图、SKU 图和 Amazon A+ 页面。
+上传真实产品图后，它会先判断产品事实与保真风险，再提供 3 个明显不同的详情页方向。只有用户确认方向后，才继续输出分屏方案、生图 Prompt 和商业图。
 
-它不会一上来就生成一套不可控的商业图，而是使用三阶段流程：
+适用于淘宝、天猫、京东、拼多多、抖音商城、小红书、Amazon、Shopify 和 TikTok Shop。
+
+## 三步完成一套详情页
+
+| 阶段 | AI 负责 | 你只需要 |
+| --- | --- | --- |
+| 01 产品分析 | 识别产品、事实边界、风险和视觉机会 | 上传真实产品图 |
+| 02 方向提案 | 给出 A / B / C 三种详情页方向 | 选择一个或混合方向 |
+| 03 商业图生产 | 输出逐屏方案、Prompt 和质检要求 | 确认屏数、比例和交付方式 |
 
 ```text
-上传真实产品图
-↓
-阶段一：产品深度分析
-↓
-阶段二：提供 3 个详情页方向
-↓
-用户选择 A / B / C 或混合方向
-↓
-阶段三：逐屏输出方案、Prompt 与商业图
+真实产品图
+   ↓
+产品深度分析
+   ↓
+A / B / C 三方向选择
+   ↓
+逐屏方案与商业图
 ```
 
-建议在支持图片理解和图像生成的 ChatGPT / Codex 环境中使用。其他 AI 工具的执行方式和效果可能不同。
+## 快速开始
 
-## 适用平台与内容
+### 1. 安装
 
-### 平台
+下载 [`SKU详情页导演Skill.skill`](./SKU详情页导演Skill/SKU详情页导演Skill.skill) 并导入 Codex。
 
-- 淘宝、天猫、京东、拼多多
-- 抖音商城、小红书
-- Amazon、Shopify、TikTok Shop
-- 独立站及其他电商平台
+也可以把 `SKU详情页导演Skill/sku-detail-page-director/` 整个目录复制到 Codex 的 skills 目录。
 
-### 内容
+### 2. 上传产品图
 
-- 详情页长图
-- 1:1 商品主图
-- 3:4 商品主图
-- SKU 图和商品副图
-- Amazon 商品图和 A+ 页面
-- 竞品页面结构分析
-- 产品迁移和参考风格重构
-- 白底图、多视图和产品质感优化
+尽量提供正面、侧面、45°、细节和包装图。重要的 Logo、结构、镜片、接口或包装文字建议单独补拍。
 
-## 核心原则
-
-1. **先分析产品，再设计详情页。**
-2. **未确认方向前，不输出正式生图 Prompt。**
-3. **真实产品图是唯一产品身份来源。**
-4. **竞品图只参考画面语言和信息结构，不复制产品、Logo 和文字。**
-5. **不得编造图片或资料中无法确认的品牌、材质、规格、尺寸、认证、功效和评价。**
-6. **图片无法确认材质时，只能写“可见质感”“视觉上接近”或“真实材质待确认”。**
-7. **正式商用文字、Logo、参数和 CTA 建议后期排版，不依赖图像模型直接生成。**
-8. **每屏必须有不同的销售任务、构图和产品专属视觉记忆点。**
-
-## 安装与启动
-
-### 方法一：直接导入
-
-1. 下载 [`SKU详情页导演Skill.skill`](./SKU详情页导演Skill/SKU详情页导演Skill.skill)。
-2. 将文件导入 Codex。
-3. 上传真实产品图并发送启动指令。
-
-### 方法二：复制 Skill 目录
-
-把 `SKU详情页导演Skill/sku-detail-page-director/` 整个目录复制到 Codex 的 skills 目录。
-
-### 启动指令
+### 3. 发送启动指令
 
 ```text
-请严格按照《SKU 详情页导演 Skill Lite V1.2.1》执行。
+请使用 $sku-detail-page-director 分析我上传的产品图。
 
-接下来我会上传产品图。
-你必须先做阶段一：产品深度分析。
-在我没有确认方向前，不要输出正式生图 Prompt。
+先执行阶段一：产品深度分析。
+在我确认方向前，不要输出正式生图 Prompt。
+不能编造图片和资料中无法确认的规格、材质、认证、功效或评价。
 ```
 
-也可以直接说：
+## 标准生产流程
+
+### 阶段一：产品深度分析
 
 ```text
-使用 $sku-detail-page-director 帮我分析这个产品并制作电商详情页。
-```
-
-## 使用前准备
-
-产品多角度图越完整，产品保真度越高。局部结构、Logo、镜片、接口、包装文字等重要细节，建议单独补拍。
-
-下面是完整版资料清单。普通项目不需要一次填完，先提供产品图和已知信息即可，缺失项可以在流程中补充。
-
-1. 产品名称。
-2. 目标平台。
-3. 需要制作的内容：详情页、主图、SKU 图、副图或 A+ 页面。
-4. 图片尺寸或比例：例如 750px 宽长图、800×800、1:1、3:4、9:16。
-5. 真实产品图：正面、侧面、45°、细节、包装、SKU、真人使用图。
-6. 主推 SKU。
-7. 全部颜色、款式、规格和组合装。
-8. 最想突出的 3 个核心卖点。
-9. 产品真实参数：尺寸、重量、材质、规格、颜色、包装清单。
-10. 证明材料：检测报告、认证、专利、授权或质检报告。
-11. 目标用户。
-12. 主要使用场景。
-13. 想要的视觉风格。
-14. 参考图或竞品链接。
-15. 不能写或不能出现的内容。
-16. 品牌资料：Logo、品牌色、字体、包装源文件。
-17. 交付时间。
-
-## 完整生产流程
-
-### 第 0 步：启动 Skill
-
-导入 Skill 后发送启动指令，明确要求严格执行阶段门禁。
-
-### 第 1 步：产品深度分析
-
-#### 推荐版
-
-```text
-这是我的产品图，请按 Skill 先做阶段一：产品深度分析。
+这是我的产品图，请先做阶段一：产品深度分析。
 
 目标平台：淘宝 / 抖音商城通用
 输出语言：中文
-详情页屏数：10 屏
-核心卖点：目前不确定，请先根据图片谨慎判断
+预计屏数：8 屏
+核心卖点：暂不确定，请根据图片谨慎判断
 
-注意：不能编造图片里看不出来的规格、材质、认证、功效和用户评价。
+不能编造图片里看不出来的规格、材质、认证、功效和用户评价。
 ```
 
-#### 完整版
+阶段一会输出：
+
+- 可以确认的事实与不能编造的信息
+- 推荐的产品处理模式及风险
+- 产品气质、购买机会和同质化扫描
+- 3 个来自产品本身的视觉记忆点
+- 下一步需要确认的唯一决策
+
+### 阶段二：选择方向
 
 ```text
-这是我的产品图，请按 Skill 做阶段一：产品深度分析。
-
-目标平台：天猫 + 抖音商城
-
-产品真实卖点：
-1. 便携
-2. 可折叠
-3. 适合家庭和户外场景
-
-必须写的信息：
-1. 容量：10L
-2. 材质：PP
-3. 颜色：奶白色 / 灰色
-
-不能写的信息：
-1. 不要写抗菌
-2. 不要写食品级认证
-3. 不要写承重，当前资料无法确认
-
-风格偏好：干净、生活化、有收纳场景，不要黑金科技风。
+继续，进入阶段二，给我 3 个详情页方向。
 ```
 
-#### 分析错误时怎么纠正
+AI 会提供 A / B / C 三个方向。直接回复：
+
+```text
+选 A。
+```
+
+也可以混合：
+
+```text
+A + C 混合，以 A 的转化逻辑为主，加入 C 的高级质感。
+```
+
+### 阶段三：逐屏生产
+
+```text
+按确认方向制作 8 屏。
+每一屏单独输出，一共输出 8 张图片，比例 9:16。
+生成前先给出当前屏的销售任务、构图、Prompt 和产品一致性质检点。
+```
+
+正式商用文字、Logo、参数和 CTA 建议后期排版。需要快速预览时，可以让 AI 生成带文字版本，但必须人工校对。
+
+## 三种产品处理模式
+
+| 模式 | 适合场景 | 产品处理方式 |
+| --- | --- | --- |
+| A 严格保真 | 品牌款、高客单、外观必须完全一致 | 使用真实产品抠图，AI 只生成背景和光影 |
+| B AI 辅助商品图 | 普通 SKU、快速上新 | 基于真实产品图做场景化或轻度重绘，并执行一致性质检 |
+| C 概念生成 | 新品提案、方向测试 | 只用于概念探索，不可当作真实 SKU 成品图 |
+
+## 不可违反的规则
+
+1. 真实产品图是唯一产品身份来源。
+2. 竞品图只参考构图、节奏和信息结构，不复制产品、Logo、文字和品牌资产。
+3. 不编造品牌、规格、尺寸、材质、认证、功效、评价和售后承诺。
+4. 材质无法确认时，只能描述“可见质感”“视觉上接近”或“真实材质待确认”。
+5. 不改变真实 SKU 的颜色、结构、比例、Logo 和关键细节。
+6. 每屏必须有不同的销售任务、构图和产品专属视觉记忆点。
+
+---
+
+## 进阶 SOP
+
+下面的内容默认折叠。需要时点击标题展开。
+
+<details>
+<summary><strong>完整资料准备清单</strong></summary>
+
+普通项目不需要一次填完。先提供产品图和已知信息，缺失项可以在流程中补充。
+
+1. 产品名称
+2. 目标平台
+3. 需要制作的内容：详情页、主图、SKU 图、副图或 A+ 页面
+4. 图片尺寸或比例
+5. 正面、侧面、45°、细节、包装、SKU、真人使用图
+6. 主推 SKU
+7. 全部颜色、款式、规格和组合装
+8. 最想突出的 3 个核心卖点
+9. 尺寸、重量、材质、规格、颜色和包装清单
+10. 检测报告、认证、专利、授权或质检报告
+11. 目标用户
+12. 主要使用场景
+13. 想要的视觉风格
+14. 参考图或竞品链接
+15. 不能写或不能出现的内容
+16. Logo、品牌色、字体和包装源文件
+17. 交付时间
+
+</details>
+
+<details>
+<summary><strong>分析错误时怎么纠正</strong></summary>
 
 不用重新开始整个项目，直接补充或纠正错误信息。
 
@@ -191,54 +176,10 @@
 请基于这个修正，重新做阶段一分析。
 ```
 
-### 第 2 步：选择详情页方向
+</details>
 
-阶段一确认后发送：
-
-```text
-继续，进入阶段二，给我 3 个详情页方向。
-```
-
-如果有同行参考图：
-
-```text
-继续，进入阶段二，给我 3 个详情页方向。
-
-我上传了同行详情页图片。请分析它的结构、节奏和画面语言，
-但不要复制竞品产品、Logo、文字和品牌资产。
-
-我的真实产品必须以产品图为准。
-主题场景以钓鱼为首要方向，画面元素偏简约。
-```
-
-AI 会提供 A / B / C 三个方向。回复一个方向，或选择混合方案：
-
-```text
-选 A。
-```
-
-```text
-A + C 混合，以 A 的转化逻辑为主，加入 C 的高级质感。
-```
-
-### 第 3 步：逐屏制作商业图
-
-```text
-按确认方向制作 8 屏。
-每一屏单独输出，一共输出 8 张图片。
-比例为 9:16。
-先给出当前屏的销售任务、构图、Prompt 和质检点，再生成图片。
-```
-
-如果需要预览带文字版本，可以明确说明：
-
-```text
-同时提供带文字的预览版本，但正式商用文字仍需后期校对和排版。
-```
-
-## 竞品参考与产品迁移
-
-### 有竞品详情页时
+<details>
+<summary><strong>如何安全参考竞品详情页</strong></summary>
 
 ```text
 我上传了真实产品图和竞品参考图。
@@ -250,7 +191,17 @@ A + C 混合，以 A 的转化逻辑为主，加入 C 的高级质感。
 先做阶段一产品分析，再进入方向提案。
 ```
 
-### 简化版产品迁移
+如果希望加入自己的主题：
+
+```text
+请参考竞品页面的结构和节奏，但不要照抄。
+我的详情页以钓鱼为核心使用场景，画面元素简约，真实产品必须保持一致。
+```
+
+</details>
+
+<details>
+<summary><strong>简化版竞品 Prompt 提取与产品迁移</strong></summary>
 
 第一轮，提取竞品页面：
 
@@ -260,14 +211,13 @@ A + C 混合，以 A 的转化逻辑为主，加入 C 的高级质感。
 输出 10 个对应的背景或场景 Prompt。
 
 不要复制竞品产品、Logo、文字和品牌资产。
-后续我会上传新的真实产品图，用于安全的产品迁移。
 ```
 
-第二轮，上传真实产品并生成：
+第二轮，上传自己的真实产品：
 
 ```text
 现在上传的是我的真实产品图，请把它作为唯一产品身份来源。
-按前面提取的 10 个结构生成新方案，同时保持产品颜色、结构、比例、Logo 和关键细节一致。
+按前面提取的结构生成新方案，同时保持产品颜色、结构、比例、Logo 和关键细节一致。
 每张图生成前先做产品一致性检查。
 ```
 
@@ -277,65 +227,47 @@ A + C 混合，以 A 的转化逻辑为主，加入 C 的高级质感。
 我是淘宝 / 天猫卖家，请按确认后的 10 个 Prompt 逐张制作商品详情图，比例 9:16。
 ```
 
-海外电商：
+Amazon：
 
 ```text
-我是 Amazon 卖家，请按确认后的 10 个 Prompt 逐张制作 Amazon 商品图或 A+ 页面素材。
-请根据模块用途选择合适比例，不要默认把所有图片都做成 9:16。
+我是 Amazon 卖家，请按确认后的 10 个 Prompt 逐张制作商品图或 A+ 页面素材。
+请根据模块用途选择合适比例，不要把所有图片默认做成 9:16。
 ```
 
-## 国内电商与 Amazon 资料整理
+</details>
 
-### 国内电商 SKU 资料草案
+<details>
+<summary><strong>国内电商与 Amazon SKU 资料草案</strong></summary>
+
+国内电商：
 
 ```text
-请基于我上传的产品多角度图，生成一份用于国内电商上架前整理的 SKU 资料文案草案。
+请基于产品多角度图，整理国内电商 SKU 资料草案。
 
-本轮只执行第一阶段：SKU 资料整理。
-不要进入方向提案，不要输出分屏方案，不要输出生图 Prompt。
+本轮只执行第一阶段，不进入方向提案，不输出分屏方案和生图 Prompt。
 
-目标平台：淘宝 / 天猫 / 抖音商城通用
-输出语言：中文
-后续形式：移动端详情页长图
-后续数量：6–10 屏，请根据产品复杂度和卖点数量推荐
-
-请输出：
-[产品名称]
-[目标受众]
-[卖点描述]
-[材质描述]
-[使用方式]
-[产品中文类目路径]
-
-不能编造无法确认的硬事实。材质只能描述可见质感，未确认功能不得写成产品功能。
+请输出：产品名称、目标受众、卖点描述、可见材质质感、使用方式和中文类目路径。
+不能编造无法确认的硬事实，未确认功能不得写成产品功能。
 ```
 
-### Amazon SKU 资料草案
+Amazon：
 
 ```text
 Please create a draft SKU information sheet from the uploaded multi-angle product images.
 
-Only complete Stage 1: SKU information organization.
-Do not create a detail-page direction, module plan, or image-generation prompt yet.
+Only complete Stage 1. Do not create a page direction, module plan, or image-generation prompt yet.
 
-Target platform: Amazon
-Output language: English
-Future deliverable: 5–7 listing images or 5–6 A+ modules
+Output: Product Name, Target Audience, Selling Points, Visible Material or Finish, Usage, and Amazon Category Path.
 
-Output:
-[Product Name]
-[Target Audience]
-[Selling Points]
-[Visible Material / Finish]
-[Usage]
-[Amazon Category Path]
-
-Do not invent unverified material, dimensions, weight, certification, lens function, packaging content, brand, or model information.
+Do not invent unverified material, dimensions, weight, certification, function, packaging content, brand, or model information.
 ```
 
-## 常用图片处理指令
+</details>
 
-### 1:1 主图产品替换
+<details>
+<summary><strong>常用图片处理指令</strong></summary>
+
+#### 1:1 主图产品替换
 
 ```text
 保持图 1 的场景、构图、光线和留白不变，
@@ -343,78 +275,76 @@ Do not invent unverified material, dimensions, weight, certification, lens funct
 保持每个 SKU 的颜色、结构、Logo 和比例准确，分别输出 1:1 主图。
 ```
 
-### 白底商品图
+#### 白底商品图
 
 ```text
-把这些产品图统一处理成商业棚拍纯白背景。
-保留产品真实结构和颜色，清理不必要的杂乱反光，
-同时保留能表现真实材质与镜片光学深度的受控高光和接触阴影。
+把产品图统一处理成商业棚拍纯白背景。
+保留产品真实结构和颜色，清理杂乱反光，
+同时保留表现真实材质和光学深度所需的受控高光与接触阴影。
 ```
 
-### 详情页中文翻译英文
+#### 中文详情页转英文
 
 ```text
-保持上传图片的产品、场景和版式结构不变，提取全部中文文案并翻译为自然英文。
+保持产品、场景和版式结构不变，提取全部中文文案并翻译为自然英文。
 先输出中英对照和排版建议，再生成英文预览图。
-最终文字需要人工校对，字体风格应符合原画面主题。
+最终文字需要人工校对。
 ```
 
-### 3:4 多场景主图
+#### 3:4 多场景主图
 
 ```text
 图 1 至图 4 是同一产品的真实多角度图。
-以时尚生活方式为主题，设计 6 张 3:4 商品图。
+设计 6 张 3:4 生活方式商品图。
 改变机位、构图、人物着装和场景，但保持产品身份、颜色和结构一致。
 ```
 
-### 修改镜片颜色
+#### 修改镜片颜色
 
 ```text
 把图 1 中的镜片颜色调整为图 2 的镜片颜色。
-只修改镜片颜色和受控光学反射，不改变镜框、镜腿、Logo、结构和产品比例。
+只修改镜片颜色和受控光学反射，不改变镜框、镜腿、Logo、结构和比例。
 镜片应保持真实光学深度，不要变成平面色块或发光塑料。
 ```
 
-### 五视图摆放
+#### 五视图摆放
 
 ```text
-图 1 是五视图的摆放模板。
-使用图 2 至图 11 的真实产品多角度图，按模板生成正面、侧面、45°、背面和细节视图。
+图 1 是五视图摆放模板。
+使用图 2 至图 11 的真实产品图，生成正面、侧面、45°、背面和细节视图。
 不要编造未提供角度的隐藏结构；缺失视角需要明确标记。
 ```
 
-### 墨镜质感增强
+#### 墨镜质感增强
 
 ```text
-Create a premium catalog-grade studio product image using the uploaded sunglasses as the strict product reference.
+Use the uploaded sunglasses as the strict product reference.
+Preserve the exact frame, temples, lenses, bridge, hinges, logo, colors, coating direction, details, and proportions.
 
-Preserve the exact frame shape, temple shape, lens shape, bridge, hinge, logo placement, frame color, lens color, coating direction, surface details, and product proportions.
+Improve only the commercial rendering quality: crisp industrial edges, controlled satin highlights,
+realistic optical lens depth, clean reflections, a white-to-light-gray studio background,
+and a soft natural contact shadow.
 
-Improve only the commercial rendering quality: crisp industrial edge definition, controlled satin highlights, realistic optical lens depth, clean coating reflections, a white-to-light-gray seamless background, and a soft natural contact shadow.
-
-Do not redesign, reshape, recolor, replace, or stylize the product. No people, hands, props, packaging, random text, watermark, floating product, flat-color lenses, glowing plastic lenses, waxy material, melted edges, or distorted geometry.
+Do not redesign, reshape, recolor, replace, or stylize the product.
 ```
 
-## 三种产品处理模式
+</details>
 
-- **模式 A：严格保真** — 真实产品抠图合成，AI 只生成背景、场景、光影和留白。适合品牌款、高客单价和外观必须完全一致的 SKU。
-- **模式 B：AI 辅助商品图** — 基于真实产品参考图做背景替换、光影优化或轻度重绘。适合快速上新，但必须执行产品一致性质检。
-- **模式 C：概念生成** — 用于新品提案和视觉方向测试。概念图不可直接作为真实 SKU 成品图。
+<details>
+<summary><strong>最终商用质检清单</strong></summary>
 
-## 最终质检
+1. 产品颜色是否与真实图一致
+2. 产品结构、比例和 SKU 是否改变
+3. Logo、包装文字和关键细节是否准确
+4. 是否添加了不存在的配件、认证、功效或功能
+5. 是否把竞品产品或相似款当成真实产品
+6. 镜片、反光和材质是否真实
+7. 每屏是否有独立销售任务和不同构图
+8. 每个 Prompt 是否包含产品专属细节
+9. 文字是否经过人工校对和后期排版
+10. 当前图片适合正式商用，还是只能作为方向参考
 
-每张图输出后至少检查：
-
-1. 产品颜色是否与真实图一致。
-2. 产品结构、比例和 SKU 是否改变。
-3. Logo、包装文字和关键细节是否被改错。
-4. 是否添加了不存在的配件、认证、功效或功能。
-5. 是否把竞品产品或相似款当成真实产品。
-6. 镜片、反光和材质是否真实，是否出现平面色块或塑料感。
-7. 每屏是否有独立销售任务和不同构图。
-8. Prompt 是否包含至少两个产品专属细节。
-9. 文字是否经过人工校对和后期排版。
-10. 当前图片适合正式商用，还是只能作为方向参考。
+</details>
 
 ## 项目结构
 
@@ -422,18 +352,13 @@ Do not redesign, reshape, recolor, replace, or stylize the product. No people, h
 SKU详情页导演Skill/
 ├── sku-detail-page-director/
 │   ├── SKILL.md
-│   ├── agents/
-│   │   └── openai.yaml
+│   ├── agents/openai.yaml
 │   └── references/
 │       └── SKU详情页导演Skill_Lite_V1.2.1_防同质化生产优化版.md
 └── SKU详情页导演Skill.skill
 ```
 
-## 版本
-
-当前版本：Lite V1.2.1 防同质化生产优化版。
-
-原始规则文件保持完整收录；仓库化改造补充了 Codex Skill 元数据、触发路由、UI 配置、使用 SOP 和可导入包。
+当前版本：**Lite V1.2.1 防同质化生产优化版**
 
 ---
 
