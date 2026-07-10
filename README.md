@@ -12,7 +12,7 @@
   <a href="./README_ZH-TW.md">繁體中文</a><br>
   <a href="./SKU详情页导演Skill/SKU详情页导演Skill.skill">下载 Skill</a> ·
   <a href="./SKU详情页导演Skill/sku-detail-page-director/references/SKU详情页导演Skill_Lite_V1.2.1_防同质化生产优化版.md">查看完整规则</a> ·
-  <a href="https://x.com/Isonlyonenice"> 作者：@Isonlyonenice</a>
+  <a href="https://x.com/Isonlyonenice"> 作者：秋水Kero</a>
 </p>
 
 ---
