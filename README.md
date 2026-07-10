@@ -1,10 +1,16 @@
-# KeRo SKU Skill
+<h1 align="center">先保护真实 SKU，再做不套模板的电商详情页</h1>
 
-> 先看懂真实产品，再制作不套模板的电商详情页。
+<p align="center"><strong>KeRo SKU Skill</strong></p>
 
-**产品深度分析 · 三方向策划 · 防同质化分屏 · 商业图生产**
+<p align="center">真实产品保真 · 三阶段决策 · 防同质化生产 · 逐屏商业图</p>
 
-[下载 Skill](./SKU详情页导演Skill/SKU详情页导演Skill.skill) · [查看完整规则](./SKU详情页导演Skill/sku-detail-page-director/references/SKU详情页导演Skill_Lite_V1.2.1_防同质化生产优化版.md) · [X：@Isonlyonenice](https://x.com/Isonlyonenice)
+<p align="center">以真实产品为唯一身份来源，确认方向后才进入正式生成。</p>
+
+<p align="center">
+  <a href="./SKU详情页导演Skill/SKU详情页导演Skill.skill">下载 Skill</a> ·
+  <a href="./SKU详情页导演Skill/sku-detail-page-director/references/SKU详情页导演Skill_Lite_V1.2.1_防同质化生产优化版.md">查看完整规则</a> ·
+  <a href="https://x.com/Isonlyonenice">X：@Isonlyonenice</a>
+</p>
 
 ---
 
