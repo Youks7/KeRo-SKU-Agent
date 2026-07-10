@@ -63,3 +63,13 @@ SKU详情页导演Skill/
 当前版本：Lite V1.2.1 防同质化生产优化版。
 
 原始规则文件保持完整收录；仓库化改造仅补充 Codex Skill 元数据、触发路由、UI 配置、说明文档与可导入包。
+
+---
+
+## 关于我
+
+**秋水 Kero**，AIGC 创作者，喜欢折腾，也喜欢体验新鲜事物。
+
+X（推特）：[@Isonlyonenice](https://x.com/Isonlyonenice)
+
+持续分享 AI、图片与各种有趣的新鲜玩法。
