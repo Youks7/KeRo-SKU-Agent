@@ -7,6 +7,9 @@
 <p align="center">以真实产品为唯一身份来源，确认方向后才进入正式生成。</p>
 
 <p align="center">
+  简体中文 ·
+  <a href="./README_EN.md">English</a> ·
+  <a href="./README_ZH-TW.md">繁體中文</a><br>
   <a href="./SKU详情页导演Skill/SKU详情页导演Skill.skill">下载 Skill</a> ·
   <a href="./SKU详情页导演Skill/sku-detail-page-director/references/SKU详情页导演Skill_Lite_V1.2.1_防同质化生产优化版.md">查看完整规则</a> ·
   <a href="https://x.com/Isonlyonenice">X：@Isonlyonenice</a>
