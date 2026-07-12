@@ -9,7 +9,7 @@ description: "Create 1688-native B2B product pages focused on purchasing certain
 
 ## 读取规则
 
-读取 [`references/common-safety.md`](references/common-safety.md) 和 [`references/platform-rules.md`](references/platform-rules.md)。价格、MOQ、产能和交付信息必须来自商家资料。
+完整读取 [`references/common-safety.md`](references/common-safety.md)、[`references/platform-rules.md`](references/platform-rules.md) 和 [`references/per-unit-production.md`](references/per-unit-production.md)。价格、MOQ、产能和交付信息必须来自商家资料。
 
 ## 工作流
 
@@ -17,10 +17,9 @@ description: "Create 1688-native B2B product pages focused on purchasing certain
 2. 收集 MOQ、阶梯价、样品、定制范围、打样、生产、包装、物流和质检证据。
 3. 未确认的采购字段保持“待商家补充”，不得生成行业平均值充数。
 4. 动态生成采购确定型、定制能力型、样品验证型或长期合作型方向。
-5. 用户确认后按采购信息顺序输出页面模块、图片任务、文案字段和询盘行动。
+5. 用户确认后按采购信息顺序组织页面，并严格按逐屏 / 逐模块生产协议，为每个模块完整输出 Prompt、Negative Prompt、处理模式、文案位置、后期排版、镜头矩阵、采购证据、产品一致性质检和通用 Prompt 拦截。
 6. 检查标题、图片、规格、价格、MOQ、定制与交付承诺一致。
 
 ## 输出
 
-输出 `采购资料缺口`、`MOQ 与阶梯价`、`定制能力矩阵`、`打样与交付`、`包装物流`、`质检证据`、`页面模块` 和 `询盘 CTA`。
-
+输出 `采购资料缺口`、`MOQ 与阶梯价`、`定制能力矩阵`、`打样与交付`、`包装物流`、`质检证据`、`整页生产总控`、`逐单元完整生产记录` 和 `询盘 CTA`。

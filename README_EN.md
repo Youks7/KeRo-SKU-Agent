@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="./SKU详情页导演Skill/SKU详情页导演Skill.skill">Download Skill</a> ·
+  <a href="./packages/kero-sku-skills-v1.3-bundle.zip">Download the V1.3 full suite</a> ·
   <a href="./docs/INSTALL.md">Install guide</a> ·
   <a href="./examples/sunglasses-detail-page.md">Examples</a> ·
   <a href="./shared/core-safety.md">Core safety rules</a>
@@ -103,17 +103,22 @@ Each screen includes:
 - Copy direction.
 - Image-generation prompt.
 - Negative prompt.
-- Product-fidelity requirements.
-- Text-safe area.
-- Consistency QA points.
+- Product-handling mode and source evidence.
+- Exact copy placement and text-safe area.
+- Post-production layout and responsive crop requirements.
+- Shot matrix and cross-unit continuity.
+- Product-consistency QA points.
+- Generic-prompt interception and mandatory rewrite when it fails.
 
 ## Installation
 
 ### Option 1: Import the `.skill` File
 
-Download and import:
+For the complete V1.3 workflow, download the bundle and import `sku-product-core` plus the marketplace packages you need:
 
-[`SKU详情页导演Skill.skill`](./SKU详情页导演Skill/SKU详情页导演Skill.skill)
+[`kero-sku-skills-v1.3-bundle.zip`](./packages/kero-sku-skills-v1.3-bundle.zip)
+
+The legacy [`SKU详情页导演Skill.skill`](./SKU详情页导演Skill/SKU详情页导演Skill.skill) is only the compatibility router and does not contain all marketplace production rules.
 
 ### Option 2: Copy the Skill Directory
 
@@ -144,7 +149,7 @@ Do not invent specifications, materials, certifications, claims, or reviews that
 | Mode | Best For | Product Handling |
 | --- | --- | --- |
 | A Strict fidelity | Branded products, premium SKUs, appearance-critical products | Use the real product cutout; AI generates only background, scene, lighting, and whitespace |
-| B AI-assisted product image | Standard SKUs, fast launches, lightweight workflows | Edit, lightly redraw, or stage the real product image with consistency QA |
+| B AI-assisted product image | Slots where the marketplace allows it and sufficient real references exist | Perform limited background or scene changes from the specified real image; fall back to Mode A when identity details drift |
 | C Concept generation | New-product concepts or direction testing | Concept exploration only; never present it as a real SKU image |
 
 ## Non-Negotiable Rules

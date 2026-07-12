@@ -9,7 +9,7 @@ description: "Create JD-native product image and detail-page plans with verified
 
 ## 读取规则
 
-读取 [`references/common-safety.md`](references/common-safety.md) 和 [`references/platform-rules.md`](references/platform-rules.md)。类目参数和资质以京东商家后台与规则中心当前要求为准。
+完整读取 [`references/common-safety.md`](references/common-safety.md)、[`references/platform-rules.md`](references/platform-rules.md) 和 [`references/per-unit-production.md`](references/per-unit-production.md)。类目参数和资质以京东商家后台与规则中心当前要求为准。
 
 ## 工作流
 
@@ -17,10 +17,9 @@ description: "Create JD-native product image and detail-page plans with verified
 2. 建立参数—证据矩阵，未知数字保持为空。
 3. 区分主图、附图、参数模块、兼容性、安装使用和服务模块。
 4. 根据购买疑虑生成专业证明型方向，不用科技光效替代真实性能证据。
-5. 用户确认后逐模块输出画面、结构化文案、Prompt、处理模式和校验点。
+5. 用户确认后，严格按逐屏 / 逐模块生产协议，为每个模块完整输出 Prompt、Negative Prompt、处理模式、文案位置、后期排版、镜头矩阵、参数证据、产品一致性质检和通用 Prompt 拦截。
 6. 检查图片、参数、包装清单和服务承诺的一致性。
 
 ## 输出
 
-输出 `参数—证据矩阵`、`兼容性表`、`包装清单`、`素材模块计划`、`服务边界` 和 `发布质检`。
-
+输出 `参数—证据矩阵`、`兼容性表`、`包装清单`、`素材模块计划`、`整页生产总控`、`逐单元完整生产记录`、`服务边界` 和 `发布质检`。

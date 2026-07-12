@@ -43,6 +43,7 @@ def build(skill_dir: Path) -> Path:
 def main() -> int:
     run("sync_shared_rules.py")
     run("validate_all_skills.py")
+    run("validate_production_protocol.py")
     PACKAGES.mkdir(parents=True, exist_ok=True)
 
     built = [build(skill_dir) for skill_dir in SKILL_DIRS]

@@ -9,7 +9,7 @@ description: "Create responsive Shopify product-detail-page content systems with
 
 ## 读取规则
 
-读取 [`references/common-safety.md`](references/common-safety.md) 和 [`references/platform-rules.md`](references/platform-rules.md)。主题能力、应用和销售地区会改变实现方式，必须记录假设。
+完整读取 [`references/common-safety.md`](references/common-safety.md)、[`references/platform-rules.md`](references/platform-rules.md) 和 [`references/per-unit-production.md`](references/per-unit-production.md)。主题能力、应用和销售地区会改变实现方式，必须记录假设。
 
 ## 工作流
 
@@ -17,10 +17,9 @@ description: "Create responsive Shopify product-detail-page content systems with
 2. 建立产品内容模型：标题、描述、媒体、variants、metafields、披露、配送与售后。
 3. 按 Hero、Gallery、Benefits、Proof、Details、FAQ、Trust 和 CTA 等真实 section 设计结构。
 4. 关键文字保留为 HTML；图片提供 alt text；CTA 使用真实交互组件。
-5. 用户确认方向后输出桌面/移动布局、媒体要求、文案字段、性能和分析事件。
+5. 用户确认方向后，严格按逐屏 / 逐模块生产协议，为每个含媒体的 PDP Section 完整输出 Prompt、Negative Prompt、处理模式、HTML 文案位置、响应式后期排版、镜头矩阵、产品一致性质检和通用 Prompt 拦截；纯组件也必须保留模板并标记 Prompt 为 N/A。
 6. 检查变体媒体、库存展示、结构化信息、SEO 和可访问性一致。
 
 ## 输出
 
-输出 `PDP Section Map`、`Content Model`、`Media Plan`、`Variant/Metafield Map`、`SEO/Alt Text`、`CTA`、`性能约束` 和 `实验事件`。
-
+输出 `PDP Section Map`、`Content Model`、`整页生产总控`、`逐单元完整生产记录`、`Media Plan`、`Variant/Metafield Map`、`SEO/Alt Text`、`CTA`、`性能约束` 和 `实验事件`。

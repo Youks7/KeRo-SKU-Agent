@@ -50,3 +50,8 @@ The eight platform outputs were executed sequentially by one agent with a shared
 
 Production release should therefore remain `v1.3.0-dev` until clean-session testing is completed with an authenticated Codex CLI or equivalent isolated sessions and at least one authorized real-product fixture.
 
+## Per-unit production protocol addendum
+
+After the initial forward runs, the full Lite V1.2.1 per-screen production depth was restored as a canonical platform-aware protocol. All eight marketplace skills now require every screen, asset slot, A+ module, or media-bearing PDP section to preserve Prompt, Negative Prompt, handling mode, copy placement, post-layout, shot matrix, product-consistency QA, and generic-Prompt interception.
+
+Deterministic validation confirms that all eight skills carry an identical canonical protocol and reference it directly. Taobao image-production and Shopify semantic-component regression fixtures pass. The original eight recorded model outputs predate this contract, so clean independent model sessions must still be rerun before the addendum is considered model-level validation.

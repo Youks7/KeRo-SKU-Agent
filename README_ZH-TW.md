@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="./SKU详情页导演Skill/SKU详情页导演Skill.skill">下載 Skill</a> ·
+  <a href="./packages/kero-sku-skills-v1.3-bundle.zip">下載 V1.3 全平台合集</a> ·
   <a href="./docs/INSTALL.md">安裝說明</a> ·
   <a href="./examples/sunglasses-detail-page.md">查看示例</a> ·
   <a href="./shared/core-safety.md">公共安全規則</a>
@@ -100,17 +100,22 @@ V1.3 已將淘寶、天貓、京東、拼多多、1688、Amazon、Shopify 與 Ti
 - 文案方向。
 - 生圖 Prompt。
 - Negative Prompt。
-- 產品保真要求。
-- 文字安全區。
-- 一致性質檢點。
+- 產品處理模式和來源證據。
+- 文案位置和文字安全區。
+- 後期排版與響應式裁切要求。
+- 鏡頭矩陣和跨屏連續性。
+- 產品一致性質檢點。
+- 通用 Prompt 攔截，不合格時必須先重寫。
 
 ## 快速安裝
 
 ### 方法一：匯入 `.skill` 文件
 
-下載這個文件並匯入 Codex：
+完整使用 V1.3 時，下載合集並匯入 `sku-product-core` 和需要的平台 Skill：
 
-[`SKU详情页导演Skill.skill`](./SKU详情页导演Skill/SKU详情页导演Skill.skill)
+[`kero-sku-skills-v1.3-bundle.zip`](./packages/kero-sku-skills-v1.3-bundle.zip)
+
+舊地址 [`SKU详情页导演Skill.skill`](./SKU详情页导演Skill/SKU详情页导演Skill.skill) 只是兼容路由，不包含全部平台生產規則。
 
 ### 方法二：複製 Skill 目錄
 
@@ -141,7 +146,7 @@ SKU详情页导演Skill/sku-detail-page-director/
 | 模式 | 適合場景 | 產品處理方式 |
 | --- | --- | --- |
 | A 嚴格保真 | 品牌款、高客單、外觀必須完全一致 | 使用真實產品去背，AI 只生成背景、場景、光影和留白 |
-| B AI 輔助商品圖 | 普通 SKU、快速上新、小白使用者 | 基於真實產品圖做背景替換、輕度重繪或場景化生成，並做一致性質檢 |
+| B AI 輔助商品圖 | 平台與槽位允許、且有足夠真實參考圖的快速生產 | 基於指定真實產品圖做有限背景或場景變更；關鍵細節偏移時退回模式 A |
 | C 概念生成 | 新品提案、方向測試、沒有實物圖 | 只用於概念探索，不能當作真實 SKU 成品圖 |
 
 ## 不可違反的規則

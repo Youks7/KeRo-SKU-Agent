@@ -9,7 +9,7 @@ description: "Create Amazon marketplace-specific main image, secondary image, vi
 
 ## 读取规则
 
-读取 [`references/common-safety.md`](references/common-safety.md) 和 [`references/platform-rules.md`](references/platform-rules.md)。发布前核对目标站点、类目和 Seller Central 当前规则。
+完整读取 [`references/common-safety.md`](references/common-safety.md)、[`references/platform-rules.md`](references/platform-rules.md) 和 [`references/per-unit-production.md`](references/per-unit-production.md)。发布前核对目标站点、类目和 Seller Central 当前规则。
 
 ## 工作流
 
@@ -17,10 +17,9 @@ description: "Create Amazon marketplace-specific main image, secondary image, vi
 2. 区分 Main Image、secondary images、video brief、A+、Premium A+ 和 Brand Story。
 3. 主图默认使用真实产品和严格保真；场景、功能信息和比较内容放入允许的附图或模块。
 4. 根据主要购买疑虑生成二至三个方向，并让图片、bullet 和 A+ 使用同一事实证据。
-5. 用户确认后逐资产输出目标、构图、文案层、Prompt、alt text 方向和 QA。
+5. 用户确认后，严格按逐屏 / 逐模块生产协议，为每张图片和每个 A+ / Brand Story 模块完整输出 Prompt、Negative Prompt、处理模式、文案位置、后期排版、镜头矩阵、alt text、产品一致性质检和通用 Prompt 拦截。
 6. 检查语言、单位、比较、环保、兼容性、功效和认证声明。
 
 ## 输出
 
-输出 `站点与资格检查`、`Listing Image Map`、`A+ Module Map`、`Brand Story`、`比较表`、`本地化风险` 和 `实验假设`。
-
+输出 `站点与资格检查`、`Listing Image Map`、`A+ Module Map`、`整页生产总控`、`逐单元完整生产记录`、`Brand Story`、`比较表`、`本地化风险` 和 `实验假设`。

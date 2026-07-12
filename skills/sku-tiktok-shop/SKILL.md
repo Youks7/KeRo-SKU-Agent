@@ -9,7 +9,7 @@ description: "Create region-aware TikTok Shop product-detail-page image plans, S
 
 ## 读取规则
 
-读取 [`references/common-safety.md`](references/common-safety.md) 和 [`references/platform-rules.md`](references/platform-rules.md)。规则因国家和时间变化，发布前核对当地 Seller Center 当前政策。
+完整读取 [`references/common-safety.md`](references/common-safety.md)、[`references/platform-rules.md`](references/platform-rules.md) 和 [`references/per-unit-production.md`](references/per-unit-production.md)。规则因国家和时间变化，发布前核对当地 Seller Center 当前政策。
 
 ## 工作流
 
@@ -17,10 +17,9 @@ description: "Create region-aware TikTok Shop product-detail-page image plans, S
 2. 区分 PDP main image、additional images、variation images、Shop Ads source、Shoppable Photo 和视频交接。
 3. 主图和变体图采用真实商品与严格保真；平台禁止数字渲染或覆盖元素时不得使用模式 B。
 4. 追加图片可按平台允许范围展示角度、细节、使用、尺寸和场景，不重复相同视角。
-5. 视频、达人或直播任务只生成结构化交接 Brief，并转入专用内容工作流。
-6. 检查 PDP 信息与广告复用素材、SKU、品牌、披露和实际交付一致。
+5. 用户确认后，严格按逐屏 / 逐模块生产协议，为每张 PDP / variation 图片完整输出 Prompt、Negative Prompt、处理模式、文案位置与平台覆盖限制、后期排版、镜头矩阵、产品一致性质检和通用 Prompt 拦截。
+6. 视频、达人或直播任务只生成结构化交接 Brief，并转入专用内容工作流；检查 PDP 信息与广告复用素材、SKU、品牌、披露和实际交付一致。
 
 ## 输出
 
-输出 `地区规则状态`、`PDP Image Map`、`Variation Map`、`Shop Ads Source Check`、`Shoppable Photo Brief`、`视频交接 Brief` 和 `发布质检`。
-
+输出 `地区规则状态`、`PDP Image Map`、`Variation Map`、`整页生产总控`、`逐单元完整生产记录`、`Shop Ads Source Check`、`Shoppable Photo Brief`、`视频交接 Brief` 和 `发布质检`。

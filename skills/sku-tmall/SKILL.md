@@ -9,7 +9,7 @@ description: "Create Tmall-specific branded product asset and detail-page plans 
 
 ## 读取规则
 
-读取 [`references/common-safety.md`](references/common-safety.md) 和 [`references/platform-rules.md`](references/platform-rules.md)。资质、品牌和类目字段以商家后台当前 Schema 为准。
+完整读取 [`references/common-safety.md`](references/common-safety.md)、[`references/platform-rules.md`](references/platform-rules.md) 和 [`references/per-unit-production.md`](references/per-unit-production.md)。资质、品牌和类目字段以商家后台当前 Schema 为准。
 
 ## 工作流
 
@@ -17,10 +17,9 @@ description: "Create Tmall-specific branded product asset and detail-page plans 
 2. 分开记录真实品牌资产、允许使用的认证和缺失资质。
 3. 区分主图、轮播、SKU 图、详情模块、品牌故事和资质说明。
 4. 从品牌系统与产品差异共同生成方向，不用空泛黑金或伪奢华替代品牌证据。
-5. 用户确认后输出逐槽位视觉、真实品牌资产使用方式、文案层和质检。
+5. 用户确认后，严格按逐屏 / 逐模块生产协议，为每个槽位完整输出 Prompt、Negative Prompt、处理模式、品牌资产来源、文案位置、后期排版、镜头矩阵、产品一致性质检和通用 Prompt 拦截。
 6. 检查品牌、产品、包装、参数、资质和售后在所有位置一致。
 
 ## 输出
 
-输出 `品牌与资质输入清单`、`SPU/SKU 素材映射`、`品牌视觉固定项与变化项`、`逐槽位方案`、`证据缺口` 和 `发布质检`。
-
+输出 `品牌与资质输入清单`、`SPU/SKU 素材映射`、`品牌视觉固定项与变化项`、`整页生产总控`、`逐单元完整生产记录`、`证据缺口` 和 `发布质检`。

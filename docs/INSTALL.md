@@ -24,26 +24,40 @@ kero-sku-skills-v1.3-bundle.zip
 
 The bundle contains the standalone `.skill` files; import the ones you want. Each platform package is self-contained.
 
-## Method 1: Import the `.skill` File
+## Method 1: Import the Complete V1.3 Suite
 
-For compatibility routing, download this file:
+Download the bundle:
 
-[`SKU详情页导演Skill.skill`](../SKU详情页导演Skill/SKU详情页导演Skill.skill)
+[`kero-sku-skills-v1.3-bundle.zip`](../packages/kero-sku-skills-v1.3-bundle.zip)
 
-Then import it into Codex through the Skill import flow.
+Extract it, then import `sku-product-core.skill` plus the marketplace `.skill` files you need. Import `sku-detail-page-director.skill` when you want platform selection, multi-platform routing, or legacy invocation.
 
-After import, the Skill name should be:
+For the complete eight-marketplace workflow, the installed Skill names should include:
 
 ```text
 sku-detail-page-director
+sku-product-core
+sku-taobao
+sku-tmall
+sku-pinduoduo
+sku-jd
+sku-1688
+sku-amazon
+sku-shopify
+sku-tiktok-shop
 ```
+
+The legacy [`SKU详情页导演Skill.skill`](../SKU详情页导演Skill/SKU详情页导演Skill.skill) contains only the compatibility router. Installing it alone does not install marketplace production rules or the mandatory per-unit Prompt contract.
 
 ## Method 2: Copy the Skill Directory
 
-Copy this directory into your Codex skills directory:
+Copy the core, router, and required marketplace directories into your Codex skills directory:
 
 ```text
 SKU详情页导演Skill/sku-detail-page-director/
+skills/sku-product-core/
+skills/sku-taobao/
+...the marketplace directories you need
 ```
 
 If your system or terminal has trouble with Chinese paths, copy only the inner folder:
@@ -52,13 +66,14 @@ If your system or terminal has trouble with Chinese paths, copy only the inner f
 sku-detail-page-director/
 ```
 
-The target folder should contain:
+Every marketplace Skill folder should contain:
 
 ```text
 SKILL.md
 agents/openai.yaml
 references/common-safety.md
-references/routing-map.md
+references/platform-rules.md
+references/per-unit-production.md
 ```
 
 ## Confirm Installation
