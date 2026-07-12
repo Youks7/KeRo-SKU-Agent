@@ -2,6 +2,15 @@
 
 All notable changes to this repository are documented here.
 
+## v1.3.0-dev
+
+- Replaced the all-platform monolith with a compatibility router, a shared product-fact core, and eight marketplace-specific skills.
+- Added a versioned `SKU_CONTEXT` for one-time product analysis and multi-platform handoff.
+- Added standalone Taobao, Tmall, Pinduoduo, JD, 1688, Amazon, Shopify, and TikTok Shop workflows.
+- Added canonical safety-rule synchronization, structure validation, trigger-test corpora, asset validation, deterministic package builds, and SHA-256 manifests.
+- Updated the legacy `.skill` path to contain the compatibility router.
+- Preserved Lite V1.2.1 as the baseline Git tag.
+
 ## v1.2.1
 
 - Added anti-homogenization production rules.

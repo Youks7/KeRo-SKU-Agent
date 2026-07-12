@@ -1,0 +1,4 @@
+interface:
+  display_name: "TikTok Shop SKU 页面"
+  short_description: "规划 TikTok Shop 合规 PDP 图片、SKU 变体图、购物广告源图与内容素材"
+  default_prompt: "Use $sku-tiktok-shop to create compliant TikTok Shop PDP images and route shoppable-content assets correctly."

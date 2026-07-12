@@ -1,0 +1,4 @@
+interface:
+  display_name: "淘宝 SKU 详情页"
+  short_description: "规划淘宝主图、轮播图、SKU 属性图与移动端详情模块生产"
+  default_prompt: "Use $sku-taobao to create a Taobao-native asset plan from my verified SKU context."

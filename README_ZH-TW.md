@@ -14,30 +14,30 @@
   <a href="./SKU详情页导演Skill/SKU详情页导演Skill.skill">下載 Skill</a> ·
   <a href="./docs/INSTALL.md">安裝說明</a> ·
   <a href="./examples/sunglasses-detail-page.md">查看示例</a> ·
-  <a href="./SKU详情页导演Skill/sku-detail-page-director/references/SKU详情页导演Skill_Lite_V1.2.1_防同质化生产优化版.md">完整規則</a>
+  <a href="./shared/core-safety.md">公共安全規則</a>
 </p>
 
 ---
 
 ## 這是什麼
 
-KeRo SKU Skill 是一個用於 **真實 SKU 商品詳情頁策劃與 AI 生圖 Prompt 生產** 的 Codex Skill。
+KeRo SKU Skill 是一組用於 **真實 SKU 事實分析、平台路由、商品頁策劃與 AI 視覺生產** 的 Codex Skills。
 
 它的核心不是讓 AI 直接想像商品圖，而是先保護真實產品，再把電商詳情頁拆成可控流程：
 
 ```text
 上傳真實產品圖
    ↓
-階段一：產品深度分析
+sku-product-core：產品事實與保真分析
    ↓
-階段二：A / B / C 三個詳情頁方向
+總路由：平台與素材槽位選擇
    ↓
-使用者確認方向
+對應平台專用 Skill
    ↓
-階段三：逐屏方案、Prompt、Negative Prompt、質檢點
+平台原生素材、Prompt 與質檢
 ```
 
-適用於淘寶、天貓、京東、拼多多、抖音商城、小紅書、Amazon、Shopify、TikTok Shop 等電商場景。
+V1.3 已將淘寶、天貓、京東、拼多多、1688、Amazon、Shopify 與 TikTok Shop 拆成獨立工作流，不再只當作不同視覺風格。
 
 ## 適合誰使用
 
@@ -76,9 +76,9 @@ KeRo SKU Skill 是一個用於 **真實 SKU 商品詳情頁策劃與 AI 生圖 P
 - 這個產品自己的視覺記憶點。
 - 下一步只需要你確認的一個關鍵決策。
 
-### 階段二：方向提案
+### 階段二：平台路由與方向提案
 
-給出 A / B / C 三個明顯不同的詳情頁方向。
+先確認平台和素材槽位，再由對應平台 Skill 給出二至三個商業任務明顯不同的方向。A/B/C 只作選擇標籤，不固定等於功能、場景和高端。
 
 每個方向會說明：
 
@@ -89,9 +89,9 @@ KeRo SKU Skill 是一個用於 **真實 SKU 商品詳情頁策劃與 AI 生圖 P
 - 如何避開常見模板感。
 - 優點、風險和推薦程度。
 
-### 階段三：逐屏生產
+### 階段三：按平台素材槽位生產
 
-只有你確認方向後，才進入正式逐屏生產。
+只有你確認方向後，才進入主圖、輪播、SKU 圖、詳情模塊、A+ 或 PDP section 等對應資產生產。
 
 每一屏會包含：
 
@@ -168,9 +168,13 @@ SKU详情页导演Skill/
 │   ├── SKILL.md
 │   ├── agents/openai.yaml
 │   └── references/
-│       └── SKU详情页导演Skill_Lite_V1.2.1_防同质化生产优化版.md
 └── SKU详情页导演Skill.skill
 
+skills/            公共產品核心與八個平台專用 Skill
+shared/            公共安全、狀態、調研與質檢規則
+scripts/           同步、校驗、素材檢查與安裝包構建
+tests/             Skill 觸發回歸語料
+packages/          獨立 .skill 安裝包與全平台合集
 docs/              安裝、排錯、安全邊界和 GitHub 設定說明
 examples/          典型電商場景使用示例
 assets/            倉庫封面和展示素材
@@ -179,7 +183,9 @@ website/           可選靜態網站
 
 ## 版本
 
-目前版本：**Lite V1.2.1 防同質化生產優化版**
+目前開發版本：**V1.3.0-dev 多平台 Skill 拆分版**
+
+穩定基線版本：**Lite V1.2.1**。V1.3 將公共產品保真核心與淘寶、天貓、拼多多、京東、1688、Amazon、Shopify、TikTok Shop 專用 Skill 分離。
 
 版本變化見 [CHANGELOG.md](./CHANGELOG.md)。
 

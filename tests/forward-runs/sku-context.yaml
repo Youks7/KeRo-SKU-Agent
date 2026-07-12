@@ -1,0 +1,45 @@
+sku_context_version: 1
+product_identity:
+  category: sunglasses
+  product_name: null
+  source_images: [front.jpg, side.jpg, hinge.jpg, package.jpg]
+  visible_structure: [black full-rim frame, two visible hinges]
+  primary_colors: [black frame, dark lenses]
+  included_items: []
+  packaging: visible but included items are not verified
+  logo_status: visible area must remain unchanged
+facts:
+  verified:
+    - black full-rim frame is visible
+    - dark lenses are visible
+    - hinge and bridge geometry must remain unchanged
+  cautious_inferences:
+    - surface visually appears glossy
+  prohibited_claims:
+    - polarization
+    - UV protection
+    - certified eye protection
+    - specific frame or lens material
+  missing_evidence:
+    - included-item list
+    - dimensions
+    - lens performance report
+    - material specification
+  evidence_sources: [front.jpg, side.jpg, hinge.jpg, package.jpg]
+production:
+  handling_mode: A
+  handling_reason: real sellable SKU with identity-sensitive frame and lens geometry
+  allowed_edits: [background, lighting, natural contact shadow, layout-safe negative space]
+  prohibited_edits: [frame geometry, lens color, hinge, bridge, logo, packaging text, included-item count]
+  fidelity_requirements: [use real product cutout, compare every output to source images]
+visual_memory_points:
+  - point: continuous frame-to-temple transition
+    product_evidence: side.jpg
+    suitable_uses: [detail image, close-up module]
+  - point: dark lens and black frame silhouette
+    product_evidence: front.jpg
+    suitable_uses: [main image, hero media]
+  - point: visible hinge geometry
+    product_evidence: hinge.jpg
+    suitable_uses: [detail proof]
+

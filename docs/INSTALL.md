@@ -2,9 +2,31 @@
 
 This guide explains how to install and start KeRo SKU Skill in Codex.
 
+## V1.3 Skill Selection
+
+V1.3 is a multi-skill suite. Install `sku-product-core` plus the platform skills you need. Install `sku-detail-page-director` when you need legacy compatibility, platform selection, or multi-platform routing.
+
+Prebuilt packages are in `packages/`:
+
+```text
+sku-detail-page-director.skill
+sku-product-core.skill
+sku-taobao.skill
+sku-tmall.skill
+sku-pinduoduo.skill
+sku-jd.skill
+sku-1688.skill
+sku-amazon.skill
+sku-shopify.skill
+sku-tiktok-shop.skill
+kero-sku-skills-v1.3-bundle.zip
+```
+
+The bundle contains the standalone `.skill` files; import the ones you want. Each platform package is self-contained.
+
 ## Method 1: Import the `.skill` File
 
-Download this file:
+For compatibility routing, download this file:
 
 [`SKU详情页导演Skill.skill`](../SKU详情页导演Skill/SKU详情页导演Skill.skill)
 
@@ -35,7 +57,8 @@ The target folder should contain:
 ```text
 SKILL.md
 agents/openai.yaml
-references/SKU详情页导演Skill_Lite_V1.2.1_防同质化生产优化版.md
+references/common-safety.md
+references/routing-map.md
 ```
 
 ## Confirm Installation
@@ -43,19 +66,23 @@ references/SKU详情页导演Skill_Lite_V1.2.1_防同质化生产优化版.md
 Start a new Codex conversation and send:
 
 ```text
-请使用 $sku-detail-page-director 分析我上传的产品图。
+请使用 $sku-detail-page-director 判断这个商品应该进入哪个平台工作流。
 ```
 
-If the Skill is installed correctly, Codex should use the SKU detail-page director workflow and begin with Stage 1 product analysis.
+If the Skill is installed correctly, Codex should identify the marketplace and route to the matching platform skill. Install `sku-product-core` when shared fact analysis is required.
 
 ## First Starter Prompt
 
 ```text
-请使用 $sku-detail-page-director 分析我上传的产品图。
+请使用 $sku-product-core 分析我上传的真实产品资料并输出 SKU_CONTEXT。
+只确认有图片或文件证据的事实，不要编造规格、材质、认证、功效或评价。
+完成后我会把同一个 SKU_CONTEXT 交给目标平台 Skill。
+```
 
-先执行阶段一：产品深度分析。
-在我确认方向前，不要输出正式生图 Prompt。
-不能编造图片和资料中无法确认的规格、材质、认证、功效或评价。
+If the platform is already known, invoke it directly after installing the core and platform packages:
+
+```text
+请使用 $sku-amazon 基于我的 SKU_CONTEXT 规划 Amazon US Main Image、附图和 A+ Content。
 ```
 
 ## Recommended Input Images
@@ -75,7 +102,8 @@ You do not need to prepare everything at once. The Skill is designed to proceed 
 
 ## Common Installation Issues
 
-- If the Skill does not trigger, check whether the folder name is exactly `sku-detail-page-director`.
+- If a platform skill does not trigger, use its exact name such as `$sku-amazon` or `$sku-1688`.
+- Use `$sku-detail-page-director` only for platform selection, legacy compatibility, or multi-platform routing.
 - If the reference rules are not read, confirm that the `references/` folder is inside the Skill directory.
 - If Chinese paths display incorrectly, copy the inner English folder directly.
-- If Codex directly generates prompts without analysis, explicitly say: "先执行阶段一，在我确认方向前不要输出正式生图 Prompt。"
+- If a platform skill restarts product analysis, provide the existing `SKU_CONTEXT` and tell it to preserve verified facts and fidelity mode.

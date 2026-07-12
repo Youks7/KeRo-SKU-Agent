@@ -1,0 +1,4 @@
+interface:
+  display_name: "拼多多 SKU 详情页"
+  short_description: "规划拼多多商品素材并核对 SKU、价格、规格、赠品与图片一致性"
+  default_prompt: "Use $sku-pinduoduo to plan Pinduoduo product assets and verify SKU, price, specification, and image consistency."

@@ -2,6 +2,17 @@
 
 This roadmap tracks possible future improvements for KeRo SKU Skill.
 
+## V1.3 In Progress
+
+- [x] Split platform-neutral product facts and fidelity rules into `sku-product-core`.
+- [x] Convert the legacy skill into a compatibility and multi-platform router.
+- [x] Add dedicated Taobao, Tmall, Pinduoduo, JD, 1688, Amazon, Shopify, and TikTok Shop skills.
+- [x] Add deterministic standalone package builds and static validation.
+- [x] Add a 100-positive/50-negative trigger regression corpus.
+- [ ] Forward-test trigger selection and platform outputs in clean Codex sessions.
+- [ ] Add real, user-approved golden product fixtures for every platform.
+- [ ] Decide and document commercial-output licensing separately from skill-source redistribution.
+
 ## Short Term
 
 - Add more complete product-page examples for common e-commerce categories.

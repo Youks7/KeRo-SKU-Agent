@@ -14,30 +14,46 @@
   <a href="./SKU详情页导演Skill/SKU详情页导演Skill.skill">下载 Skill</a> ·
   <a href="./docs/INSTALL.md">安装说明</a> ·
   <a href="./examples/sunglasses-detail-page.md">查看示例</a> ·
-  <a href="./SKU详情页导演Skill/sku-detail-page-director/references/SKU详情页导演Skill_Lite_V1.2.1_防同质化生产优化版.md">完整规则</a>
+  <a href="./shared/core-safety.md">公共安全规则</a>
 </p>
 
 ---
 
 ## 这是什么
 
-KeRo SKU Skill 是一个用于 **真实 SKU 商品详情页策划与 AI 生图 Prompt 生产** 的 Codex Skill。
+KeRo SKU Skill 是一组用于 **真实 SKU 商品事实分析、平台路由、详情页策划与 AI 视觉生产** 的 Codex Skills。
 
 它的核心不是让 AI 直接“发挥想象”生成商品图，而是先保护真实产品，再把电商详情页拆成可控流程：
 
 ```text
 上传真实产品图
    ↓
-阶段一：产品深度分析
+sku-product-core：产品事实与保真分析
    ↓
-阶段二：A / B / C 三个详情页方向
+kero总路由：识别平台与素材槽位
    ↓
-用户确认方向
+淘宝 / 天猫 / 拼多多 / 京东 / 1688
+Amazon / Shopify / TikTok Shop 专用 Skill
    ↓
-阶段三：逐屏方案、Prompt、Negative Prompt、质检点
+平台原生素材方案、Prompt 与质检
 ```
 
-适用于淘宝、天猫、京东、拼多多、抖音商城、小红书、Amazon、Shopify、TikTok Shop 等电商场景。
+V1.3 开发版不再把平台差异简化为视觉风格，而是分别处理各平台的素材槽位、商品数据、采购逻辑、网页结构和合规要求。
+
+## V1.3 平台 Skills
+
+| Skill | 主要职责 |
+| --- | --- |
+| `$sku-detail-page-director` | 平台未知、旧版兼容和多平台路由 |
+| `$sku-product-core` | 事实、证据、保真模式和跨平台 `SKU_CONTEXT` |
+| `$sku-taobao` | 淘宝主图、轮播、SKU 属性图和详情模块 |
+| `$sku-tmall` | 天猫品牌、资质、SPU/SKU 和品牌详情 |
+| `$sku-pinduoduo` | 拼多多 SKU—价格—图片一致性与详情素材 |
+| `$sku-jd` | 京东参数、兼容性、包装、服务和专业详情 |
+| `$sku-1688` | 1688 MOQ、阶梯价、定制、生产交付和询盘 |
+| `$sku-amazon` | Amazon Main Image、附图、A+ 和 Brand Story |
+| `$sku-shopify` | Shopify PDP sections、媒体、变体、SEO 和 CTA |
+| `$sku-tiktok-shop` | TikTok Shop PDP、变体图、广告源图和内容交接 |
 
 ## 适合谁使用
 
@@ -56,6 +72,8 @@ KeRo SKU Skill 是一个用于 **真实 SKU 商品详情页策划与 AI 生图 P
 | 想看完整流程 | [三阶段工作流](#三阶段工作流) |
 | 想做淘宝 / 抖音详情页 | [淘宝 9:16 示例](./examples/taobao-9-16-detail-page.md) |
 | 想做 Amazon A+ | [Amazon A+ 示例](./examples/amazon-a-plus-example.md) |
+| 想看同一 SKU 的平台差异 | [V1.3 跨平台墨镜示例](./examples/cross-platform-sunglasses-v1.3.md) |
+| 查看八个平台前向测试结果 | [V1.3 前向测试报告](./tests/FORWARD_TEST_REPORT.md) |
 | 想做墨镜类商品图 | [墨镜详情页示例](./examples/sunglasses-detail-page.md) |
 | 想参考竞品但不想侵权 | [安全参考竞品示例](./examples/competitor-reference-safe-use.md) |
 | Skill 没有触发或产品变形 | [常见问题](./docs/TROUBLESHOOTING.md) |
@@ -63,7 +81,7 @@ KeRo SKU Skill 是一个用于 **真实 SKU 商品详情页策划与 AI 生图 P
 
 ## 三阶段工作流
 
-### 阶段一：产品深度分析
+### 阶段一：公共产品事实分析
 
 只分析产品，不输出正式生图 Prompt。
 
@@ -76,48 +94,55 @@ KeRo SKU Skill 是一个用于 **真实 SKU 商品详情页策划与 AI 生图 P
 - 这个产品自己的视觉记忆点。
 - 下一步只需要你确认的一个关键决策。
 
-### 阶段二：方向提案
+### 阶段二：平台路由与方向提案
 
-给出 A / B / C 三个明显不同的详情页方向。
+识别平台和素材槽位，再由对应平台 Skill 给出二至三个商业任务明显不同的方向。A/B/C 只是选择标签，不再固定等于功能、场景和高端。
 
 每个方向会说明：
 
-- 适合的平台和人群。
-- 首屏应该怎么吸引注意。
-- 页面节奏和销售逻辑。
-- 未来每一屏大概长什么样。
+- 目标平台、地区、类目和素材槽位。
+- 该平台真正需要解决的购买或采购问题。
+- 页面、模块或媒体顺序。
+- 未来每个素材大概长什么样。
 - 如何避开常见模板感。
 - 优点、风险和推荐程度。
 
-### 阶段三：逐屏生产
+### 阶段三：按平台素材槽位生产
 
-只有你确认方向后，才进入正式逐屏生产。
+只有你确认方向后，才进入主图、轮播、SKU 图、详情模块、A+、PDP section 等对应资产生产。
 
 每一屏会包含：
 
-- 销售任务。
+- 素材槽位和商业任务。
 - 构图说明。
 - 文案方向。
 - 生图 Prompt。
 - Negative Prompt。
 - 产品保真要求。
-- 文字安全区。
+- 文字安全区或真实网页组件要求。
 - 一致性质检点。
 
 ## 快速安装
 
 ### 方法一：导入 `.skill` 文件
 
-下载这个文件并导入 Codex：
+下载 `packages/` 中对应平台的独立 `.skill` 文件，或使用合集包：
 
-[`SKU详情页导演Skill.skill`](./SKU详情页导演Skill/SKU详情页导演Skill.skill)
+- [`V1.3 全平台合集`](./packages/kero-sku-skills-v1.3-bundle.zip)
+- [`独立平台安装包目录`](./packages/)
+
+旧地址 [`SKU详情页导演Skill.skill`](./SKU详情页导演Skill/SKU详情页导演Skill.skill) 现在是兼容路由包，不再包含所有平台的巨型规则。
 
 ### 方法二：复制 Skill 目录
 
-把下面这个目录复制到 Codex 的 skills 目录：
+把需要的平台目录复制到 Codex 的 skills 目录：
 
 ```text
 SKU详情页导演Skill/sku-detail-page-director/
+skills/sku-product-core/
+skills/sku-amazon/
+skills/sku-1688/
+...只复制需要的平台
 ```
 
 如果你的系统或工具对中文路径不稳定，优先复制内部的 `sku-detail-page-director/` 目录。
@@ -129,26 +154,15 @@ SKU详情页导演Skill/sku-detail-page-director/
 上传真实产品图后，发送：
 
 ```text
-请使用 $sku-detail-page-director 分析我上传的产品图。
-
-先执行阶段一：产品深度分析。
-在我确认方向前，不要输出正式生图 Prompt。
-不能编造图片和资料中无法确认的规格、材质、认证、功效或评价。
+请使用 $sku-product-core 分析我上传的真实产品资料并生成 SKU_CONTEXT。
+目标平台暂时未确定，不要编造无法确认的规格、材质、认证、功效或评价。
 ```
 
 如果你已经知道平台和屏数，可以这样写：
 
 ```text
-请使用 $sku-detail-page-director 分析我上传的产品图。
-
-目标平台：淘宝 / 抖音商城通用
-输出语言：中文
-预计屏数：8 屏
-核心卖点：暂不确定，请根据图片谨慎判断
-
-先执行阶段一。
-在我确认方向前，不要输出正式生图 Prompt。
-不能编造图片中看不出来的规格、材质、认证、功效和用户评价。
+请使用 $sku-amazon 基于我的 SKU_CONTEXT 规划 Amazon US Listing Images 和 A+ Content。
+先核对 Main Image、附图和 A+ 的不同规则，再给方向。
 ```
 
 ## 产品处理模式
@@ -183,9 +197,13 @@ SKU详情页导演Skill/
 │   ├── SKILL.md
 │   ├── agents/openai.yaml
 │   └── references/
-│       └── SKU详情页导演Skill_Lite_V1.2.1_防同质化生产优化版.md
 └── SKU详情页导演Skill.skill
 
+skills/            公共产品核心与八个平台独立 Skill
+shared/            构建时同步的公共安全、状态和质检规则
+scripts/           同步、校验、素材检查与安装包构建
+tests/             Skill 触发回归语料
+packages/          独立 .skill 包和全平台合集
 docs/              安装、排错、安全边界和 GitHub 设置说明
 examples/          典型电商场景使用示例
 assets/            仓库封面和展示素材
@@ -194,7 +212,9 @@ website/           可选静态网站
 
 ## 版本
 
-当前版本：**Lite V1.2.1 防同质化生产优化版**
+当前开发版本：**V1.3.0-dev 多平台 Skill 拆分版**
+
+稳定基线版本：**Lite V1.2.1**，已由 Git Tag `v1.2.1` 保留。
 
 版本变化见 [CHANGELOG.md](./CHANGELOG.md)。
 

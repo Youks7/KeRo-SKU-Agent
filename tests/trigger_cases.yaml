@@ -1,0 +1,190 @@
+sku-detail-page-director:
+  should_trigger:
+    - "帮我做商品详情页，但还没决定在哪个平台卖"
+    - "同一个SKU要适配多个电商平台"
+    - "比较淘宝、Amazon和Shopify应该怎么做"
+    - "请把这套产品图分发到国内和海外平台"
+    - "我不知道这个商品适合货架电商还是独立站"
+    - "先帮我选择详情页目标平台"
+    - "做一套跨平台SKU视觉方案"
+    - "把一个产品分别改成B2B和零售版本"
+    - "使用旧版sku-detail-page-director继续这个项目"
+    - "我的商品图应该启用哪个KeRo平台Skill"
+  should_not_trigger:
+    - "只做Amazon A+"
+    - "制作1688阶梯价格采购页"
+    - "制作TikTok Shop白底主图"
+    - "规划Shopify PDP sections"
+    - "制作京东兼容性参数页"
+
+sku-product-core:
+  should_trigger:
+    - "先分析这些真实产品图能确认什么"
+    - "建立SKU事实清单和禁止编造项"
+    - "判断这个商品应该用模式A还是模式B"
+    - "检查AI商品图有没有把产品改错"
+    - "给多个平台生成共用SKU_CONTEXT"
+    - "分析包装、Logo和产品结构保真边界"
+    - "把产品事实与设计推断分开"
+    - "检查竞品图应该如何安全参考"
+    - "提炼三个产品专属视觉记忆点"
+    - "列出缺失的材质、认证和规格证据"
+  should_not_trigger:
+    - "直接生成Amazon七张Listing Images"
+    - "输出Shopify Add to Cart组件"
+    - "生成1688询盘详情页"
+    - "做拼多多最低价SKU矩阵"
+    - "设计淘宝轮播图"
+
+sku-taobao:
+  should_trigger:
+    - "制作淘宝搜索主图"
+    - "规划淘宝1比1商品图"
+    - "制作淘宝3比4主图"
+    - "设计淘宝轮播图顺序"
+    - "建立淘宝SKU属性图映射"
+    - "制作淘宝移动端详情模块"
+    - "检查淘宝标题属性图片是否一致"
+    - "淘宝服装多颜色SKU不要串色"
+    - "给淘宝普通店铺做商品详情"
+    - "淘宝赠品和套装应该如何展示"
+  should_not_trigger:
+    - "制作天猫旗舰店品牌故事"
+    - "制作Amazon Main Image"
+    - "规划1688 MOQ"
+    - "设计Shopify PDP"
+    - "制作TikTok Shop variation images"
+
+sku-tmall:
+  should_trigger:
+    - "制作天猫旗舰店商品详情"
+    - "规划天猫品牌主图"
+    - "检查天猫SPU和SKU素材"
+    - "设计天猫品牌故事模块"
+    - "整理天猫类目资质展示"
+    - "天猫高客单商品严格保真"
+    - "建立天猫跨SKU品牌视觉系统"
+    - "检查天猫品牌授权和Logo使用"
+    - "制作天猫资质详情模块"
+    - "规划天猫旗舰店新品页面"
+  should_not_trigger:
+    - "给淘宝个人店做主图"
+    - "制作拼多多低价SKU矩阵"
+    - "创建京东参数表"
+    - "创建Amazon A+"
+    - "创建1688采购页"
+
+sku-pinduoduo:
+  should_trigger:
+    - "制作拼多多曝光图"
+    - "规划拼多多商品轮播图"
+    - "检查拼多多最低价SKU和首图"
+    - "建立PDD SKU价格图片矩阵"
+    - "拼多多套装数量怎么展示"
+    - "检查拼多多赠品是否误导"
+    - "制作拼多多SKU属性图"
+    - "分析拼多多描述不符风险"
+    - "拼多多主图不要做虚假补贴标识"
+    - "规划拼多多详情图信息顺序"
+  should_not_trigger:
+    - "设计淘宝3比4主图"
+    - "制作天猫品牌详情"
+    - "创建Amazon Brand Story"
+    - "规划Shopify metafields"
+    - "制作1688 OEM页面"
+
+sku-jd:
+  should_trigger:
+    - "制作京东商品详情页"
+    - "建立京东参数证据矩阵"
+    - "规划JD电子配件兼容性表"
+    - "制作京东包装清单模块"
+    - "检查京东质保主体"
+    - "京东商品功率不能编造"
+    - "制作京东安装说明素材"
+    - "规划京东专业商品附图"
+    - "检查京东型号和适配范围"
+    - "设计京东家电服务详情"
+  should_not_trigger:
+    - "制作拼多多曝光图"
+    - "制作淘宝SKU属性图"
+    - "规划Amazon A+"
+    - "设计Shopify主题页面"
+    - "制作TikTok Shop主图"
+
+sku-1688:
+  should_trigger:
+    - "制作1688批发商品页"
+    - "规划1688 MOQ和阶梯价格"
+    - "展示1688拿样政策"
+    - "制作OEM定制能力页面"
+    - "整理ODM打样和生产周期"
+    - "规划1688包装箱规和物流"
+    - "制作工厂采购询盘详情"
+    - "检查1688产能信息是否有证据"
+    - "创建长期供货合作页面"
+    - "设计1688采购规格表"
+  should_not_trigger:
+    - "制作消费者种草详情页"
+    - "制作Amazon白底主图"
+    - "创建Shopify购物车组件"
+    - "制作天猫品牌故事"
+    - "制作TikTok短视频脚本"
+
+sku-amazon:
+  should_trigger:
+    - "制作Amazon Main Image"
+    - "规划Amazon七张Listing Images"
+    - "创建Amazon A+ Content"
+    - "设计Premium A+模块"
+    - "制作Amazon Brand Story"
+    - "建立ASIN comparison chart"
+    - "把商品页本地化到Amazon US"
+    - "制作Amazon JP站附图"
+    - "检查Amazon Brand Registry资格"
+    - "规划Amazon商品视频Brief"
+  should_not_trigger:
+    - "制作淘宝详情长图"
+    - "创建拼多多SKU矩阵"
+    - "规划1688阶梯价"
+    - "设计Shopify PDP section"
+    - "制作TikTok Shop Shoppable Photo"
+
+sku-shopify:
+  should_trigger:
+    - "设计Shopify产品PDP"
+    - "规划独立站产品页面sections"
+    - "建立Shopify variant media映射"
+    - "设计Shopify metafields"
+    - "编写产品图片alt text"
+    - "规划Shopify SEO title"
+    - "设计sticky Add to Cart"
+    - "优化Shopify移动端产品页"
+    - "建立Shopify PDP分析事件"
+    - "设计独立站FAQ和退换货模块"
+  should_not_trigger:
+    - "制作Amazon A+"
+    - "制作淘宝主图"
+    - "规划拼多多价格矩阵"
+    - "制作1688采购询盘"
+    - "制作TikTok Shop白底图"
+
+sku-tiktok-shop:
+  should_trigger:
+    - "制作TikTok Shop PDP主图"
+    - "规划TikTok Shop additional images"
+    - "建立TikTok Shop variation images"
+    - "检查Product Shopping Ads源图片"
+    - "制作TikTok Shop Shoppable Photo Brief"
+    - "检查TikTok Shop白底主图"
+    - "规划TikTok Shop美国站商品图"
+    - "制作TikTok Shop英国站PDP"
+    - "把TikTok Shop视频需求转成交接Brief"
+    - "检查TikTok Shop商品图是否包含水印"
+  should_not_trigger:
+    - "制作抖音商城中文详情页"
+    - "制作Amazon Main Image"
+    - "创建Shopify PDP"
+    - "规划1688拿样政策"
+    - "制作淘宝轮播图"
+

@@ -1,0 +1,4 @@
+interface:
+  display_name: "1688 批发商品页"
+  short_description: "规划 1688 批发商品页、阶梯价格、定制能力、生产交付信息与采购转化"
+  default_prompt: "Use $sku-1688 to create a B2B purchasing page plan with verified MOQ, tier pricing, customization, and delivery information."

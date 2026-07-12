@@ -2,11 +2,15 @@
 
 ## Skill Does Not Trigger
 
-Use the exact Skill name:
+Use the exact platform Skill name:
 
 ```text
-$sku-detail-page-director
+$sku-amazon
+$sku-1688
+$sku-shopify
 ```
+
+Use `$sku-detail-page-director` when the platform is unknown or several platforms are requested. Confirm that the selected `.skill` package is installed.
 
 Also check that the installed folder contains:
 
@@ -16,14 +20,13 @@ references/
 agents/
 ```
 
-## Codex Skips Stage 1
+## Platform Skill Repeats Product Analysis
 
-Send a stricter instruction:
+Generate one shared context first:
 
 ```text
-请重新开始。
-先执行阶段一：产品深度分析。
-在我确认 A / B / C 方向前，不要输出正式生图 Prompt。
+请使用 $sku-product-core 生成 SKU_CONTEXT。
+平台 Skill 必须继承其中的已确认事实、禁止主张和产品处理模式，不要重新开始。
 ```
 
 ## Product Shape Changes In Generated Images
@@ -65,23 +68,18 @@ Use this correction:
 请重写方向，让首屏构图、背景材质和视觉记忆点明显不同。
 ```
 
-## Amazon And Domestic E-Commerce Need Different Ratios
+## Platform Output Looks Like a Generic Long Page
 
-For domestic detail pages:
-
-```text
-目标平台：淘宝 / 抖音商城
-比例：9:16
-预计屏数：8 屏
-```
-
-For Amazon:
+Invoke the dedicated skill and name the asset slot:
 
 ```text
-Target platform: Amazon
-Deliverable: listing images and A+ modules
-Do not force every image into 9:16. Choose aspect ratio by module purpose.
+$sku-taobao：淘宝主图、轮播图、SKU属性图或详情模块
+$sku-amazon：Main Image、secondary images或A+ module
+$sku-shopify：PDP sections、variant media和真实CTA组件
+$sku-tiktok-shop：PDP main image、additional images或内容交接
 ```
+
+Do not ask for one universal ratio across unrelated asset slots.
 
 ## Chinese Path Issues
 

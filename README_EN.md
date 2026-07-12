@@ -14,30 +14,32 @@
   <a href="./SKU详情页导演Skill/SKU详情页导演Skill.skill">Download Skill</a> ·
   <a href="./docs/INSTALL.md">Install guide</a> ·
   <a href="./examples/sunglasses-detail-page.md">Examples</a> ·
-  <a href="./SKU详情页导演Skill/sku-detail-page-director/references/SKU详情页导演Skill_Lite_V1.2.1_防同质化生产优化版.md">Full rules</a>
+  <a href="./shared/core-safety.md">Core safety rules</a>
 </p>
 
 ---
 
 ## What Is This
 
-KeRo SKU Skill is a Codex Skill for **real-SKU e-commerce product-page planning and image-generation prompt production**.
+KeRo SKU Skill is a Codex skill suite for **real-SKU fact analysis, marketplace routing, product-page planning, and controlled visual production**.
+
+> V1.3 development status: the former all-in-one workflow is being split into a shared product-fidelity core plus dedicated Taobao, Tmall, Pinduoduo, JD, 1688, Amazon, Shopify, and TikTok Shop skills. Standalone packages are available in [`packages/`](./packages/).
 
 It is designed to protect the actual product before generating commercial visuals. The workflow is intentionally staged:
 
 ```text
 Upload real product images
         ↓
-Stage 1: deep product analysis
+sku-product-core: verified facts and fidelity boundaries
         ↓
-Stage 2: three distinct page directions
+Router: marketplace and asset-slot selection
         ↓
-User approves a direction
+Dedicated marketplace skill
         ↓
-Stage 3: per-screen plans, prompts, negative prompts, and QA checks
+Native listing, module, PDP, B2B, prompt, and QA outputs
 ```
 
-It can be used for Taobao, Tmall, JD.com, Pinduoduo, Douyin Shop, Xiaohongshu, Amazon, Shopify, TikTok Shop, and similar e-commerce workflows.
+V1.3 includes dedicated Taobao, Tmall, JD.com, Pinduoduo, 1688, Amazon, Shopify, and TikTok Shop workflows instead of treating them as style variants.
 
 ## Who It Is For
 
@@ -53,17 +55,18 @@ It can be used for Taobao, Tmall, JD.com, Pinduoduo, Douyin Shop, Xiaohongshu, A
 | --- | --- |
 | Install the Skill | [Install guide](./docs/INSTALL.md) |
 | First run | [First Use](#first-use) |
-| Understand the workflow | [Three-Stage Workflow](#three-stage-workflow) |
+| Understand the workflow | [Routed Production Workflow](#routed-production-workflow) |
 | Taobao or Douyin detail page | [Taobao 9:16 example](./examples/taobao-9-16-detail-page.md) |
 | Amazon A+ content | [Amazon A+ example](./examples/amazon-a-plus-example.md) |
+| V1.3 marketplace forward-test evidence | [Forward test report](./tests/FORWARD_TEST_REPORT.md) |
 | Sunglasses or fashion accessories | [Sunglasses example](./examples/sunglasses-detail-page.md) |
 | Use competitor pages safely | [Competitor reference example](./examples/competitor-reference-safe-use.md) |
 | Troubleshooting | [Troubleshooting](./docs/TROUBLESHOOTING.md) |
 | Commercial and safety boundaries | [Safety and usage guide](./docs/SAFETY_AND_USAGE.md) |
 
-## Three-Stage Workflow
+## Routed Production Workflow
 
-### Stage 1: Deep Product Analysis
+### Stage 1: Shared Product Analysis
 
 The Skill analyzes the product only. It does not produce final image-generation prompts yet.
 
@@ -168,9 +171,13 @@ SKU详情页导演Skill/
 │   ├── SKILL.md
 │   ├── agents/openai.yaml
 │   └── references/
-│       └── SKU详情页导演Skill_Lite_V1.2.1_防同质化生产优化版.md
 └── SKU详情页导演Skill.skill
 
+skills/            Shared product core and eight platform-specific skills
+shared/            Canonical safety, state, research, and QA rules
+scripts/           Sync, validation, asset checks, and package builds
+tests/             Static trigger-regression corpus
+packages/          Standalone .skill packages and the complete bundle
 docs/              Installation, troubleshooting, safety, and GitHub settings
 examples/          Practical e-commerce usage examples
 assets/            Repository cover and visual assets
@@ -179,7 +186,9 @@ website/           Optional static website
 
 ## Version
 
-Current version: **Lite V1.2.1 anti-homogenization production edition**
+Current development version: **V1.3.0-dev multi-platform skill suite**
+
+Stable baseline: **Lite V1.2.1**, preserved by the `v1.2.1` Git tag.
 
 See [CHANGELOG.md](./CHANGELOG.md) and [ROADMAP.md](./ROADMAP.md).
 

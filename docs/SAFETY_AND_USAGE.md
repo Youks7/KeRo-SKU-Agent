@@ -2,6 +2,8 @@
 
 KeRo SKU Skill is designed for real-SKU e-commerce workflows. It should help you plan product pages and prompts without inventing product facts.
 
+V1.3 separates shared product evidence from marketplace production. Run `sku-product-core` once, preserve the resulting `SKU_CONTEXT`, and let each platform skill add only platform-specific fields.
+
 ## Core Safety Rules
 
 - Do not invent product specifications.
@@ -9,6 +11,8 @@ KeRo SKU Skill is designed for real-SKU e-commerce workflows. It should help you
 - Do not alter the real SKU's color, structure, logo, packaging, or key details.
 - Do not copy competitor product designs, logos, text, packaging, or brand assets.
 - Do not treat AI-generated images as final commercial assets without human QA.
+- Do not let a platform skill overwrite verified product facts or upgrade an inference without new evidence.
+- Check the current marketplace, region, category, and asset-slot rules before publication.
 
 ## Product Facts
 

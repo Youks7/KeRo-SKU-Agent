@@ -1,0 +1,4 @@
+interface:
+  display_name: "Amazon SKU 页面"
+  short_description: "规划 Amazon 主图、附图、A+ 内容、品牌故事与目标站点本地化生产"
+  default_prompt: "Use $sku-amazon to create compliant Amazon listing-image and A+ Content plans for my target marketplace."
