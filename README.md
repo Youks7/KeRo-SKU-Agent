@@ -68,6 +68,7 @@ V1.3 开发版不再把平台差异简化为视觉风格，而是分别处理各
 | 你的需求 | 建议入口 |
 | --- | --- |
 | 第一次安装 Skill | [安装说明](./docs/INSTALL.md) |
+| 换新电脑后在 Codex 使用 | [新电脑安装与迁移](#新电脑安装与迁移) |
 | 不知道怎么启动 | [第一次使用](#第一次使用) |
 | 想看完整流程 | [三阶段工作流](#三阶段工作流) |
 | 想做淘宝详情页 | [淘宝移动端详情模块示例](./examples/taobao-9-16-detail-page.md) |
@@ -126,30 +127,138 @@ V1.3 开发版不再把平台差异简化为视觉风格，而是分别处理各
 
 ## 快速安装
 
-### 方法一：导入 `.skill` 文件
+V1.3 完整版由 **10 个 Skill** 组成：1 个统一入口、1 个产品事实核心和 8 个平台专用 Skill。只安装旧版 [`SKU详情页导演Skill.skill`](./SKU详情页导演Skill/SKU详情页导演Skill.skill) 不等于安装完整套件；该文件现在只承担兼容路由。
 
-下载 `packages/` 中对应平台的独立 `.skill` 文件，或使用合集包：
+完整安装后应包含：
+
+```text
+sku-detail-page-director
+sku-product-core
+sku-taobao
+sku-tmall
+sku-pinduoduo
+sku-jd
+sku-1688
+sku-amazon
+sku-shopify
+sku-tiktok-shop
+```
+
+### 方法一：在 Codex 中从 GitHub 安装（推荐）
+
+在 Codex 新任务中粘贴以下指令：
+
+```text
+请使用 $skill-installer，从公开 GitHub 仓库
+https://github.com/Youks7/KeRo-SKU-skill
+的 main 分支安装以下 10 个 Skill：
+
+1. SKU详情页导演Skill/sku-detail-page-director
+2. skills/sku-product-core
+3. skills/sku-taobao
+4. skills/sku-tmall
+5. skills/sku-pinduoduo
+6. skills/sku-jd
+7. skills/sku-1688
+8. skills/sku-amazon
+9. skills/sku-shopify
+10. skills/sku-tiktok-shop
+
+要求：
+- 安装到当前用户的 Codex Skills 目录；
+- 不要只安装旧版 SKU详情页导演Skill.skill；
+- 安装后检查每个目录中是否存在 SKILL.md；
+- 列出最终安装的 10 个 Skill 名称和路径；
+- 如果同名目录已经存在，不要直接覆盖，先检查并报告版本冲突。
+```
+
+安装完成后，新建一个 Codex 任务再开始使用。新任务仍未识别时，再重启 Codex App。
+
+### 方法二：导入 `.skill` 文件
+
+下载并解压合集，再导入其中的独立 `.skill` 文件：
 
 - [`V1.3 全平台合集`](./packages/kero-sku-skills-v1.3-bundle.zip)
 - [`独立平台安装包目录`](./packages/)
 
-旧地址 [`SKU详情页导演Skill.skill`](./SKU详情页导演Skill/SKU详情页导演Skill.skill) 现在是兼容路由包，不再包含所有平台的巨型规则。
+如果当前 Codex 版本提供 `Import Skill` 或 `Upload Skill`，应导入全部 10 个独立 `.skill` 文件，不要把外层合集 ZIP 或旧版兼容包误当成完整套件。
 
-### 方法二：复制 Skill 目录
+### 方法三：手动复制目录
 
-把需要的平台目录复制到 Codex 的 skills 目录：
+已安装 Git 的 Windows 用户可以在 PowerShell 中执行：
 
-```text
-SKU详情页导演Skill/sku-detail-page-director/
-skills/sku-product-core/
-skills/sku-amazon/
-skills/sku-1688/
-...只复制需要的平台
+```powershell
+git clone https://github.com/Youks7/KeRo-SKU-skill.git
+
+$source = Resolve-Path ".\KeRo-SKU-skill"
+$codexHome = if ($env:CODEX_HOME) { $env:CODEX_HOME } else { Join-Path $HOME ".codex" }
+$destination = Join-Path $codexHome "skills"
+
+New-Item -ItemType Directory -Path $destination -Force | Out-Null
+
+Copy-Item `
+    -LiteralPath "$source\SKU详情页导演Skill\sku-detail-page-director" `
+    -Destination $destination `
+    -Recurse `
+    -Force
+
+Get-ChildItem -LiteralPath "$source\skills" -Directory | ForEach-Object {
+    Copy-Item -LiteralPath $_.FullName -Destination $destination -Recurse -Force
+}
 ```
 
-如果你的系统或工具对中文路径不稳定，优先复制内部的 `sku-detail-page-director/` 目录。
+如果 Windows Git 报出 `SEC_E_NO_CREDENTIALS`，可改用：
 
-更详细步骤见 [docs/INSTALL.md](./docs/INSTALL.md)。
+```powershell
+git -c http.sslBackend=openssl clone https://github.com/Youks7/KeRo-SKU-skill.git
+```
+
+仓库是公开仓库，只下载和使用不需要 GitHub 登录；只有修改后需要推送时才需要配置 GitHub 凭据。
+
+更详细的安装和排错说明见 [docs/INSTALL.md](./docs/INSTALL.md) 与 [docs/TROUBLESHOOTING.md](./docs/TROUBLESHOOTING.md)。
+
+## 新电脑安装与迁移
+
+换电脑时不要只把 GitHub 仓库作为普通项目打开。打开仓库可以让 Codex 阅读文件，但要让这些工作流在其他任务中被 `$skill-name` 调用，仍需按上面的推荐方法把 10 个 Skill 安装到新电脑的 Codex Skills 目录。
+
+建议迁移顺序：
+
+1. 在新电脑安装并登录 Codex。
+2. 使用[方法一](#方法一在-codex-中从-github-安装推荐)从 `main` 分支安装全部 10 个 Skill。
+3. 新建 Codex 任务，让新安装的 Skill 被重新发现。
+4. 运行下面的完整性检查。
+5. 上传真实产品图片，并从 `$sku-detail-page-director` 开始工作。
+
+在 PowerShell 中验证安装：
+
+```powershell
+$codexHome = if ($env:CODEX_HOME) { $env:CODEX_HOME } else { Join-Path $HOME ".codex" }
+$expected = @(
+    "sku-detail-page-director",
+    "sku-product-core",
+    "sku-taobao",
+    "sku-tmall",
+    "sku-pinduoduo",
+    "sku-jd",
+    "sku-1688",
+    "sku-amazon",
+    "sku-shopify",
+    "sku-tiktok-shop"
+)
+
+$expected | ForEach-Object {
+    $skillFile = Join-Path $codexHome "skills\$_\SKILL.md"
+    [pscustomobject]@{
+        Skill     = $_
+        Installed = Test-Path -LiteralPath $skillFile
+        SkillFile = $skillFile
+    }
+}
+```
+
+正确结果是 10 项的 `Installed` 全部为 `True`。如果缺少任意平台 Skill，导演入口可以识别平台，但不能保证进入对应平台的完整生产规则。
+
+以后需要更新时，让 Codex 先备份本机同名 Skill、比较版本，再从 `main` 重新安装全部 10 个目录；不要只更新导演入口，也不要在未检查差异时静默覆盖本地修改。
 
 ## 第一次使用
 
