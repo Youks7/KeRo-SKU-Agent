@@ -9,11 +9,11 @@ description: "Create region-aware TikTok Shop product-detail-page image plans, S
 
 ## 读取规则
 
-完整读取 [`references/common-safety.md`](references/common-safety.md)、[`references/platform-rules.md`](references/platform-rules.md) 和 [`references/per-unit-production.md`](references/per-unit-production.md)。规则因国家和时间变化，发布前核对当地 Seller Center 当前政策。
+开始时完整读取 [`references/common-safety.md`](references/common-safety.md) 和 [`references/platform-rules.md`](references/platform-rules.md)。只有用户确认方向并进入正式生产时，才完整读取 [`references/per-unit-production.md`](references/per-unit-production.md)。规则因国家和时间变化，发布前核对当地 Seller Center 当前政策。
 
 ## 工作流
 
-1. 继承 `SKU_CONTEXT`，确认国家、语言、类目、品牌、variations 和目标素材槽位。
+1. 继承 `SKU_CONTEXT`；没有上下文时先使用 `$sku-product-core`，未安装时执行最小事实与保真检查，再确认国家、语言、类目、品牌、variations 和目标素材槽位。
 2. 区分 PDP main image、additional images、variation images、Shop Ads source、Shoppable Photo 和视频交接。
 3. 主图和变体图采用真实商品与严格保真；平台禁止数字渲染或覆盖元素时不得使用模式 B。
 4. 追加图片可按平台允许范围展示角度、细节、使用、尺寸和场景，不重复相同视角。

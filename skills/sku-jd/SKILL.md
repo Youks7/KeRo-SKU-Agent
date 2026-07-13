@@ -9,11 +9,11 @@ description: "Create JD-native product image and detail-page plans with verified
 
 ## 读取规则
 
-完整读取 [`references/common-safety.md`](references/common-safety.md)、[`references/platform-rules.md`](references/platform-rules.md) 和 [`references/per-unit-production.md`](references/per-unit-production.md)。类目参数和资质以京东商家后台与规则中心当前要求为准。
+开始时完整读取 [`references/common-safety.md`](references/common-safety.md) 和 [`references/platform-rules.md`](references/platform-rules.md)。只有用户确认方向并进入正式生产时，才完整读取 [`references/per-unit-production.md`](references/per-unit-production.md)。类目参数和资质以京东商家后台与规则中心当前要求为准。
 
 ## 工作流
 
-1. 继承 `SKU_CONTEXT`，补充型号、规格、兼容性、包装、安装、质保和售后证据。
+1. 继承 `SKU_CONTEXT`；没有上下文时先使用 `$sku-product-core`，未安装时执行最小事实与保真检查，再补充型号、规格、兼容性、包装、安装、质保和售后证据。
 2. 建立参数—证据矩阵，未知数字保持为空。
 3. 区分主图、附图、参数模块、兼容性、安装使用和服务模块。
 4. 根据购买疑虑生成专业证明型方向，不用科技光效替代真实性能证据。

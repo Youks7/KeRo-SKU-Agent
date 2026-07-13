@@ -10,6 +10,7 @@ sku-detail-page-director:
     - "把一个产品分别改成B2B和零售版本"
     - "使用旧版sku-detail-page-director继续这个项目"
     - "我的商品图应该启用哪个KeRo平台Skill"
+    - "请使用$sku-detail-page-director从产品分析开始直接帮我完成淘宝详情页方向"
   should_not_trigger:
     - "只做Amazon A+"
     - "制作1688阶梯价格采购页"
@@ -187,4 +188,3 @@ sku-tiktok-shop:
     - "创建Shopify PDP"
     - "规划1688拿样政策"
     - "制作淘宝轮播图"
-

@@ -56,7 +56,7 @@ V1.3 includes dedicated Taobao, Tmall, JD.com, Pinduoduo, 1688, Amazon, Shopify,
 | Install the Skill | [Install guide](./docs/INSTALL.md) |
 | First run | [First Use](#first-use) |
 | Understand the workflow | [Routed Production Workflow](#routed-production-workflow) |
-| Taobao or Douyin detail page | [Taobao 9:16 example](./examples/taobao-9-16-detail-page.md) |
+| Taobao product page | [Taobao mobile-detail module example](./examples/taobao-9-16-detail-page.md) |
 | Amazon A+ content | [Amazon A+ example](./examples/amazon-a-plus-example.md) |
 | V1.3 marketplace forward-test evidence | [Forward test report](./tests/FORWARD_TEST_REPORT.md) |
 | Sunglasses or fashion accessories | [Sunglasses example](./examples/sunglasses-detail-page.md) |
@@ -134,14 +134,11 @@ See [docs/INSTALL.md](./docs/INSTALL.md) for details.
 
 ## First Use
 
-After uploading real product images, send:
+Use one entry point. After uploading real product images, send:
 
 ```text
-Use $sku-detail-page-director to analyze the uploaded product images.
-
-Start with Stage 1: deep product analysis.
-Do not produce formal image-generation prompts until I approve a direction.
-Do not invent specifications, materials, certifications, claims, or reviews that cannot be verified from the images or supplied documents.
+Use $sku-detail-page-director to handle fact analysis, marketplace selection, and direction proposals in this same task.
+Do not ask me to invoke other skills again. Do not produce formal image-generation prompts until I approve a direction, and do not invent facts that are not supported by my images or documents.
 ```
 
 ## Product-Handling Modes
@@ -164,7 +161,7 @@ Do not invent specifications, materials, certifications, claims, or reviews that
 ## Examples
 
 - [Sunglasses detail-page example](./examples/sunglasses-detail-page.md)
-- [Taobao / Douyin 9:16 detail-page example](./examples/taobao-9-16-detail-page.md)
+- [Taobao mobile-detail module example](./examples/taobao-9-16-detail-page.md)
 - [Amazon A+ example](./examples/amazon-a-plus-example.md)
 - [Competitor-reference safety example](./examples/competitor-reference-safe-use.md)
 

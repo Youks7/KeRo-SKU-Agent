@@ -42,16 +42,27 @@ Repository Settings -> General -> Social preview
 
 ## Releases
 
-Create a release when the `.skill` package is ready:
+Create a release only after clean-session model tests and real-product golden fixtures are complete:
 
 ```text
-v1.2.1
+v1.3.0
 ```
 
 Attach:
 
 ```text
-SKU详情页导演Skill/SKU详情页导演Skill.skill
+packages/kero-sku-skills-v1.3-bundle.zip
+packages/SHA256SUMS.txt
+packages/sku-product-core.skill
+packages/sku-detail-page-director.skill
+packages/sku-taobao.skill
+packages/sku-tmall.skill
+packages/sku-pinduoduo.skill
+packages/sku-jd.skill
+packages/sku-1688.skill
+packages/sku-amazon.skill
+packages/sku-shopify.skill
+packages/sku-tiktok-shop.skill
 ```
 
 ## Repository Features

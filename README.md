@@ -70,7 +70,7 @@ V1.3 开发版不再把平台差异简化为视觉风格，而是分别处理各
 | 第一次安装 Skill | [安装说明](./docs/INSTALL.md) |
 | 不知道怎么启动 | [第一次使用](#第一次使用) |
 | 想看完整流程 | [三阶段工作流](#三阶段工作流) |
-| 想做淘宝 / 抖音详情页 | [淘宝 9:16 示例](./examples/taobao-9-16-detail-page.md) |
+| 想做淘宝详情页 | [淘宝移动端详情模块示例](./examples/taobao-9-16-detail-page.md) |
 | 想做 Amazon A+ | [Amazon A+ 示例](./examples/amazon-a-plus-example.md) |
 | 想看同一 SKU 的平台差异 | [V1.3 跨平台墨镜示例](./examples/cross-platform-sunglasses-v1.3.md) |
 | 查看八个平台前向测试结果 | [V1.3 前向测试报告](./tests/FORWARD_TEST_REPORT.md) |
@@ -153,17 +153,19 @@ skills/sku-1688/
 
 ## 第一次使用
 
-上传真实产品图后，发送：
+推荐只记住一个入口。上传真实产品图后，发送：
 
 ```text
-请使用 $sku-product-core 分析我上传的真实产品资料并生成 SKU_CONTEXT。
-目标平台暂时未确定，不要编造无法确认的规格、材质、认证、功效或评价。
+请使用 $sku-detail-page-director 从我上传的真实产品资料开始，
+在同一任务中完成事实分析、平台识别和方向提案。
+不要让我重复调用其他 Skill；方向确认前不要输出正式生图 Prompt，
+不要编造无法确认的规格、材质、认证、功效或评价。
 ```
 
-如果你已经知道平台和屏数，可以这样写：
+总导演会在内部复用 `$sku-product-core` 和命中的平台 Skill。高级用户已经知道平台时，也可以直接调用专用 Skill：
 
 ```text
-请使用 $sku-amazon 基于我的 SKU_CONTEXT 规划 Amazon US Listing Images 和 A+ Content。
+请使用 $sku-amazon 基于我的真实产品资料规划 Amazon US Listing Images 和 A+ Content。
 先核对 Main Image、附图和 A+ 的不同规则，再给方向。
 ```
 
@@ -187,7 +189,7 @@ skills/sku-1688/
 ## 示例
 
 - [墨镜详情页示例](./examples/sunglasses-detail-page.md)
-- [淘宝 / 抖音 9:16 详情页示例](./examples/taobao-9-16-detail-page.md)
+- [淘宝移动端详情模块示例](./examples/taobao-9-16-detail-page.md)
 - [Amazon A+ 示例](./examples/amazon-a-plus-example.md)
 - [安全参考竞品示例](./examples/competitor-reference-safe-use.md)
 

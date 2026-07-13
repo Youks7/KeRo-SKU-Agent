@@ -19,6 +19,7 @@
 
 产品处理模式：A
 处理理由：正式商品详情首屏且产品结构必须与实物一致。
+生成工具能力：只生成背景，不使用参考图重绘产品
 允许修改：背景、光影、自然接触阴影和排版留白。
 禁止修改：镜框轮廓、镜片颜色、镜桥、铰链、镜腿、Logo 区域和产品数量。
 产品来源与合成方式：AI 只生成背景；后期分别合成 `front.jpg` 抠图和 `hinge.jpg` 真实裁切。
@@ -33,7 +34,7 @@
 - 景深 / 透视：背景轻微层次，产品本体保持真实透视。
 - 与前后单元的差异及衔接：首屏展示全貌；下一单元转入侧面结构，不重复正面构图。
 
-Prompt：Generate only a neutral light-gray mobile commerce background with soft directional studio light from the upper left, a clean contact-shadow area reserved for the real front-view black full-rim sunglasses cutout in the lower center, a separate bottom detail-card area reserved for the real hinge crop, and mobile-safe negative space in the upper right. Do not generate the product. Do not generate glasses, text, logos, labels, dimensions, certification icons, packaging, accessories, people, or props.
+Prompt：Generate only a neutral light-gray mobile commerce background with soft directional studio light from the upper left, an empty PRODUCT_CUTOUT_ZONE in the lower center sized from the source cutout bounding box, a separate empty DETAIL_CROP_ZONE at the bottom, and mobile-safe negative space in the upper right. Keep both zones empty and transparent-ready for later compositing. Do not generate any product or product-specific feature.
 Negative Prompt：product, sunglasses, eyeglasses, duplicate object, text, letters, numbers, logo, watermark, label, package, accessories, certification, UV, polarized, material claim, distorted geometry, colored lens shift, harsh reflection, clutter, generic black-gold e-commerce template
 
 后期排版：
@@ -50,7 +51,7 @@ Negative Prompt：product, sunglasses, eyeglasses, duplicate object, text, lette
 5. 当前状态保持 `human-review`，完成抠图边缘和颜色人工复核后才能改为 `ready`。
 
 通用 Prompt 拦截自检：
-1. Prompt 引用了黑色全框轮廓和真实铰链裁切两个产品专属细节，不是任意商品模板。
+1. 背景 Prompt 没有描述或生成产品；黑色全框轮廓和真实铰链两个专属细节已在来源、合成和质检字段锁定。
 2. 没有只写“高级背景 + 柔光 + 留白”。
 3. 未混入缺失功效、尺寸、材质或平台禁用元素。
 4. 镜头与下一侧面模块不同。

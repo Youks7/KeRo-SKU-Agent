@@ -1,0 +1,48 @@
+name: Validate skills
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install validation dependencies
+        run: python -m pip install -r requirements-dev.txt
+
+      - name: Verify canonical shared references
+        run: python scripts/sync_shared_rules.py --check
+
+      - name: Validate skill structure and routing corpus
+        run: |
+          python scripts/validate_all_skills.py
+          python scripts/validate_trigger_cases.py
+          python scripts/validate_orchestration.py
+
+      - name: Validate production contracts and recorded forward runs
+        run: |
+          python scripts/validate_production_protocol.py
+          python scripts/validate_forward_runs.py
+
+      - name: Verify committed packages match source
+        run: python scripts/validate_packages.py
+
+      - name: Rebuild and verify packages
+        run: |
+          python scripts/build_skill_packages.py
+          python scripts/validate_packages.py
+
+      - name: Reject whitespace errors
+        run: git diff --check

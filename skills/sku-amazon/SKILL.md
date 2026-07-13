@@ -9,11 +9,11 @@ description: "Create Amazon marketplace-specific main image, secondary image, vi
 
 ## 读取规则
 
-完整读取 [`references/common-safety.md`](references/common-safety.md)、[`references/platform-rules.md`](references/platform-rules.md) 和 [`references/per-unit-production.md`](references/per-unit-production.md)。发布前核对目标站点、类目和 Seller Central 当前规则。
+开始时完整读取 [`references/common-safety.md`](references/common-safety.md) 和 [`references/platform-rules.md`](references/platform-rules.md)。只有用户确认方向并进入正式生产时，才完整读取 [`references/per-unit-production.md`](references/per-unit-production.md)。发布前核对目标站点、类目和 Seller Central 当前规则。
 
 ## 工作流
 
-1. 继承 `SKU_CONTEXT`，确认站点、语言、类目、ASIN 状态、Brand Registry 和可用模块。
+1. 继承 `SKU_CONTEXT`；没有上下文时先使用 `$sku-product-core`，未安装时执行最小事实与保真检查，再确认站点、语言、类目、ASIN 状态、Brand Registry 和可用模块。
 2. 区分 Main Image、secondary images、video brief、A+、Premium A+ 和 Brand Story。
 3. 主图默认使用真实产品和严格保真；场景、功能信息和比较内容放入允许的附图或模块。
 4. 根据主要购买疑虑生成二至三个方向，并让图片、bullet 和 A+ 使用同一事实证据。

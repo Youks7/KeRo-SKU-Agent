@@ -9,11 +9,11 @@ description: "Create responsive Shopify product-detail-page content systems with
 
 ## 读取规则
 
-完整读取 [`references/common-safety.md`](references/common-safety.md)、[`references/platform-rules.md`](references/platform-rules.md) 和 [`references/per-unit-production.md`](references/per-unit-production.md)。主题能力、应用和销售地区会改变实现方式，必须记录假设。
+开始时完整读取 [`references/common-safety.md`](references/common-safety.md) 和 [`references/platform-rules.md`](references/platform-rules.md)。只有用户确认方向并进入正式生产时，才完整读取 [`references/per-unit-production.md`](references/per-unit-production.md)。主题能力、应用和销售地区会改变实现方式，必须记录假设。
 
 ## 工作流
 
-1. 继承 `SKU_CONTEXT`，确认目标地区、语言、主题、模板、变体、购买选项和品牌资产。
+1. 继承 `SKU_CONTEXT`；没有上下文时先使用 `$sku-product-core`，未安装时执行最小事实与保真检查，再确认目标地区、语言、主题、模板、变体、购买选项和品牌资产。
 2. 建立产品内容模型：标题、描述、媒体、variants、metafields、披露、配送与售后。
 3. 按 Hero、Gallery、Benefits、Proof、Details、FAQ、Trust 和 CTA 等真实 section 设计结构。
 4. 关键文字保留为 HTML；图片提供 alt text；CTA 使用真实交互组件。

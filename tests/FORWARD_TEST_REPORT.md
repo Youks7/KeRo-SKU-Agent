@@ -55,3 +55,9 @@ Production release should therefore remain `v1.3.0-dev` until clean-session test
 After the initial forward runs, the full Lite V1.2.1 per-screen production depth was restored as a canonical platform-aware protocol. All eight marketplace skills now require every screen, asset slot, A+ module, or media-bearing PDP section to preserve Prompt, Negative Prompt, handling mode, copy placement, post-layout, shot matrix, product-consistency QA, and generic-Prompt interception.
 
 Deterministic validation confirms that all eight skills carry an identical canonical protocol and reference it directly. Taobao image-production and Shopify semantic-component regression fixtures pass. The original eight recorded model outputs predate this contract, so clean independent model sessions must still be rerun before the addendum is considered model-level validation.
+
+## Usability-cleanup addendum
+
+The one-entry director, stage-gated production loading, and distinct Mode A/Mode B Prompt contracts are now covered by deterministic validators. Mode A background generation no longer receives product-identity descriptions; Mode B preserves existing Logo, label, and packaging text without banning those elements as bare negative tokens. A dedicated Mode B reference-edit fixture and orchestration validator pass.
+
+These checks prevent known instruction collisions and packaging drift, but they remain static regressions. The eight historical platform records below predate the usability cleanup and must not be presented as proof that a clean model session followed the new one-entry flow or the new mode-specific contracts.

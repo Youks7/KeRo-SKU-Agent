@@ -1,4 +1,4 @@
 interface:
   display_name: "京东 SKU 详情页"
   short_description: "规划京东商品素材、结构化参数、兼容性、包装清单、服务与专业详情页"
-  default_prompt: "Use $sku-jd to create a JD product-page plan with verified parameters, compatibility, and service information."
+  default_prompt: "请使用 $sku-jd 根据真实资料规划京东商品页，先建立参数、兼容性、包装和服务证据，再给方向和生产方案。"

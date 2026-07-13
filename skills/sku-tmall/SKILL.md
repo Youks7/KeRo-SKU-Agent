@@ -9,11 +9,11 @@ description: "Create Tmall-specific branded product asset and detail-page plans 
 
 ## 读取规则
 
-完整读取 [`references/common-safety.md`](references/common-safety.md)、[`references/platform-rules.md`](references/platform-rules.md) 和 [`references/per-unit-production.md`](references/per-unit-production.md)。资质、品牌和类目字段以商家后台当前 Schema 为准。
+开始时完整读取 [`references/common-safety.md`](references/common-safety.md) 和 [`references/platform-rules.md`](references/platform-rules.md)。只有用户确认方向并进入正式生产时，才完整读取 [`references/per-unit-production.md`](references/per-unit-production.md)。资质、品牌和类目字段以商家后台当前 Schema 为准。
 
 ## 工作流
 
-1. 继承 `SKU_CONTEXT`，确认品牌权利、店铺类型、SPU、SKU 和目标类目。
+1. 继承 `SKU_CONTEXT`；没有上下文时先使用 `$sku-product-core`，未安装时执行最小事实与保真检查，再确认品牌权利、店铺类型、SPU、SKU 和目标类目。
 2. 分开记录真实品牌资产、允许使用的认证和缺失资质。
 3. 区分主图、轮播、SKU 图、详情模块、品牌故事和资质说明。
 4. 从品牌系统与产品差异共同生成方向，不用空泛黑金或伪奢华替代品牌证据。

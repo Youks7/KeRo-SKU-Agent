@@ -10,6 +10,7 @@ This roadmap tracks possible future improvements for KeRo SKU Skill.
 - [x] Add deterministic standalone package builds and static validation.
 - [x] Add a 100-positive/50-negative trigger regression corpus.
 - [x] Restore the complete Lite V1.2.1 per-screen Prompt contract as a mandatory platform-aware per-unit production protocol.
+- [x] Remove Mode A/B Prompt conflicts, add a one-entry director flow, consolidate canonical references, and add CI validation.
 - [ ] Forward-test trigger selection and platform outputs in clean Codex sessions.
 - [ ] Add real, user-approved golden product fixtures for every platform.
 - [ ] Decide and document commercial-output licensing separately from skill-source redistribution.

@@ -13,7 +13,9 @@ description: "Analyze real product images and supplied documents to establish ve
 
 - [`references/core-rules.md`](references/core-rules.md)
 - [`references/sku-context-schema.md`](references/sku-context-schema.md)
-- [`references/common-qa.md`](references/common-qa.md)
+- [`references/core-qa.md`](references/core-qa.md)
+
+只有用户要求竞品扫描、类目同质化判断或参考竞品时，再读取 [`references/competitor-research.md`](references/competitor-research.md)。没有实际检索或用户提供的竞品素材时，只能称为经验性启发。
 
 ## 工作流
 
@@ -28,4 +30,3 @@ description: "Analyze real product images and supplied documents to establish ve
 ## 边界
 
 不要选择平台方向，不要输出固定屏数，不要生成价格、参数、认证或正式广告承诺。用户指定平台时，把完成的 `SKU_CONTEXT` 交给对应平台 Skill。
-

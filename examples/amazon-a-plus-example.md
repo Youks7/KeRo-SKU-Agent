@@ -31,18 +31,17 @@ Do not invent unverified material, dimensions, certification, function, review, 
 ## Direction Reply Example
 
 ```text
-Choose B.
-Use a clean Amazon-friendly style.
-Keep the product accurate and avoid exaggerated claims.
+Choose the recommended listing-clarity direction.
+Use strict fidelity for the Main Image and keep lifestyle or benefit content in eligible secondary/A+ modules.
+Do not unlock blocked dimensions, included items, brand claims, or performance claims.
 ```
 
 ## Stage 3 Prompt
 
 ```text
-Create 6 Amazon modules based on the approved direction.
-Choose aspect ratio by module purpose.
-Do not force every image into 9:16.
-Before each module, provide the sales objective, composition, prompt, negative prompt, and product-fidelity checks.
+Create only the Listing Image and A+ units supported by the target marketplace, category, brand role, and current Seller Central access.
+Do not invent a fixed module count or slice a generic long image into A+.
+For every confirmed unit, provide source evidence, sales objective, composition, handling mode, prompt, negative prompt, copy placement, post-layout, shot matrix, and product-fidelity checks.
 ```
 
 ## Amazon Notes

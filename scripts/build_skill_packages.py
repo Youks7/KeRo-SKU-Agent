@@ -40,11 +40,25 @@ def build(skill_dir: Path) -> Path:
     return archive
 
 
+def clean_generated_packages() -> None:
+    """Remove generated deliverables so renamed skills cannot leave stale packages."""
+    PACKAGES.mkdir(parents=True, exist_ok=True)
+    for path in PACKAGES.iterdir():
+        if path.is_file() and (
+            path.suffix == ".skill"
+            or path.name in {"SHA256SUMS.txt", "kero-sku-skills-v1.3-bundle.zip"}
+        ):
+            path.unlink()
+
+
 def main() -> int:
     run("sync_shared_rules.py")
     run("validate_all_skills.py")
+    run("validate_orchestration.py")
     run("validate_production_protocol.py")
-    PACKAGES.mkdir(parents=True, exist_ok=True)
+    run("validate_trigger_cases.py")
+    run("validate_forward_runs.py")
+    clean_generated_packages()
 
     built = [build(skill_dir) for skill_dir in SKILL_DIRS]
     lines = [f"{sha256(path)}  {path.name}" for path in built]

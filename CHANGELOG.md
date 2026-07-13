@@ -4,6 +4,9 @@ All notable changes to this repository are documented here.
 
 ## v1.3.0-dev
 
+- Converted the compatibility router into a true one-entry workflow that continues through product-core and marketplace direction stages without asking users to invoke multiple Skills manually.
+- Removed the Mode A/B Prompt collision: Mode A now generates a product-free background layer, while Mode B preserves existing Logo, label, packaging text, and product identity without banning those elements as bare negative tokens.
+- Made the full production protocol stage-conditional, consolidated canonical shared sources, added stale-package cleanup, and added GitHub Actions validation.
 - Restored the Lite V1.2.1 full per-screen production depth as a mandatory per-unit protocol across all eight marketplace skills, including Prompt, Negative Prompt, handling mode, copy placement, post-layout, shot matrix, product-fidelity QA, and generic-Prompt interception.
 - Added page-level visual tokens, cross-unit continuity, evidence binding, publication states, canonical protocol synchronization, and automated regression validation without forcing non-long-page platforms into fixed screen counts.
 - Replaced the all-platform monolith with a compatibility router, a shared product-fact core, and eight marketplace-specific skills.

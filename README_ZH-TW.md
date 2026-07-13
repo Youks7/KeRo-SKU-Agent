@@ -54,7 +54,7 @@ V1.3 已將淘寶、天貓、京東、拼多多、1688、Amazon、Shopify 與 Ti
 | 第一次安裝 Skill | [安裝說明](./docs/INSTALL.md) |
 | 不知道怎麼啟動 | [第一次使用](#第一次使用) |
 | 想看完整流程 | [三階段工作流](#三階段工作流) |
-| 想做淘寶 / 抖音詳情頁 | [淘寶 9:16 示例](./examples/taobao-9-16-detail-page.md) |
+| 想做淘寶詳情頁 | [淘寶移動端詳情模塊示例](./examples/taobao-9-16-detail-page.md) |
 | 想做 Amazon A+ | [Amazon A+ 示例](./examples/amazon-a-plus-example.md) |
 | 想做墨鏡類商品圖 | [墨鏡詳情頁示例](./examples/sunglasses-detail-page.md) |
 | 想參考競品但不想侵權 | [安全參考競品示例](./examples/competitor-reference-safe-use.md) |
@@ -131,14 +131,12 @@ SKU详情页导演Skill/sku-detail-page-director/
 
 ## 第一次使用
 
-上傳真實產品圖後，傳送：
+只需記住一個入口。上傳真實產品圖後，傳送：
 
 ```text
-請使用 $sku-detail-page-director 分析我上傳的產品圖。
-
-先執行階段一：產品深度分析。
-在我確認方向前，不要輸出正式生圖 Prompt。
-不能編造圖片和資料中無法確認的規格、材質、認證、功效或評價。
+請使用 $sku-detail-page-director 在同一任務中完成產品事實分析、平台識別和方向提案。
+不要讓我重複呼叫其他 Skill；在我確認方向前不要輸出正式生圖 Prompt，
+也不要編造圖片和資料中無法確認的規格、材質、認證、功效或評價。
 ```
 
 ## 產品處理模式
@@ -161,7 +159,7 @@ SKU详情页导演Skill/sku-detail-page-director/
 ## 示例
 
 - [墨鏡詳情頁示例](./examples/sunglasses-detail-page.md)
-- [淘寶 / 抖音 9:16 詳情頁示例](./examples/taobao-9-16-detail-page.md)
+- [淘寶移動端詳情模塊示例](./examples/taobao-9-16-detail-page.md)
 - [Amazon A+ 示例](./examples/amazon-a-plus-example.md)
 - [安全參考競品示例](./examples/competitor-reference-safe-use.md)
 

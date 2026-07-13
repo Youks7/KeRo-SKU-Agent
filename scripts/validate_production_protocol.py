@@ -32,8 +32,11 @@ CONTRACT_MARKERS = (
     "产品一致性质检：",
     "通用 Prompt 拦截自检：",
     "来源图片 ID",
+    "生成工具能力：",
     "禁止主张 / 缺失证据：",
     "ready / human-review / direction-only / blocked",
+    "PRODUCT_CUTOUT_ZONE",
+    "不得把裸词 `logo`、`text`、`label`、`product packaging` 一刀切列为负面词",
 )
 
 SKILL_MARKERS = (
@@ -52,6 +55,7 @@ SKILL_MARKERS = (
 FIXTURES = (
     ROOT / "tests" / "production-protocol" / "taobao-detail-screen.md",
     ROOT / "tests" / "production-protocol" / "shopify-component-section.md",
+    ROOT / "tests" / "production-protocol" / "mode-b-reference-edit.md",
 )
 
 FIXTURE_MARKERS = (
@@ -63,6 +67,7 @@ FIXTURE_MARKERS = (
     "禁止主张 / 缺失证据：",
     "文案位置与安全区：",
     "产品处理模式：",
+    "生成工具能力：",
     "镜头矩阵：",
     "Prompt：",
     "Negative Prompt：",
@@ -132,6 +137,24 @@ def main() -> int:
             print(f"[FAIL] {fixture.relative_to(ROOT)} missing markers: {missing}")
         else:
             print(f"[PASS] {fixture.relative_to(ROOT)}")
+
+    mode_a = (ROOT / "tests" / "production-protocol" / "taobao-detail-screen.md").read_text(encoding="utf-8-sig")
+    mode_b = (ROOT / "tests" / "production-protocol" / "mode-b-reference-edit.md").read_text(encoding="utf-8-sig")
+    mode_a_prompt = mode_a.split("Prompt：", 1)[1].split("\n", 1)[0]
+    if "Do not generate any product or product-specific feature" not in mode_a_prompt:
+        failed = True
+        print("[FAIL] Mode A fixture does not isolate background generation from product identity")
+    if any(token in mode_a_prompt.casefold() for token in ("sunglasses", "black frame", "hinge", "lens", "logo", "packaging")):
+        failed = True
+        print("[FAIL] Mode A background Prompt leaks product-specific identity details")
+    mode_b_prompt = mode_b.split("Prompt：", 1)[1].split("\n", 1)[0]
+    mode_b_negative = mode_b.split("Negative Prompt：", 1)[1].split("\n", 1)[0]
+    if not all(marker in mode_b_prompt for marker in ("unique identity reference", "Preserve the exact existing product", "Logo placement", "packaging text")):
+        failed = True
+        print("[FAIL] Mode B Prompt does not explicitly preserve existing product, Logo, and packaging text")
+    if any(token in mode_b_negative.split(", ") for token in ("logo", "text", "label", "product packaging")):
+        failed = True
+        print("[FAIL] Mode B fixture uses a bare negative token that conflicts with preserving existing product elements")
 
     if not failed:
         print("[PASS] full Prompt, Negative Prompt, handling, copy, layout, shot, fidelity, and generic-prompt gates are enforced")

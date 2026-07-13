@@ -86,12 +86,14 @@ Start a new Codex conversation and send:
 
 If the Skill is installed correctly, Codex should identify the marketplace and route to the matching platform skill. Install `sku-product-core` when shared fact analysis is required.
 
+With the complete bundle installed, the router should continue into product analysis and the selected marketplace workflow in the same conversation. The user should not need to copy `SKU_CONTEXT` or invoke a second Skill manually.
+
 ## First Starter Prompt
 
 ```text
-请使用 $sku-product-core 分析我上传的真实产品资料并输出 SKU_CONTEXT。
-只确认有图片或文件证据的事实，不要编造规格、材质、认证、功效或评价。
-完成后我会把同一个 SKU_CONTEXT 交给目标平台 Skill。
+请使用 $sku-detail-page-director 从我上传的真实产品资料开始，
+在同一任务中完成事实分析、平台识别和方向提案。
+不要让我重复调用其他 Skill；方向确认前不要输出正式生图 Prompt。
 ```
 
 If the platform is already known, invoke it directly after installing the core and platform packages:
@@ -118,7 +120,7 @@ You do not need to prepare everything at once. The Skill is designed to proceed 
 ## Common Installation Issues
 
 - If a platform skill does not trigger, use its exact name such as `$sku-amazon` or `$sku-1688`.
-- Use `$sku-detail-page-director` only for platform selection, legacy compatibility, or multi-platform routing.
+- Use `$sku-detail-page-director` as the recommended one-entry workflow. Advanced users may invoke a marketplace Skill directly.
 - If the reference rules are not read, confirm that the `references/` folder is inside the Skill directory.
 - If Chinese paths display incorrectly, copy the inner English folder directly.
 - If a platform skill restarts product analysis, provide the existing `SKU_CONTEXT` and tell it to preserve verified facts and fidelity mode.

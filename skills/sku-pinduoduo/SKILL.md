@@ -9,11 +9,11 @@ description: "Create Pinduoduo-native product image and detail plans while verif
 
 ## 读取规则
 
-完整读取 [`references/common-safety.md`](references/common-safety.md)、[`references/platform-rules.md`](references/platform-rules.md) 和 [`references/per-unit-production.md`](references/per-unit-production.md)。平台尺寸和类目要求以商家后台当前提示为准。
+开始时完整读取 [`references/common-safety.md`](references/common-safety.md) 和 [`references/platform-rules.md`](references/platform-rules.md)。只有用户确认方向并进入正式生产时，才完整读取 [`references/per-unit-production.md`](references/per-unit-production.md)。平台尺寸和类目要求以商家后台当前提示为准。
 
 ## 工作流
 
-1. 继承 `SKU_CONTEXT`，补充所有变体、价格、数量、套装、赠品和交付内容。
+1. 继承 `SKU_CONTEXT`；没有上下文时先使用 `$sku-product-core`，未安装时执行最小事实与保真检查，再补充所有变体、价格、数量、套装、赠品和交付内容。
 2. 建立 SKU—价格—图片一致性矩阵，识别最低价 SKU 与曝光商品的差异。
 3. 区分曝光图、轮播图、SKU 图和详情图。
 4. 生成以价值确定性、使用证明或规格清晰为核心的动态方向，不默认做廉价促销风。
