@@ -34,6 +34,15 @@ REQUIRED_INSTRUCTION_MARKERS = (
     "缺失",
     "用户指定的项目目录",
 )
+REQUIRED_CASE_MARKERS = {
+    "unknown-marketplace": ("SKU_CONTEXT", "sku-detail-page-director", "方向确认前"),
+    "known-amazon-without-context": ("sku-product-core", "sku-amazon", "编造"),
+    "reuse-confirmed-context": ("复用已确认事实", "重新提交全部资料"),
+    "direction-approval-gate": ("等待用户确认方向", "正式逐素材生产 Prompt"),
+    "missing-platform-skill": ("缺失的 Skill 名称", "模拟不存在的完整平台规则"),
+    "multi-marketplace-routing": ("共享基础 SKU_CONTEXT", "独立目标上下文", "通用详情页"),
+    "project-file-isolation": ("用户指定项目目录", "原始产品素材", "Agent 安装目录"),
+}
 
 
 def skill_path(name: str) -> Path:
@@ -115,6 +124,7 @@ def validate_cases(errors: list[str]) -> None:
         return
 
     ids: set[str] = set()
+    cases_by_id: dict[str, dict] = {}
     for index, case in enumerate(cases, start=1):
         if not isinstance(case, dict):
             errors.append(f"agent case {index} must be a mapping")
@@ -126,6 +136,7 @@ def validate_cases(errors: list[str]) -> None:
             errors.append(f"duplicate agent case id: {case_id}")
         else:
             ids.add(case_id)
+            cases_by_id[case_id] = case
         if not isinstance(case.get("input"), str) or not case["input"].strip():
             errors.append(f"agent case {case_id or index} has no input")
         expected = case.get("expected")
@@ -138,6 +149,29 @@ def validate_cases(errors: list[str]) -> None:
                 isinstance(value, str) and value.strip() for value in values
             ):
                 errors.append(f"agent case {case_id or index} has invalid expected.{key}")
+
+    required_ids = set(REQUIRED_CASE_MARKERS)
+    if ids != required_ids:
+        errors.append(
+            "agent case ids do not match the required behavior set: "
+            f"missing={sorted(required_ids - ids)}, extra={sorted(ids - required_ids)}"
+        )
+
+    for case_id, markers in REQUIRED_CASE_MARKERS.items():
+        case = cases_by_id.get(case_id)
+        if not case:
+            continue
+        expected = case.get("expected", {})
+        statements = [
+            value
+            for key in ("must", "must_not")
+            for value in expected.get(key, [])
+            if isinstance(value, str)
+        ]
+        contract_text = "\n".join(statements)
+        for marker in markers:
+            if marker not in contract_text:
+                errors.append(f"agent case {case_id} is missing required semantic marker: {marker!r}")
 
 
 def validate_installer(errors: list[str]) -> None:

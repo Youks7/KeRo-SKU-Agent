@@ -19,7 +19,7 @@ cases:
       must:
         - 建立或复用 SKU_CONTEXT
         - 使用 sku-detail-page-director 路由
-        - 只提出一个会改变路线的关键问题
+        - 只提出会改变路线的关键问题
       must_not:
         - 在方向确认前输出正式生图 Prompt
 
