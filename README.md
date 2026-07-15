@@ -31,8 +31,7 @@ C:\Users\<用户名>\.codex\agents\kero-sku-director.toml
 C:\Users\<用户名>\.codex\skills\<skill-name>\
 ```
 
-<details>
-<summary>让 Codex 代为完成 Windows 安装</summary>
+#### 让 Codex 代为完成 Windows 安装
 
 ```text
 我的电脑是 Windows。请安装公开仓库：
@@ -46,16 +45,13 @@ CODEX_HOME 未设置时使用 %USERPROFILE%\.codex。
 最后报告实际安装路径、验证结果和是否需要重启 Codex；失败时返回真实错误。
 ```
 
-</details>
-
 ### macOS 快速安装
 
 macOS 当前支持安全手动安装，尚未提供自动安装脚本。不要在 Mac 上运行 Windows 的 `.ps1` 文件。
 
-在 Codex 新任务中展开并发送下面的安装指令：
+在 Codex 新任务中复制并发送下面的安装指令：
 
-<details>
-<summary>让 Codex 代为完成 macOS 安全手动安装</summary>
+#### 让 Codex 代为完成 macOS 安全手动安装
 
 ```text
 我的电脑是 macOS。请安装公开仓库：
@@ -72,8 +68,6 @@ sku-detail-page-director 的上级目录可能包含中文，请通过 sku-detai
 最后验证一个 Agent 和十个 Skills，报告安装路径、验证结果和是否需要重启 Codex。
 如果当前环境不支持个人自定义 Agent，请明确报告，不要假装安装成功。
 ```
-
-</details>
 
 默认安装到：
 
@@ -107,7 +101,7 @@ sku-detail-page-director 的上级目录可能包含中文，请通过 sku-detai
 ## 工作流程
 
 ```mermaid
-flowchart LR
+flowchart TD
     A["产品图片与规格"] --> B["kero-sku-director"]
     B --> C["产品事实与 SKU_CONTEXT"]
     C --> D["目标平台 Skill"]
