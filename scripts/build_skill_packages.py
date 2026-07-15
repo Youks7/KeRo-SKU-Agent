@@ -53,6 +53,7 @@ def clean_generated_packages() -> None:
 
 def main() -> int:
     run("sync_shared_rules.py")
+    run("validate_agent.py")
     run("validate_all_skills.py")
     run("validate_orchestration.py")
     run("validate_production_protocol.py")

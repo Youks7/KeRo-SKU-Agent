@@ -1,4 +1,4 @@
-<h1 align="center">KeRo SKU Skill</h1>
+<h1 align="center">KeRo SKU Agent</h1>
 
 <p align="center"><strong>Protect the real SKU first. Then build product pages that do not look templated.</strong></p>
 
@@ -21,7 +21,9 @@
 
 ## What Is This
 
-KeRo SKU Skill is a Codex skill suite for **real-SKU fact analysis, marketplace routing, product-page planning, and controlled visual production**.
+KeRo SKU Agent is a Codex custom agent for **real-SKU fact analysis, marketplace routing, product-page planning, and controlled visual production**. It orchestrates the existing ten-Skill suite while keeping the Skills as the source of marketplace rules.
+
+See the [Agent guide](./docs/AGENT.md) for installation, storage boundaries, and invocation examples.
 
 > V1.3 development status: the former all-in-one workflow is being split into a shared product-fidelity core plus dedicated Taobao, Tmall, Pinduoduo, JD, 1688, Amazon, Shopify, and TikTok Shop skills. Standalone packages are available in [`packages/`](./packages/).
 

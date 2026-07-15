@@ -28,6 +28,7 @@ jobs:
 
       - name: Validate skill structure and routing corpus
         run: |
+          python scripts/validate_agent.py
           python scripts/validate_all_skills.py
           python scripts/validate_trigger_cases.py
           python scripts/validate_orchestration.py

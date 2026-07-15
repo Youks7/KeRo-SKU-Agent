@@ -1,6 +1,54 @@
 # Installation Guide
 
-This guide explains how to install and start KeRo SKU Skill in Codex.
+This guide explains how to install and start KeRo SKU Agent and its ten Skill dependencies in Codex.
+
+## Recommended Complete Agent Install
+
+Clone this independent repository and run the conflict-safe installer:
+
+```powershell
+git clone https://github.com/Youks7/KeRo-SKU-Agent.git
+Set-Location .\KeRo-SKU-Agent
+.\scripts\install_kero_sku.ps1
+```
+
+The installer deploys:
+
+```text
+%CODEX_HOME%\agents\kero-sku-director.toml
+%CODEX_HOME%\skills\sku-detail-page-director\
+%CODEX_HOME%\skills\sku-product-core\
+%CODEX_HOME%\skills\sku-taobao\
+%CODEX_HOME%\skills\sku-tmall\
+%CODEX_HOME%\skills\sku-pinduoduo\
+%CODEX_HOME%\skills\sku-jd\
+%CODEX_HOME%\skills\sku-1688\
+%CODEX_HOME%\skills\sku-amazon\
+%CODEX_HOME%\skills\sku-shopify\
+%CODEX_HOME%\skills\sku-tiktok-shop\
+```
+
+When `CODEX_HOME` is unset, the installer uses `%USERPROFILE%\.codex`.
+
+The installer is idempotent. If an installed Agent or Skill differs from the repository, it stops before changing files. To approve an update, run:
+
+```powershell
+.\scripts\install_kero_sku.ps1 -Force
+```
+
+Conflicting installations are moved to a timestamped directory under `%CODEX_HOME%\backups\kero-sku` before replacement.
+
+Start a new Codex task after installation. If the Agent is still not discovered, restart Codex. Invoke it with:
+
+```text
+Start the kero-sku-director Agent. Build or reuse SKU_CONTEXT, route to the correct marketplace Skill, and wait for direction approval before producing final image prompts.
+```
+
+Product images, `SKU_CONTEXT`, prompts, generated images, and QA reports belong in a separate SKU project directory. Never store project data under the Agent or Skill installation paths. See [AGENT.md](./AGENT.md) for a recommended project layout.
+
+## Agent-Only Versus Skill-Only Installation
+
+Installing only `.codex/agents/kero-sku-director.toml` is incomplete: the Agent orchestrates the ten Skills but does not contain their detailed rules. The methods below remain available for Skill-only use, packaging tests, or selective marketplace installation.
 
 ## V1.3 Skill Selection
 

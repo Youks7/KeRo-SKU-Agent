@@ -1,4 +1,4 @@
-<h1 align="center">KeRo SKU Skill</h1>
+<h1 align="center">KeRo SKU Agent</h1>
 
 <p align="center"><strong>先保護真實 SKU，再做不套模板的電商詳情頁</strong></p>
 
@@ -21,7 +21,9 @@
 
 ## 這是什麼
 
-KeRo SKU Skill 是一組用於 **真實 SKU 事實分析、平台路由、商品頁策劃與 AI 視覺生產** 的 Codex Skills。
+KeRo SKU Agent 是一個用於 **真實 SKU 事實分析、平台路由、商品頁策劃與 AI 視覺生產** 的 Codex 自訂 Agent。它負責編排原有十個 Skills，而平台專業規則仍由 Skills 提供。
+
+安裝、檔案邊界和啟動範例請參閱 [Agent 使用指南](./docs/AGENT.md)。
 
 它的核心不是讓 AI 直接想像商品圖，而是先保護真實產品，再把電商詳情頁拆成可控流程：
 

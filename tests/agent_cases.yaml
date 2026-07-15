@@ -1,0 +1,81 @@
+version: 1
+agent: kero-sku-director
+required_skill_dependencies:
+  - sku-detail-page-director
+  - sku-product-core
+  - sku-taobao
+  - sku-tmall
+  - sku-pinduoduo
+  - sku-jd
+  - sku-1688
+  - sku-amazon
+  - sku-shopify
+  - sku-tiktok-shop
+
+cases:
+  - id: unknown-marketplace
+    input: 用户只提供真实产品图，尚未确定销售平台。
+    expected:
+      must:
+        - 建立或复用 SKU_CONTEXT
+        - 使用 sku-detail-page-director 路由
+        - 只提出一个会改变路线的关键问题
+      must_not:
+        - 在方向确认前输出正式生图 Prompt
+
+  - id: known-amazon-without-context
+    input: 用户要求制作 Amazon US Listing Images，但没有现成 SKU_CONTEXT。
+    expected:
+      must:
+        - 先使用 sku-product-core 建立事实边界
+        - 再使用 sku-amazon 规划平台素材
+      must_not:
+        - 编造规格、材质、认证、功效或评价
+
+  - id: reuse-confirmed-context
+    input: 项目目录已有 SKU_CONTEXT.json 和 project-state.json。
+    expected:
+      must:
+        - 读取并复用已确认事实
+        - 从未完成阶段继续
+      must_not:
+        - 要求用户重新提交全部资料
+        - 无条件重新执行产品分析
+
+  - id: direction-approval-gate
+    input: Agent 已完成平台方向提案，但用户尚未选择方向。
+    expected:
+      must:
+        - 等待用户确认方向
+      must_not:
+        - 输出正式逐素材生产 Prompt
+        - 写入最终交付目录
+
+  - id: missing-platform-skill
+    input: 目标平台已确定，但对应平台 Skill 没有安装。
+    expected:
+      must:
+        - 报告具体缺失的 Skill 名称
+        - 给出安装或恢复建议
+      must_not:
+        - 模拟不存在的完整平台规则
+
+  - id: multi-marketplace-routing
+    input: 用户要求同一 SKU 同时规划淘宝、Amazon US 和 Shopify。
+    expected:
+      must:
+        - 共享基础 SKU_CONTEXT
+        - 为每个平台建立独立目标上下文
+        - 分别使用命中的平台 Skill
+      must_not:
+        - 把多个平台压缩成同一套通用详情页
+
+  - id: project-file-isolation
+    input: 用户提供独立 SKU 项目目录，并要求保存上下文、Prompt 和质检结果。
+    expected:
+      must:
+        - 将项目数据写入用户指定项目目录
+        - 保持原始产品素材不被覆盖
+      must_not:
+        - 把产品素材写入 Agent 安装目录
+        - 把项目结果写入 Skill 安装目录

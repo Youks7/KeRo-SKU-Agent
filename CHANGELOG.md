@@ -2,6 +2,14 @@
 
 All notable changes to this repository are documented here.
 
+## v0.1.0-agent
+
+- Created an independent KeRo SKU Agent repository from the existing Skill suite while leaving the source repository unchanged.
+- Added the `kero-sku-director` custom Agent as a thin orchestration layer over all ten Skills.
+- Added a conflict-safe Windows installer with idempotence checks and timestamped backups before forced updates.
+- Added a static Agent validator and seven-scenario behavioral contract covering routing, approval gates, recovery, and project-file isolation.
+- Added Agent documentation, invocation examples, storage guidance, and CI validation.
+
 ## v1.3.0-dev
 
 - Converted the compatibility router into a true one-entry workflow that continues through product-core and marketplace direction stages without asking users to invoke multiple Skills manually.

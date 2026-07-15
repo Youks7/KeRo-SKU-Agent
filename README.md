@@ -1,4 +1,4 @@
-<h1 align="center">KeRo SKU Skill</h1>
+<h1 align="center">KeRo SKU Agent</h1>
 
 <p align="center"><strong>先保护真实 SKU，再做不套模板的电商详情页</strong></p>
 
@@ -11,6 +11,7 @@
 </p>
 
 <p align="center">
+  <a href="./docs/AGENT.md">Agent 使用指南</a> ·
   <a href="./packages/kero-sku-skills-v1.3-bundle.zip">下载 V1.3 全平台合集</a> ·
   <a href="./docs/INSTALL.md">安装说明</a> ·
   <a href="./examples/sunglasses-detail-page.md">查看示例</a> ·
@@ -21,12 +22,14 @@
 
 ## 这是什么
 
-KeRo SKU Skill 是一组用于 **真实 SKU 商品事实分析、平台路由、详情页策划与 AI 视觉生产** 的 Codex Skills。
+KeRo SKU Agent 是一个用于 **真实 SKU 商品事实分析、平台路由、详情页策划与 AI 视觉生产** 的 Codex 自定义 Agent。它在原有十个 Skills 之上增加统一身份、状态延续、自动路由、方向确认门和项目文件边界；现有 Skills 继续作为专业规则来源。
 
 它的核心不是让 AI 直接“发挥想象”生成商品图，而是先保护真实产品，再把电商详情页拆成可控流程：
 
 ```text
 上传真实产品图
+   ↓
+kero-sku-director：统一 Agent 入口与状态管理
    ↓
 sku-product-core：产品事实与保真分析
    ↓
@@ -39,6 +42,19 @@ Amazon / Shopify / TikTok Shop 专用 Skill
 ```
 
 V1.3 开发版不再把平台差异简化为视觉风格，而是分别处理各平台的素材槽位、商品数据、采购逻辑、网页结构和合规要求。
+
+## Agent 模式
+
+Agent 不会取代 Skills，也不会把十套规则复制到一个超长提示词里。它负责：
+
+- 只让用户记住 `kero-sku-director` 一个入口；
+- 建立并复用 `SKU_CONTEXT`，避免重复分析；
+- 平台未知时路由，平台明确时只加载命中的 Skill；
+- 在用户确认方向前阻止正式生产 Prompt；
+- 把项目数据写入用户指定目录，不污染 Agent 和 Skill 安装目录；
+- 所需 Skill 缺失时明确失败，不悄悄模拟完整规则。
+
+完整说明见 [Agent 使用指南](./docs/AGENT.md)。
 
 ## V1.3 平台 Skills
 
@@ -127,6 +143,21 @@ V1.3 开发版不再把平台差异简化为视觉风格，而是分别处理各
 
 ## 快速安装
 
+### 推荐：安装 Agent 与完整 Skills 套件
+
+```powershell
+git clone https://github.com/Youks7/KeRo-SKU-Agent.git
+Set-Location .\KeRo-SKU-Agent
+.\scripts\install_kero_sku.ps1
+```
+
+安装器发现不同版本时会停止；确认更新时使用 `-Force`，旧版本会先备份。安装后新建 Codex 任务，并发送：
+
+```text
+请启动 kero-sku-director Agent，从我提供的真实产品资料开始，
+完成事实分析、平台识别和方向提案；方向确认前不要输出正式生图 Prompt。
+```
+
 V1.3 完整版由 **10 个 Skill** 组成：1 个统一入口、1 个产品事实核心和 8 个平台专用 Skill。只安装旧版 [`SKU详情页导演Skill.skill`](./SKU详情页导演Skill/SKU详情页导演Skill.skill) 不等于安装完整套件；该文件现在只承担兼容路由。
 
 完整安装后应包含：
@@ -150,7 +181,7 @@ sku-tiktok-shop
 
 ```text
 请使用 $skill-installer，从公开 GitHub 仓库
-https://github.com/Youks7/KeRo-SKU-skill
+https://github.com/Youks7/KeRo-SKU-Agent
 的 main 分支安装以下 10 个 Skill：
 
 1. SKU详情页导演Skill/sku-detail-page-director
@@ -188,9 +219,9 @@ https://github.com/Youks7/KeRo-SKU-skill
 已安装 Git 的 Windows 用户可以在 PowerShell 中执行：
 
 ```powershell
-git clone https://github.com/Youks7/KeRo-SKU-skill.git
+git clone https://github.com/Youks7/KeRo-SKU-Agent.git
 
-$source = Resolve-Path ".\KeRo-SKU-skill"
+$source = Resolve-Path ".\KeRo-SKU-Agent"
 $codexHome = if ($env:CODEX_HOME) { $env:CODEX_HOME } else { Join-Path $HOME ".codex" }
 $destination = Join-Path $codexHome "skills"
 
@@ -210,7 +241,7 @@ Get-ChildItem -LiteralPath "$source\skills" -Directory | ForEach-Object {
 如果 Windows Git 报出 `SEC_E_NO_CREDENTIALS`，可改用：
 
 ```powershell
-git -c http.sslBackend=openssl clone https://github.com/Youks7/KeRo-SKU-skill.git
+git -c http.sslBackend=openssl clone https://github.com/Youks7/KeRo-SKU-Agent.git
 ```
 
 仓库是公开仓库，只下载和使用不需要 GitHub 登录；只有修改后需要推送时才需要配置 GitHub 凭据。
@@ -305,6 +336,7 @@ $expected | ForEach-Object {
 ## 项目结构
 
 ```text
+.codex/agents/    kero-sku-director 自定义 Agent 配置
 SKU详情页导演Skill/
 ├── sku-detail-page-director/
 │   ├── SKILL.md
@@ -314,8 +346,8 @@ SKU详情页导演Skill/
 
 skills/            公共产品核心与八个平台独立 Skill
 shared/            构建时同步的公共安全、状态和质检规则
-scripts/           同步、校验、素材检查与安装包构建
-tests/             Skill 触发回归语料
+scripts/           Agent/Skills 安装、同步、校验、素材检查与安装包构建
+tests/             Agent 行为合同与 Skill 触发回归语料
 packages/          独立 .skill 包和全平台合集
 docs/              安装、排错、安全边界和 GitHub 设置说明
 examples/          典型电商场景使用示例
@@ -324,6 +356,8 @@ website/           可选静态网站
 ```
 
 ## 版本
+
+Agent 版本：**V0.1.0**，基于现有 V1.3.0-dev 多平台 Skills 套件构建。
 
 当前开发版本：**V1.3.0-dev 多平台 Skill 拆分版**
 
