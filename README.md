@@ -1,168 +1,45 @@
-<h1 align="center">KeRo SKU Agent</h1>
+# KeRo SKU Director Agent
 
-<p align="center"><strong>先保护真实 SKU，再做不套模板的电商详情页</strong></p>
+面向真实商品资料的 Codex 电商项目总导演：先建立产品事实，再选择平台工作流，确认方向后才进入 Prompt、排版和质检。
 
-<p align="center">真实产品保真 · 三阶段决策 · 防同质化生产 · 逐屏商业图</p>
+> 这是一个 **Agent 仓库**，不是原 [`KeRo-SKU-skill`](https://github.com/Youks7/KeRo-SKU-skill) 的同名镜像。仓库保留原有十个 SKU Skills 作为专业能力层，并增加 `kero-sku-director` 自定义 Agent、安装器、行为验证和项目状态规则。
 
-<p align="center">
-  简体中文 ·
-  <a href="./README_EN.md">English</a> ·
-  <a href="./README_ZH-TW.md">繁體中文</a>
-</p>
+## 先看结论
 
-<p align="center">
-  <a href="./docs/AGENT.md">Agent 使用指南</a> ·
-  <a href="./packages/kero-sku-skills-v1.3-bundle.zip">下载 V1.3 全平台合集</a> ·
-  <a href="./docs/INSTALL.md">安装说明</a> ·
-  <a href="./examples/sunglasses-detail-page.md">查看示例</a> ·
-  <a href="./shared/core-safety.md">公共安全规则</a>
-</p>
+- 只需要记住一个调用名称：`kero-sku-director`。
+- Windows 已提供并验证 PowerShell 安装器。
+- macOS 当前采用手动复制安装，不应运行 Windows 安装器。
+- Agent 和 Skills 安装在用户的 Codex 目录；商品资料放在单独的 SKU 项目目录。
+- Agent 不会在后台自行运行，也不会在缺少工具时假装已经生图、排版或操作电商后台。
 
----
+## Agent 负责什么
 
-## 这是什么
+`kero-sku-director` 是十个 Skills 之上的编排层，负责：
 
-KeRo SKU Agent 是一个用于 **真实 SKU 商品事实分析、平台路由、详情页策划与 AI 视觉生产** 的 Codex 自定义 Agent。它在原有十个 Skills 之上增加统一身份、状态延续、自动路由、方向确认门和项目文件边界；现有 Skills 继续作为专业规则来源。
-
-它的核心不是让 AI 直接“发挥想象”生成商品图，而是先保护真实产品，再把电商详情页拆成可控流程：
-
-```text
-上传真实产品图
-   ↓
-kero-sku-director：统一 Agent 入口与状态管理
-   ↓
-sku-product-core：产品事实与保真分析
-   ↓
-kero总路由：识别平台与素材槽位
-   ↓
-淘宝 / 天猫 / 拼多多 / 京东 / 1688
-Amazon / Shopify / TikTok Shop 专用 Skill
-   ↓
-平台原生素材方案、Prompt 与质检
-```
-
-V1.3 开发版不再把平台差异简化为视觉风格，而是分别处理各平台的素材槽位、商品数据、采购逻辑、网页结构和合规要求。
-
-## Agent 模式
-
-Agent 不会取代 Skills，也不会把十套规则复制到一个超长提示词里。它负责：
-
-- 只让用户记住 `kero-sku-director` 一个入口；
-- 建立并复用 `SKU_CONTEXT`，避免重复分析；
-- 平台未知时路由，平台明确时只加载命中的 Skill；
-- 在用户确认方向前阻止正式生产 Prompt；
-- 把项目数据写入用户指定目录，不污染 Agent 和 Skill 安装目录；
-- 所需 Skill 缺失时明确失败，不悄悄模拟完整规则。
-
-完整说明见 [Agent 使用指南](./docs/AGENT.md)。
-
-## V1.3 平台 Skills
-
-| Skill | 主要职责 |
-| --- | --- |
-| `$sku-detail-page-director` | 平台未知、旧版兼容和多平台路由 |
-| `$sku-product-core` | 事实、证据、保真模式和跨平台 `SKU_CONTEXT` |
-| `$sku-taobao` | 淘宝主图、轮播、SKU 属性图和详情模块 |
-| `$sku-tmall` | 天猫品牌、资质、SPU/SKU 和品牌详情 |
-| `$sku-pinduoduo` | 拼多多 SKU—价格—图片一致性与详情素材 |
-| `$sku-jd` | 京东参数、兼容性、包装、服务和专业详情 |
-| `$sku-1688` | 1688 MOQ、阶梯价、定制、生产交付和询盘 |
-| `$sku-amazon` | Amazon Main Image、附图、A+ 和 Brand Story |
-| `$sku-shopify` | Shopify PDP sections、媒体、变体、SEO 和 CTA |
-| `$sku-tiktok-shop` | TikTok Shop PDP、变体图、广告源图和内容交接 |
-
-## 适合谁使用
-
-- 电商运营：需要快速判断一个 SKU 详情页怎么做。
-- 设计师：需要把产品图拆成可执行的视觉方向和分屏方案。
-- AIGC 创作者：需要更安全、更稳定的商品图 Prompt。
-- 跨境卖家：需要 Amazon A+、Shopify、TikTok Shop 商品图方向。
-- 批量上新团队：需要避免所有 SKU 都长得像同一套模板。
-
-## 你想做什么，直接看这里
-
-| 你的需求 | 建议入口 |
-| --- | --- |
-| 第一次安装 Skill | [安装说明](./docs/INSTALL.md) |
-| 换新电脑后在 Codex 使用 | [新电脑安装与迁移](#新电脑安装与迁移) |
-| 不知道怎么启动 | [第一次使用](#第一次使用) |
-| 想看完整流程 | [三阶段工作流](#三阶段工作流) |
-| 想做淘宝详情页 | [淘宝移动端详情模块示例](./examples/taobao-9-16-detail-page.md) |
-| 想做 Amazon A+ | [Amazon A+ 示例](./examples/amazon-a-plus-example.md) |
-| 想看同一 SKU 的平台差异 | [V1.3 跨平台墨镜示例](./examples/cross-platform-sunglasses-v1.3.md) |
-| 查看八个平台前向测试结果 | [V1.3 前向测试报告](./tests/FORWARD_TEST_REPORT.md) |
-| 想做墨镜类商品图 | [墨镜详情页示例](./examples/sunglasses-detail-page.md) |
-| 想参考竞品但不想侵权 | [安全参考竞品示例](./examples/competitor-reference-safe-use.md) |
-| Skill 没有触发或产品变形 | [常见问题](./docs/TROUBLESHOOTING.md) |
-| 想了解商用边界 | [安全与使用边界](./docs/SAFETY_AND_USAGE.md) |
-
-## 三阶段工作流
-
-### 阶段一：公共产品事实分析
-
-只分析产品，不输出正式生图 Prompt。
-
-这一阶段会判断：
-
-- 图片里能确认的产品事实。
-- 哪些信息不能编造。
-- 产品适合严格保真、AI 辅助商品图，还是概念生成。
-- 类目中常见的同质化套路。
-- 这个产品自己的视觉记忆点。
-- 下一步只需要你确认的一个关键决策。
-
-### 阶段二：平台路由与方向提案
-
-识别平台和素材槽位，再由对应平台 Skill 给出二至三个商业任务明显不同的方向。A/B/C 只是选择标签，不再固定等于功能、场景和高端。
-
-每个方向会说明：
-
-- 目标平台、地区、类目和素材槽位。
-- 该平台真正需要解决的购买或采购问题。
-- 页面、模块或媒体顺序。
-- 未来每个素材大概长什么样。
-- 如何避开常见模板感。
-- 优点、风险和推荐程度。
-
-### 阶段三：按平台素材槽位生产
-
-只有你确认方向后，才进入主图、轮播、SKU 图、详情模块、A+、PDP section 等对应资产生产。
-
-正式生产阶段的每一屏、每个图片槽位、A+ 模块或含媒体的 PDP section 都必须完整输出 Prompt、Negative Prompt、产品处理模式、文案位置、后期排版、镜头矩阵、产品一致性质检和通用 Prompt 拦截；不会因为平台 Skill 拆分而降低旧版逐屏生产深度。
-
-每一屏会包含：
-
-- 素材槽位和商业任务。
-- 构图说明。
-- 文案方向。
-- 生图 Prompt。
-- Negative Prompt。
-- 产品保真要求。
-- 文字安全区或真实网页组件要求。
-- 一致性质检点。
-
-## 快速安装
-
-### 推荐：安装 Agent 与完整 Skills 套件
-
-```powershell
-git clone https://github.com/Youks7/KeRo-SKU-Agent.git
-Set-Location .\KeRo-SKU-Agent
-.\scripts\install_kero_sku.ps1
-```
-
-安装器发现不同版本时会停止；确认更新时使用 `-Force`，旧版本会先备份。安装后新建 Codex 任务，并发送：
+1. 盘点产品图、包装图、规格文件和品牌资产。
+2. 把信息分为已确认事实、谨慎推断、缺失证据和禁止主张。
+3. 建立并复用 `SKU_CONTEXT`，避免每轮重新分析产品。
+4. 根据淘宝、天猫、拼多多、京东、1688、Amazon、Shopify 或 TikTok Shop 选择对应 Skill。
+5. 先提出二至三个商业方向，等待用户确认。
+6. 方向确认后生成逐素材 Prompt、Negative Prompt、排版要求和质检清单。
+7. 检查颜色、结构、比例、Logo、包装文字和产品主张是否失真。
+8. 把上下文、方向和交付结果写入用户指定的项目目录。
 
 ```text
-请启动 kero-sku-director Agent，从我提供的真实产品资料开始，
-完成事实分析、平台识别和方向提案；方向确认前不要输出正式生图 Prompt。
+真实产品资料
+  -> 产品事实与保真分析
+  -> 平台和素材槽位识别
+  -> 方向提案与人工确认
+  -> Prompt / 排版 / 生产
+  -> 产品一致性与事实边界质检
 ```
 
-V1.3 完整版由 **10 个 Skill** 组成：1 个统一入口、1 个产品事实核心和 8 个平台专用 Skill。只安装旧版 [`SKU详情页导演Skill.skill`](./SKU详情页导演Skill/SKU详情页导演Skill.skill) 不等于安装完整套件；该文件现在只承担兼容路由。
+## 安装内容
 
-完整安装后应包含：
+安装完成后应存在一个 Agent 和十个 Skills：
 
 ```text
+kero-sku-director
 sku-detail-page-director
 sku-product-core
 sku-taobao
@@ -175,212 +52,222 @@ sku-shopify
 sku-tiktok-shop
 ```
 
-### 方法一：在 Codex 中从 GitHub 安装（推荐）
+Codex 使用 `CODEX_HOME` 作为安装根目录。未设置时，通常使用当前用户主目录下的 `.codex`。
 
-在 Codex 新任务中粘贴以下指令：
+## Windows：发送给 Codex 的安装指令
+
+在新 Windows 电脑中安装并登录 Codex，新建任务，然后完整发送下面这段话：
 
 ```text
-请使用 $skill-installer，从公开 GitHub 仓库
+我的电脑是 Windows。
+
+请安装这个公开仓库中的 Codex 自定义 Agent：
 https://github.com/Youks7/KeRo-SKU-Agent
-的 main 分支安装以下 10 个 Skill：
 
-1. SKU详情页导演Skill/sku-detail-page-director
-2. skills/sku-product-core
-3. skills/sku-taobao
-4. skills/sku-tmall
-5. skills/sku-pinduoduo
-6. skills/sku-jd
-7. skills/sku-1688
-8. skills/sku-amazon
-9. skills/sku-shopify
-10. skills/sku-tiktok-shop
+请执行以下操作：
 
-要求：
-- 安装到当前用户的 Codex Skills 目录；
-- 不要只安装旧版 SKU详情页导演Skill.skill；
-- 安装后检查每个目录中是否存在 SKILL.md；
-- 列出最终安装的 10 个 Skill 名称和路径；
-- 如果同名目录已经存在，不要直接覆盖，先检查并报告版本冲突。
+1. 下载或克隆仓库 main 分支。
+2. 阅读 docs/INSTALL.md 和 docs/AGENT.md。
+3. 确认 .codex/agents/kero-sku-director.toml 存在。
+4. 在仓库根目录运行：
+   .\scripts\install_kero_sku.ps1
+5. 如果 PowerShell 执行策略阻止脚本，只对本次安装使用：
+   powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\install_kero_sku.ps1
+6. CODEX_HOME 未设置时，安装到 %USERPROFILE%\.codex。
+7. 需要访问网络或写入用户 .codex 目录时，向我申请权限。
+8. 已安装相同版本时跳过；存在不同版本时停止并报告，不要直接覆盖。
+9. 验证 kero-sku-director Agent 和十个 sku-* Skill 全部存在。
+10. 验证每个 Skill 目录中都存在 SKILL.md。
+11. 不要把商品图片或 SKU 项目数据写进 Agent、Skill 或插件安装目录。
+12. 最后报告实际 CODEX_HOME、安装位置、十一项验证结果和是否需要重启 Codex。
+13. 如果失败，请返回真实错误，不要假装安装成功。
 ```
 
-安装完成后，新建一个 Codex 任务再开始使用。新任务仍未识别时，再重启 Codex App。
-
-### 方法二：导入 `.skill` 文件
-
-下载并解压合集，再导入其中的独立 `.skill` 文件：
-
-- [`V1.3 全平台合集`](./packages/kero-sku-skills-v1.3-bundle.zip)
-- [`独立平台安装包目录`](./packages/)
-
-如果当前 Codex 版本提供 `Import Skill` 或 `Upload Skill`，应导入全部 10 个独立 `.skill` 文件，不要把外层合集 ZIP 或旧版兼容包误当成完整套件。
-
-### 方法三：手动复制目录
-
-已安装 Git 的 Windows 用户可以在 PowerShell 中执行：
+也可以由用户自己在 PowerShell 中执行：
 
 ```powershell
 git clone https://github.com/Youks7/KeRo-SKU-Agent.git
-
-$source = Resolve-Path ".\KeRo-SKU-Agent"
-$codexHome = if ($env:CODEX_HOME) { $env:CODEX_HOME } else { Join-Path $HOME ".codex" }
-$destination = Join-Path $codexHome "skills"
-
-New-Item -ItemType Directory -Path $destination -Force | Out-Null
-
-Copy-Item `
-    -LiteralPath "$source\SKU详情页导演Skill\sku-detail-page-director" `
-    -Destination $destination `
-    -Recurse `
-    -Force
-
-Get-ChildItem -LiteralPath "$source\skills" -Directory | ForEach-Object {
-    Copy-Item -LiteralPath $_.FullName -Destination $destination -Recurse -Force
-}
+Set-Location .\KeRo-SKU-Agent
+.\scripts\install_kero_sku.ps1
 ```
 
-如果 Windows Git 报出 `SEC_E_NO_CREDENTIALS`，可改用：
+Windows 默认安装位置：
+
+```text
+C:\Users\<用户名>\.codex\agents\kero-sku-director.toml
+C:\Users\<用户名>\.codex\skills\<skill-name>\
+```
+
+## macOS：发送给 Codex 的安装指令
+
+仓库当前没有 macOS 自动安装脚本。请让 Codex 安全复制文件，而不是运行 `.ps1`：
+
+```text
+我的电脑是 macOS。
+
+请安装这个公开仓库中的 Codex 自定义 Agent：
+https://github.com/Youks7/KeRo-SKU-Agent
+
+请执行以下操作：
+
+1. 下载或克隆仓库 main 分支。
+2. 阅读 docs/INSTALL.md 和 docs/AGENT.md。
+3. 不要运行 scripts/install_kero_sku.ps1；它是 Windows 安装器。
+4. 先解析统一的目标目录 TARGET_CODEX_HOME：CODEX_HOME 已设置时使用其值；未设置时使用 $HOME/.codex。
+5. 如有需要，创建 $TARGET_CODEX_HOME/agents 和 $TARGET_CODEX_HOME/skills。
+6. 把仓库中的 .codex/agents/kero-sku-director.toml 复制到：
+   $TARGET_CODEX_HOME/agents/kero-sku-director.toml
+7. 在仓库中查找并完整复制以下十个 Skill 目录到 $TARGET_CODEX_HOME/skills：
+   sku-detail-page-director
+   sku-product-core
+   sku-taobao
+   sku-tmall
+   sku-pinduoduo
+   sku-jd
+   sku-1688
+   sku-amazon
+   sku-shopify
+   sku-tiktok-shop
+8. sku-detail-page-director 的上级目录名称可能包含中文。不要依赖固定中文路径；通过查找 sku-detail-page-director/SKILL.md 定位。
+9. 需要访问网络或写入 $TARGET_CODEX_HOME 时，向我申请权限。
+10. 已安装相同版本时跳过；存在不同版本时停止并报告，不要直接覆盖或删除。
+11. 验证 Agent 文件和十个 Skill 的 SKILL.md 全部存在。
+12. 不要把商品图片或 SKU 项目数据写进 Agent、Skill 或插件安装目录。
+13. 最后报告实际 CODEX_HOME、安装位置、十一项验证结果和是否需要重启 Codex。
+14. 如果当前环境不支持个人自定义 Agent，请明确报告原因，不要假装安装成功。
+```
+
+macOS 默认安装位置：
+
+```text
+/Users/<用户名>/.codex/agents/kero-sku-director.toml
+/Users/<用户名>/.codex/skills/<skill-name>/
+```
+
+## 安装后如何启动
+
+安装完成后先新建一个 Codex 任务。若新任务仍找不到 Agent，再完全退出并重新启动 Codex。
+
+第一次处理 SKU 时发送：
+
+```text
+请启动并把任务委派给 kero-sku-director 自定义 Agent。
+
+如果找不到这个 Agent，请停止并明确报告，不要在主 Agent 中模拟它已经运行。
+
+项目目录：[填写项目目录]
+目标平台：[填写平台和站点]
+原始产品资料位于：[填写资料目录]
+
+请先完成：
+1. 产品资料盘点；
+2. 产品事实分析；
+3. 建立 SKU_CONTEXT；
+4. 判断保真模式；
+5. 调用对应平台 Skill；
+6. 提供三个商业任务不同的详情页方向。
+
+不得编造品牌、规格、尺寸、材质、认证、功效、评价、销量、价格或售后承诺。
+方向确认前不要生成正式生产 Prompt，也不要写入最终交付目录。
+```
+
+选定方向后发送：
+
+```text
+确认方向 [填写编号]。
+
+请继续使用 kero-sku-director Agent，生成：
+1. 平台素材槽位规划；
+2. 逐素材 Prompt；
+3. Negative Prompt；
+4. 产品处理模式；
+5. 文案位置与信息层级；
+6. 后期排版要求；
+7. 产品一致性质检清单。
+
+结果保存到当前 SKU 项目目录，不要覆盖原始素材。
+```
+
+继续已有项目时发送：
+
+```text
+请启动并把任务委派给 kero-sku-director 自定义 Agent。
+
+继续项目：[填写项目目录]
+
+先读取 01-context/SKU_CONTEXT.json 和 01-context/project-state.json，
+复用已经确认的事实，从未完成阶段继续。
+如果找不到 Agent 或状态文件，请明确报告，不要模拟已经读取。
+```
+
+## 商品项目应该放在哪里
+
+GitHub 仓库和 `.codex` 保存能力源码；每个真实 SKU 使用独立项目目录：
+
+```text
+KE-2026-001/
+├── 00-inputs/
+│   ├── originals/
+│   ├── packaging/
+│   ├── documents/
+│   └── brand-assets/
+├── 01-context/
+│   ├── SKU_CONTEXT.json
+│   └── project-state.json
+├── 02-directions/
+├── 03-prompts/
+├── 04-generated/
+├── 05-layout/
+├── 06-final/
+└── 07-qa/
+```
+
+`00-inputs/originals` 默认只读。生成稿、排版稿和最终稿进入各自目录，不覆盖、不移动、不重命名原始产品资料。
+
+## 能力边界
+
+- Agent 是 Codex 自定义会话配置和流程总导演，不是常驻后台服务。
+- Agent 没有自带永久数据库；跨任务状态来自项目目录中的 JSON 文件。
+- 没有图像生产工具时，只交付 Prompt 和制作规范。
+- 没有授权的浏览器、MCP 或平台工具时，不能操作电商后台。
+- 目标平台 Skill 缺失时必须报告，不能模拟不存在的完整平台规则。
+- 竞品只能用于研究构图、节奏和信息结构，不能复制产品、Logo、文案或品牌资产。
+
+## 更新已经安装的版本
+
+先拉取仓库更新，再运行安装器。Windows 可以执行：
 
 ```powershell
-git -c http.sslBackend=openssl clone https://github.com/Youks7/KeRo-SKU-Agent.git
+Set-Location .\KeRo-SKU-Agent
+git pull origin main
+.\scripts\install_kero_sku.ps1 -Force
 ```
 
-仓库是公开仓库，只下载和使用不需要 GitHub 登录；只有修改后需要推送时才需要配置 GitHub 凭据。
+`-Force` 会先把不同版本备份到 `%CODEX_HOME%\backups\kero-sku\<时间戳>\`。macOS 更新时仍应先比较和备份现有目录，再复制新版本。
 
-更详细的安装和排错说明见 [docs/INSTALL.md](./docs/INSTALL.md) 与 [docs/TROUBLESHOOTING.md](./docs/TROUBLESHOOTING.md)。
-
-## 新电脑安装与迁移
-
-换电脑时不要只把 GitHub 仓库作为普通项目打开。打开仓库可以让 Codex 阅读文件，但要让这些工作流在其他任务中被 `$skill-name` 调用，仍需按上面的推荐方法把 10 个 Skill 安装到新电脑的 Codex Skills 目录。
-
-建议迁移顺序：
-
-1. 在新电脑安装并登录 Codex。
-2. 使用[方法一](#方法一在-codex-中从-github-安装推荐)从 `main` 分支安装全部 10 个 Skill。
-3. 新建 Codex 任务，让新安装的 Skill 被重新发现。
-4. 运行下面的完整性检查。
-5. 上传真实产品图片，并从 `$sku-detail-page-director` 开始工作。
-
-在 PowerShell 中验证安装：
+## 验证仓库
 
 ```powershell
-$codexHome = if ($env:CODEX_HOME) { $env:CODEX_HOME } else { Join-Path $HOME ".codex" }
-$expected = @(
-    "sku-detail-page-director",
-    "sku-product-core",
-    "sku-taobao",
-    "sku-tmall",
-    "sku-pinduoduo",
-    "sku-jd",
-    "sku-1688",
-    "sku-amazon",
-    "sku-shopify",
-    "sku-tiktok-shop"
-)
-
-$expected | ForEach-Object {
-    $skillFile = Join-Path $codexHome "skills\$_\SKILL.md"
-    [pscustomobject]@{
-        Skill     = $_
-        Installed = Test-Path -LiteralPath $skillFile
-        SkillFile = $skillFile
-    }
-}
+python scripts/validate_agent.py
+python scripts/validate_all_skills.py
+python scripts/validate_trigger_cases.py
 ```
 
-正确结果是 10 项的 `Installed` 全部为 `True`。如果缺少任意平台 Skill，导演入口可以识别平台，但不能保证进入对应平台的完整生产规则。
+验证覆盖 Agent 必填字段、十个 Skill 依赖、方向确认门、缺失 Skill 行为和项目文件隔离。静态验证不等于真实模型行为评审，发布前仍应在全新 Codex 任务中运行代表性案例。
 
-以后需要更新时，让 Codex 先备份本机同名 Skill、比较版本，再从 `main` 重新安装全部 10 个目录；不要只更新导演入口，也不要在未检查差异时静默覆盖本地修改。
+## 继续阅读
 
-## 第一次使用
+- [Agent 完整指南](./docs/AGENT.md)
+- [安装与更新](./docs/INSTALL.md)
+- [常见问题](./docs/TROUBLESHOOTING.md)
+- [安全与使用边界](./docs/SAFETY_AND_USAGE.md)
+- [行为场景](./tests/agent_cases.yaml)
+- [版本记录](./CHANGELOG.md)
 
-推荐只记住一个入口。上传真实产品图后，发送：
+## 许可与作者
 
-```text
-请使用 $sku-detail-page-director 从我上传的真实产品资料开始，
-在同一任务中完成事实分析、平台识别和方向提案。
-不要让我重复调用其他 Skill；方向确认前不要输出正式生图 Prompt，
-不要编造无法确认的规格、材质、认证、功效或评价。
-```
+使用和再发布前请阅读 [LICENSE](./LICENSE) 与 [NOTICE.md](./NOTICE.md)。第三方平台名称、商标、产品和工具名称归各自权利人所有。
 
-总导演会在内部复用 `$sku-product-core` 和命中的平台 Skill。高级用户已经知道平台时，也可以直接调用专用 Skill：
+作者：**秋水 Kero**
 
-```text
-请使用 $sku-amazon 基于我的真实产品资料规划 Amazon US Listing Images 和 A+ Content。
-先核对 Main Image、附图和 A+ 的不同规则，再给方向。
-```
-
-## 产品处理模式
-
-| 模式 | 适合场景 | 产品处理方式 |
-| --- | --- | --- |
-| A 严格保真 | 品牌款、高客单、外观必须完全一致 | 使用真实产品抠图，AI 只生成背景、场景、光影和留白 |
-| B AI 辅助商品图 | 平台与槽位允许、且有足够真实参考图的快速生产 | 基于指定真实产品图做有限背景替换或场景化生成；关键细节变化时退回模式 A |
-| C 概念生成 | 新品提案、方向测试、没有实物图 | 只用于概念探索，不能当作真实 SKU 成品图 |
-
-## 不可违反的规则
-
-1. 真实产品图是唯一产品身份来源。
-2. 不编造品牌、规格、尺寸、材质、认证、功效、评价和售后承诺。
-3. 材质无法确认时，只能描述“可见质感”“视觉上接近”或“真实材质待确认”。
-4. 不改变真实 SKU 的颜色、结构、比例、Logo、包装文字和关键细节。
-5. 竞品图只参考构图、节奏和信息结构，不复制产品、Logo、文案和品牌资产。
-6. AI 图像模型不负责最终文字、Logo、参数表、认证标识和 CTA，这些建议后期排版并人工校对。
-
-## 示例
-
-- [墨镜详情页示例](./examples/sunglasses-detail-page.md)
-- [淘宝移动端详情模块示例](./examples/taobao-9-16-detail-page.md)
-- [Amazon A+ 示例](./examples/amazon-a-plus-example.md)
-- [安全参考竞品示例](./examples/competitor-reference-safe-use.md)
-
-## 项目结构
-
-```text
-.codex/agents/    kero-sku-director 自定义 Agent 配置
-SKU详情页导演Skill/
-├── sku-detail-page-director/
-│   ├── SKILL.md
-│   ├── agents/openai.yaml
-│   └── references/
-└── SKU详情页导演Skill.skill
-
-skills/            公共产品核心与八个平台独立 Skill
-shared/            构建时同步的公共安全、状态和质检规则
-scripts/           Agent/Skills 安装、同步、校验、素材检查与安装包构建
-tests/             Agent 行为合同与 Skill 触发回归语料
-packages/          独立 .skill 包和全平台合集
-docs/              安装、排错、安全边界和 GitHub 设置说明
-examples/          典型电商场景使用示例
-assets/            仓库封面和展示素材
-website/           可选静态网站
-```
-
-## 版本
-
-Agent 版本：**V0.1.0**，基于现有 V1.3.0-dev 多平台 Skills 套件构建。
-
-当前开发版本：**V1.3.0-dev 多平台 Skill 拆分版**
-
-稳定基线版本：**Lite V1.2.1**，已由 Git Tag `v1.2.1` 保留。
-
-版本变化见 [CHANGELOG.md](./CHANGELOG.md)。
-
-后续规划见 [ROADMAP.md](./ROADMAP.md)。
-
-## 使用许可
-
-本仓库的 Skill、文档、规则和示例文字可以用于学习、参考和非商业使用。
-
-如果你引用或改编本仓库内容，请注明来源并链接回本仓库。
-
-请不要直接搬运本仓库内容进行商业转卖。
-
-仓库中涉及的第三方平台名称、商标、产品名和工具名，仍归各自权利人所有。
-
-更多说明见 [NOTICE.md](./NOTICE.md) 和 [LICENSE](./LICENSE)。
-
-## 关于作者
-
-**秋水 Kero**，AIGC 创作者，持续分享 AI、图片和电商视觉工作流。
-
-X（推特）：[@Isonlyonenice](https://x.com/Isonlyonenice)
+X：[@Isonlyonenice](https://x.com/Isonlyonenice)
