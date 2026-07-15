@@ -9,8 +9,8 @@
       <source media="(prefers-color-scheme: dark)" srcset="./assets/x-logo-dark.svg">
       <img src="./assets/x-logo-light.svg" alt="X" height="18">
     </picture>
-  </a><br>
-  <a href="https://github.com/Youks7/KeRo-SKU-skill">原始 Skill 仓库</a><br>
+  </a>&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/Youks7/KeRo-SKU-skill">原始 Skill 仓库</a>&nbsp;&nbsp;&nbsp;
   <a href="./">当前 Agent 仓库</a>
 </p>
 
