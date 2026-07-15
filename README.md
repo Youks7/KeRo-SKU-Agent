@@ -3,9 +3,9 @@
 <p align="center">真实 SKU 电商详情页的 Codex 总导演：读取产品资料、建立事实档案、选择平台 Skill，并在你确认方向后生成 Prompt、排版和质检方案。</p>
 
 <p align="center">
-  作者：<strong>秋水 Kero</strong> ·
-  <a href="https://x.com/Isonlyonenice">X / Twitter：@Isonlyonenice</a> ·
-  <a href="https://github.com/Youks7/KeRo-SKU-skill">原始 Skill 仓库</a> ·
+  <strong>作者：秋水 Kero</strong><br>
+  <a href="https://x.com/Isonlyonenice">X / Twitter：@Isonlyonenice</a><br>
+  <a href="https://github.com/Youks7/KeRo-SKU-skill">原始 Skill 仓库</a><br>
   <a href="./">当前 Agent 仓库</a>
 </p>
 
