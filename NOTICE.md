@@ -10,6 +10,12 @@
 
 仓库中涉及的第三方平台名称、商标、产品名、工具名和品牌资产，仍归各自权利人所有。
 
+## 第三方品牌资产
+
+- `assets/x-logo-light.svg` 与 `assets/x-logo-dark.svg` 来自 [X 官方 Brand Toolkit](https://about.x.com/en/who-we-are/brand-toolkit)，仅用于标识指向作者 X 主页的链接。
+- X 名称与 X Logo 是 X Corp. 的商标和品牌资产，使用时须遵守 [X 官方 Brand Guidelines](https://about.x.com/content/dam/about-twitter/x/brand-toolkit/x-brand-guidelines.pdf) 与相关条款。
+- 上述两个 X Logo 文件不属于本仓库的 CC BY-NC 4.0 授权内容，本仓库不对其进行再许可；相关权利仍归 X Corp. 所有。
+
 ## 使用边界
 
 - 本 Skill 不能替代真实产品资料、检测报告、认证文件和人工审核。
