@@ -1,6 +1,13 @@
-# KeRo SKU Director Agent
+<h1 align="center">KeRo SKU Director Agent</h1>
 
-真实 SKU 电商详情页的 Codex 总导演：读取产品资料、建立事实档案、选择平台 Skill，并在你确认方向后生成 Prompt、排版和质检方案。
+<p align="center">真实 SKU 电商详情页的 Codex 总导演：读取产品资料、建立事实档案、选择平台 Skill，并在你确认方向后生成 Prompt、排版和质检方案。</p>
+
+<p align="center">
+  作者：<strong>秋水 Kero</strong> ·
+  <a href="https://x.com/Isonlyonenice">X / Twitter：@Isonlyonenice</a> ·
+  <a href="https://github.com/Youks7/KeRo-SKU-skill">原始 Skill 仓库</a> ·
+  <a href="./">当前 Agent 仓库</a>
+</p>
 
 > **安装一次，调用多次。** 安装时使用这个仓库；处理商品时只需要启动 `kero-sku-director`。
 
@@ -234,10 +241,6 @@ python scripts/validate_orchestration.py
 - [Agent 行为场景](./tests/agent_cases.yaml)
 - [版本记录](./CHANGELOG.md)
 
-## 许可与作者
+## 许可
 
 使用和再发布前请阅读 [LICENSE](./LICENSE) 与 [NOTICE.md](./NOTICE.md)。第三方平台名称、商标、产品和工具名称归各自权利人所有。
-
-作者：**秋水 Kero**
-
-X：[@Isonlyonenice](https://x.com/Isonlyonenice)
