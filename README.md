@@ -4,7 +4,7 @@
 
 <p align="center">
   <strong>作者：秋水 Kero</strong><br>
-  <a href="https://x.com/Isonlyonenice">X / Twitter：@Isonlyonenice</a><br>
+  <a href="https://x.com/Isonlyonenice">作者的 X / Twitter</a><br>
   <a href="https://github.com/Youks7/KeRo-SKU-skill">原始 Skill 仓库</a><br>
   <a href="./">当前 Agent 仓库</a>
 </p>
