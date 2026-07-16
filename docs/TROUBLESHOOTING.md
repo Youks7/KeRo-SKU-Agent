@@ -35,8 +35,9 @@ Switch to strict fidelity mode:
 
 ```text
 这个 SKU 外观必须严格一致。
-请使用模式 A：严格保真。
-产品本体使用真实产品抠图，AI 只生成背景、光影、场景和留白。
+请检查 IDENTITY_CONTRACT 和当前素材槽位。
+主图、SKU 图或证据槽位使用 F0；允许场景化但模型身份不稳定时使用 F1。
+只有多视图、身份锚点、平台许可和人工审核都具备时才使用 F2。
 ```
 
 ## Product Material Was Invented

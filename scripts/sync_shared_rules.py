@@ -8,29 +8,28 @@ import hashlib
 import shutil
 from pathlib import Path
 
+from project_config import PLATFORM_SKILL_NAMES
+
 
 ROOT = Path(__file__).resolve().parents[1]
-PLATFORM_NAMES = (
-    "sku-taobao",
-    "sku-tmall",
-    "sku-pinduoduo",
-    "sku-jd",
-    "sku-1688",
-    "sku-amazon",
-    "sku-shopify",
-    "sku-tiktok-shop",
-)
 CONTRACTS = {
     ROOT / "shared" / "core-safety.md": [
         ROOT / "SKU详情页导演Skill" / "sku-detail-page-director" / "references" / "common-safety.md",
         *[
             ROOT / "skills" / name / "references" / "common-safety.md"
-            for name in PLATFORM_NAMES
+            for name in PLATFORM_SKILL_NAMES
         ],
     ],
     ROOT / "shared" / "per-unit-production.md": [
         ROOT / "skills" / name / "references" / "per-unit-production.md"
-        for name in PLATFORM_NAMES
+        for name in PLATFORM_SKILL_NAMES
+    ],
+    ROOT / "shared" / "creative-direction-system.md": [
+        ROOT / "SKU详情页导演Skill" / "sku-detail-page-director" / "references" / "creative-direction-system.md",
+        *[
+            ROOT / "skills" / name / "references" / "creative-direction-system.md"
+            for name in PLATFORM_SKILL_NAMES
+        ],
     ],
     ROOT / "shared" / "core-qa.md": [
         ROOT / "skills" / "sku-product-core" / "references" / "core-qa.md",

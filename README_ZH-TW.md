@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="./packages/kero-sku-skills-v1.3-bundle.zip">下載 V1.3 全平台合集</a> ·
+  <a href="./packages/kero-sku-skills-v1.4-bundle.zip">下載 V1.4 全平台合集</a> ·
   <a href="./docs/INSTALL.md">安裝說明</a> ·
   <a href="./examples/sunglasses-detail-page.md">查看示例</a> ·
   <a href="./shared/core-safety.md">公共安全規則</a>
@@ -39,7 +39,7 @@ sku-product-core：產品事實與保真分析
 平台原生素材、Prompt 與質檢
 ```
 
-V1.3 已將淘寶、天貓、京東、拼多多、1688、Amazon、Shopify 與 TikTok Shop 拆成獨立工作流，不再只當作不同視覺風格。
+V1.4 鎖定真實 SKU 身分，但不再把每個素材鎖死為同一張原圖像素；並加入漸進收集、多視圖證據、參考抽象、三套創意方向與 F0–F3 槽位生產。
 
 ## 適合誰使用
 
@@ -113,9 +113,9 @@ V1.3 已將淘寶、天貓、京東、拼多多、1688、Amazon、Shopify 與 Ti
 
 ### 方法一：匯入 `.skill` 文件
 
-完整使用 V1.3 時，下載合集並匯入 `sku-product-core` 和需要的平台 Skill：
+完整使用 V1.4 時，下載合集並匯入 `sku-product-core` 和需要的平台 Skill：
 
-[`kero-sku-skills-v1.3-bundle.zip`](./packages/kero-sku-skills-v1.3-bundle.zip)
+[`kero-sku-skills-v1.4-bundle.zip`](./packages/kero-sku-skills-v1.4-bundle.zip)
 
 舊地址 [`SKU详情页导演Skill.skill`](./SKU详情页导演Skill/SKU详情页导演Skill.skill) 只是兼容路由，不包含全部平台生產規則。
 
@@ -145,9 +145,10 @@ SKU详情页导演Skill/sku-detail-page-director/
 
 | 模式 | 適合場景 | 產品處理方式 |
 | --- | --- | --- |
-| A 嚴格保真 | 品牌款、高客單、外觀必須完全一致 | 使用真實產品去背，AI 只生成背景、場景、光影和留白 |
-| B AI 輔助商品圖 | 平台與槽位允許、且有足夠真實參考圖的快速生產 | 基於指定真實產品圖做有限背景或場景變更；關鍵細節偏移時退回模式 A |
-| C 概念生成 | 新品提案、方向測試、沒有實物圖 | 只用於概念探索，不能當作真實 SKU 成品圖 |
+| F0 證據原圖 | 主圖、SKU、包裝、數量與聲明證據 | 使用真實照片或忠實精修 |
+| F1 像素保留合成 | 身分敏感的商業場景 | 保留真實產品像素，重做場景、光影與版式 |
+| F2 身分條件重構 | 平台允許的附圖、詳情、A+、PDP 或生活方式槽位 | 使用多視圖、蒙版和身分錨點，並強制人工複核 |
+| F3 概念探索 | 方向測試 | 只用於概念探索，不能當作真實 SKU 成品圖 |
 
 ## 不可違反的規則
 
@@ -188,9 +189,9 @@ website/           可選靜態網站
 
 ## 版本
 
-目前開發版本：**V1.3.0-dev 多平台 Skill 拆分版**
+目前開發版本：**V1.4.0-dev 身分鎖定創意導演版**
 
-穩定基線版本：**Lite V1.2.1**。V1.3 將公共產品保真核心與淘寶、天貓、拼多多、京東、1688、Amazon、Shopify、TikTok Shop 專用 Skill 分離。
+穩定基線版本：**Lite V1.2.1**。V1.4 在多平台拆分基礎上增加身分合同、創意上下文和槽位級創意重構。
 
 版本變化見 [CHANGELOG.md](./CHANGELOG.md)。
 

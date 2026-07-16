@@ -33,8 +33,8 @@ Recommended:
 ## Stage 1 Should Clarify
 
 - The visible frame shape, lens color, bridge, hinge, and packaging details.
-- Which details must remain unchanged.
-- Whether strict fidelity mode is needed.
+- The `IDENTITY_CONTRACT`, view confidence, and which details must remain unchanged.
+- Which asset slots need F0/F1 and which may use F2.
 - Which claims cannot be used without documents.
 - Visual memory points from the product itself.
 
@@ -43,16 +43,17 @@ Recommended:
 Example reply:
 
 ```text
-选择你推荐的产品识别与结构证据方向，产品处理使用模式 A。
-画面克制，不要用“高级”替代具体产品证据。
+选择你推荐的“城市镜面”方向。
+Amazon Main Image 使用 F0；允许场景化的附图、详情或 Shopify Gallery 可以使用 F2。
+锁定镜片外轮廓、鼻梁、铰链、镜腿起点、Logo 位置和镜片色调，但不要每屏重复同一张原图抠图。
 ```
 
 ## Stage 3 Requirement
 
 ```text
 按目标平台的真实素材槽位逐单元输出，不预设 8 屏或统一 9:16。
-产品本体必须保持真实结构、镜片颜色、镜框比例、Logo 和关键细节一致。
-模式 A 的生成 Prompt 只生成背景层，不描述或重绘产品本体；产品专属细节放在真实图合成与质检字段。
+产品身份必须保持真实结构、镜片颜色、镜框比例、Logo 和关键细节一致。
+F1 的生成 Prompt 只生成场景底图；F2 必须绑定多视图、身份锚点、允许机位和人工审核闸门。
 最终文字和参数后期排版，不要让图像模型生成最终文字。
 ```
 

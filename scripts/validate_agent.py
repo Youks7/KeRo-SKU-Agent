@@ -29,6 +29,15 @@ EXPECTED_SKILLS = (
 )
 REQUIRED_INSTRUCTION_MARKERS = (
     "SKU_CONTEXT",
+    "CREATIVE_CONTEXT",
+    "IDENTITY_CONTRACT",
+    "F0",
+    "F1",
+    "F2",
+    "F3",
+    "渐进式",
+    "参考详情页语义分段",
+    "断点续作",
     "方向确认",
     "不得编造",
     "缺失",
@@ -37,11 +46,14 @@ REQUIRED_INSTRUCTION_MARKERS = (
 REQUIRED_CASE_MARKERS = {
     "unknown-marketplace": ("SKU_CONTEXT", "sku-detail-page-director", "方向确认前"),
     "known-amazon-without-context": ("sku-product-core", "sku-amazon", "编造"),
-    "reuse-confirmed-context": ("复用已确认事实", "重新提交全部资料"),
+    "reuse-confirmed-context": ("唯一权威状态", "忽略并重建", "复用已确认事实", "重新提交全部资料"),
     "direction-approval-gate": ("等待用户确认方向", "正式逐素材生产 Prompt"),
     "missing-platform-skill": ("缺失的 Skill 名称", "模拟不存在的完整平台规则"),
-    "multi-marketplace-routing": ("共享基础 SKU_CONTEXT", "独立目标上下文", "通用详情页"),
+    "multi-marketplace-routing": ("共享基础 SKU_CONTEXT", "独立目标上下文", "platform_contexts", "active_platform_context_id", "通用详情页"),
     "project-file-isolation": ("用户指定项目目录", "原始产品素材", "Agent 安装目录"),
+    "identity-not-pixels": ("锁定商品身份", "不锁死原图像素", "F0–F3"),
+    "three-creative-directions": ("三个差异化方向", "创意命题", "场景世界", "镜头与光线"),
+    "resume-creative-project": ("读取已有 CREATIVE_CONTEXT", "从当前阶段继续", "重复分析参考页"),
 }
 
 
@@ -111,16 +123,16 @@ def validate_cases(errors: list[str]) -> None:
     if not isinstance(data, dict):
         errors.append("agent cases root must be a mapping")
         return
-    if data.get("version") != 1:
-        errors.append("agent cases version must be 1")
+    if data.get("version") != 2:
+        errors.append("agent cases version must be 2")
     if data.get("agent") != "kero-sku-director":
         errors.append("agent cases target must be kero-sku-director")
     if tuple(data.get("required_skill_dependencies", ())) != EXPECTED_SKILLS:
         errors.append("agent cases Skill dependency list is incomplete or out of order")
 
     cases = data.get("cases")
-    if not isinstance(cases, list) or len(cases) < 7:
-        errors.append("agent cases must define at least seven scenarios")
+    if not isinstance(cases, list) or len(cases) < 10:
+        errors.append("agent cases must define at least ten scenarios")
         return
 
     ids: set[str] = set()

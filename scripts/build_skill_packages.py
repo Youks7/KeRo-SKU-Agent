@@ -46,7 +46,8 @@ def clean_generated_packages() -> None:
     for path in PACKAGES.iterdir():
         if path.is_file() and (
             path.suffix == ".skill"
-            or path.name in {"SHA256SUMS.txt", "kero-sku-skills-v1.3-bundle.zip"}
+            or path.name == "SHA256SUMS.txt"
+            or (path.name.startswith("kero-sku-skills-v") and path.name.endswith("-bundle.zip"))
         ):
             path.unlink()
 
@@ -56,6 +57,8 @@ def main() -> int:
     run("validate_agent.py")
     run("validate_all_skills.py")
     run("validate_orchestration.py")
+    run("validate_creative_system.py")
+    run("validate_resume_state.py")
     run("validate_production_protocol.py")
     run("validate_trigger_cases.py")
     run("validate_forward_runs.py")
@@ -66,7 +69,7 @@ def main() -> int:
     sums = PACKAGES / "SHA256SUMS.txt"
     sums.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
-    bundle = PACKAGES / "kero-sku-skills-v1.3-bundle.zip"
+    bundle = PACKAGES / "kero-sku-skills-v1.4-bundle.zip"
     with zipfile.ZipFile(bundle, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as output:
         for source in [*built, sums]:
             info = zipfile.ZipInfo(source.name, FIXED_TIME)

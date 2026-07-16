@@ -17,6 +17,13 @@ Create an independent `KeRo-SKU-Agent` repository by copying the existing `KeRo-
 9. Run the Agent validator in GitHub Actions and during deterministic package builds.
 10. Document installation, invocation, capability boundaries, update behavior, and recommended SKU project storage.
 11. Create and push only to the new GitHub repository. Keep the old repository configured as read-only upstream context locally.
+12. Diagnose product images and unify multi-view evidence before creative production.
+13. Add `IDENTITY_CONTRACT` and `CREATIVE_CONTEXT` while preserving V1 `SKU_CONTEXT` facts during migration.
+14. Replace global Mode A/B/C routing with per-slot F0–F3 modes.
+15. Segment reference detail pages semantically and store a reference-abstraction report instead of copying competitor assets.
+16. Require three directions that differ in at least three creative dimensions, then separate planning, prompt extraction, and generation.
+17. Preserve workflow state for breakpoint resume using one authoritative `SKU_CONTEXT.json`, explicit revision precedence, and recovery validation.
+18. Add an identity-anchored sunglasses regression plus an external real-SKU input gate that never commits private product images.
 
 ## Acceptance Criteria
 
@@ -28,4 +35,8 @@ Create an independent `KeRo-SKU-Agent` repository by copying the existing `KeRo-
 - A conflicting installed Agent is rejected without `-Force`.
 - With `-Force`, the conflict is backed up before replacement.
 - `git diff --check` reports no whitespace errors.
+- `python scripts/validate_creative_system.py` passes.
+- `python scripts/validate_resume_state.py` resolves the authoritative state and ignores a stale optional index.
+- `python scripts/validate_production_protocol.py` passes with the sunglasses F2 fixture.
+- A user-authorized external front, three-quarter, and back sunglasses fixture passes `validate_real_sku_fixture.py`; this does not replace generated-image identity review.
 - The final Git remote named `origin` points to `Youks7/KeRo-SKU-Agent`; the original repository is never pushed.

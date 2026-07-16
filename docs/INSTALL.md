@@ -50,9 +50,9 @@ Product images, `SKU_CONTEXT`, prompts, generated images, and QA reports belong 
 
 Installing only `.codex/agents/kero-sku-director.toml` is incomplete: the Agent orchestrates the ten Skills but does not contain their detailed rules. The methods below remain available for Skill-only use, packaging tests, or selective marketplace installation.
 
-## V1.3 Skill Selection
+## V1.4 Skill Selection
 
-V1.3 is a multi-skill suite. Install `sku-product-core` plus the platform skills you need. Install `sku-detail-page-director` when you need legacy compatibility, platform selection, or multi-platform routing.
+V1.4 is a multi-skill suite with identity-locked creative direction. Install `sku-product-core` plus the platform skills you need. Install `sku-detail-page-director` for the progressive one-entry workflow, platform selection, reference abstraction, or multi-platform routing.
 
 Prebuilt packages are in `packages/`:
 
@@ -67,16 +67,16 @@ sku-1688.skill
 sku-amazon.skill
 sku-shopify.skill
 sku-tiktok-shop.skill
-kero-sku-skills-v1.3-bundle.zip
+kero-sku-skills-v1.4-bundle.zip
 ```
 
 The bundle contains the standalone `.skill` files; import the ones you want. Each platform package is self-contained.
 
-## Method 1: Import the Complete V1.3 Suite
+## Method 1: Import the Complete V1.4 Suite
 
 Download the bundle:
 
-[`kero-sku-skills-v1.3-bundle.zip`](../packages/kero-sku-skills-v1.3-bundle.zip)
+[`kero-sku-skills-v1.4-bundle.zip`](../packages/kero-sku-skills-v1.4-bundle.zip)
 
 Extract it, then import `sku-product-core.skill` plus the marketplace `.skill` files you need. Import `sku-detail-page-director.skill` when you want platform selection, multi-platform routing, or legacy invocation.
 
@@ -171,4 +171,4 @@ You do not need to prepare everything at once. The Skill is designed to proceed 
 - Use `$sku-detail-page-director` as the recommended one-entry workflow. Advanced users may invoke a marketplace Skill directly.
 - If the reference rules are not read, confirm that the `references/` folder is inside the Skill directory.
 - If Chinese paths display incorrectly, copy the inner English folder directly.
-- If a platform skill restarts product analysis, provide the existing `SKU_CONTEXT` and tell it to preserve verified facts and fidelity mode.
+- If a platform skill restarts product analysis, provide the existing `SKU_CONTEXT`, `IDENTITY_CONTRACT`, and `CREATIVE_CONTEXT`, then tell it to resume from `workflow_state`.

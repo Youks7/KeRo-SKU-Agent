@@ -9,15 +9,15 @@ description: "Create Taobao-native product asset plans from verified real-SKU ma
 
 ## 读取规则
 
-开始时完整读取 [`references/common-safety.md`](references/common-safety.md) 和 [`references/platform-rules.md`](references/platform-rules.md)。只有用户确认方向并进入正式生产时，才完整读取 [`references/per-unit-production.md`](references/per-unit-production.md)。涉及类目尺寸、资质或发布字段时，以用户后台当前规则为准。
+开始时完整读取 [`references/common-safety.md`](references/common-safety.md)、[`references/creative-direction-system.md`](references/creative-direction-system.md) 和 [`references/platform-rules.md`](references/platform-rules.md)。只有用户确认方向并进入正式生产时，才完整读取 [`references/per-unit-production.md`](references/per-unit-production.md)。涉及类目尺寸、资质或发布字段时，以用户后台当前规则为准。
 
 ## 工作流
 
 1. 继承 `SKU_CONTEXT`；没有上下文时先使用 `$sku-product-core`，未安装时执行最小事实与保真检查。
 2. 确认淘宝市场、叶子类目、商品类型、语言、变体和目标素材槽位。
 3. 区分搜索/主图、轮播、SKU 属性图和详情模块，分别定义商业任务。
-4. 根据商品与价格带生成二至三个真实不同的策略方向，不固定套用功能、场景、高端三类。
-5. 用户确认后，严格按逐屏 / 逐模块生产协议，为每个槽位完整输出 Prompt、Negative Prompt、处理模式、文案位置、后期排版、镜头矩阵、产品一致性质检和通用 Prompt 拦截。
+4. 建立或复用 `CREATIVE_CONTEXT`，根据商品、价格带和槽位生成三个差异化创意方向，不固定套用功能、场景、高端三类。
+5. 用户确认后，按槽位创意自由度选择 F0–F3，并严格按逐屏 / 逐模块生产协议，为每个槽位完整输出 Prompt、Negative Prompt、处理模式、文案位置、后期排版、镜头矩阵、产品一致性质检和通用 Prompt 拦截。
 6. 检查标题、属性、图片、SKU、赠品、规格和详情描述一致性。
 
 ## 输出

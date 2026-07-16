@@ -1,4 +1,4 @@
-version: 1
+version: 2
 agent: kero-sku-director
 required_skill_dependencies:
   - sku-detail-page-director
@@ -33,12 +33,15 @@ cases:
         - 编造规格、材质、认证、功效或评价
 
   - id: reuse-confirmed-context
-    input: 项目目录已有 SKU_CONTEXT.json 和 project-state.json。
+    input: 项目目录已有权威 SKU_CONTEXT.json（state_revision 7）和落后的 project-state.json（state_revision 6）。
     expected:
       must:
+        - 以 SKU_CONTEXT.json 作为唯一权威状态
+        - 忽略并重建落后的 project-state.json
         - 读取并复用已确认事实
         - 从未完成阶段继续
       must_not:
+        - 用 project-state.json 覆盖 SKU_CONTEXT.json
         - 要求用户重新提交全部资料
         - 无条件重新执行产品分析
 
@@ -66,9 +69,12 @@ cases:
       must:
         - 共享基础 SKU_CONTEXT
         - 为每个平台建立独立目标上下文
+        - 将各平台进度分别写入 platform_contexts
+        - 使用 active_platform_context_id 标记当前平台
         - 分别使用命中的平台 Skill
       must_not:
         - 把多个平台压缩成同一套通用详情页
+        - 切换平台时覆盖其他平台进度
 
   - id: project-file-isolation
     input: 用户提供独立 SKU 项目目录，并要求保存上下文、Prompt 和质检结果。
@@ -79,3 +85,35 @@ cases:
       must_not:
         - 把产品素材写入 Agent 安装目录
         - 把项目结果写入 Skill 安装目录
+
+  - id: identity-not-pixels
+    input: 用户上传一副真实墨镜的正面、侧面和铰链照片，希望详情页更有创意，不要每屏硬贴同一张抠图。
+    expected:
+      must:
+        - 锁定商品身份但不锁死原图像素
+        - 建立 IDENTITY_CONTRACT
+        - 按平台素材槽位选择 F0–F3
+      must_not:
+        - 把所有详情页素材强制降级为原图抠图换背景
+        - 凭空改变镜框、镜片、鼻梁、铰链、镜腿或 Logo
+
+  - id: three-creative-directions
+    input: SKU_CONTEXT 和参考页分析已经完成，请提出详情页创意方向。
+    expected:
+      must:
+        - 输出三个差异化方向
+        - 每个方向包含创意命题、场景世界、商品角色、镜头与光线、叙事节奏和适用槽位
+        - 任意两个方向至少有三个创意维度不同
+      must_not:
+        - 只更换背景颜色、道具或高级感形容词
+        - 在方向确认前输出正式逐素材生产 Prompt
+
+  - id: resume-creative-project
+    input: 项目目录已经保存 SKU_CONTEXT、CREATIVE_CONTEXT、参考抽象报告和三套方向，用户已确认第二套方向。
+    expected:
+      must:
+        - 读取已有 CREATIVE_CONTEXT
+        - 从当前阶段继续进入平台资产规划或生产
+      must_not:
+        - 要求用户重新上传全部资料
+        - 重复分析参考页或重新生成三个方向

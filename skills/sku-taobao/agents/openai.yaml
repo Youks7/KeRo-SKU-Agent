@@ -1,4 +1,4 @@
 interface:
   display_name: "淘宝 SKU 详情页"
   short_description: "规划淘宝主图、轮播图、SKU 属性图与移动端详情模块生产"
-  default_prompt: "请使用 $sku-taobao 根据我的真实产品资料规划淘宝原生素材；先核对事实并给方向，确认方向后再输出完整逐屏生产方案。"
+  default_prompt: "请使用 $sku-taobao 根据真实产品和参考资料建立 CREATIVE_CONTEXT，提出三套淘宝原生方向，并在确认后按槽位选择 F0–F3。"

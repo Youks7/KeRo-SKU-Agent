@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="./packages/kero-sku-skills-v1.3-bundle.zip">Download the V1.3 full suite</a> ·
+  <a href="./packages/kero-sku-skills-v1.4-bundle.zip">Download the V1.4 full suite</a> ·
   <a href="./docs/INSTALL.md">Install guide</a> ·
   <a href="./examples/sunglasses-detail-page.md">Examples</a> ·
   <a href="./shared/core-safety.md">Core safety rules</a>
@@ -25,7 +25,7 @@ KeRo SKU Agent is a Codex custom agent for **real-SKU fact analysis, marketplace
 
 See the [Agent guide](./docs/AGENT.md) for installation, storage boundaries, and invocation examples.
 
-> V1.3 development status: the former all-in-one workflow is being split into a shared product-fidelity core plus dedicated Taobao, Tmall, Pinduoduo, JD, 1688, Amazon, Shopify, and TikTok Shop skills. Standalone packages are available in [`packages/`](./packages/).
+> V1.4 development status: the suite locks real-SKU identity without locking every asset to the same source pixels. It adds progressive intake, multi-view evidence, reference abstraction, three creative directions, and per-slot F0–F3 production.
 
 It is designed to protect the actual product before generating commercial visuals. The workflow is intentionally staged:
 
@@ -41,7 +41,7 @@ Dedicated marketplace skill
 Native listing, module, PDP, B2B, prompt, and QA outputs
 ```
 
-V1.3 includes dedicated Taobao, Tmall, JD.com, Pinduoduo, 1688, Amazon, Shopify, and TikTok Shop workflows instead of treating them as style variants.
+V1.4 includes dedicated Taobao, Tmall, JD.com, Pinduoduo, 1688, Amazon, Shopify, and TikTok Shop workflows instead of treating them as style variants.
 
 ## Who It Is For
 
@@ -60,7 +60,7 @@ V1.3 includes dedicated Taobao, Tmall, JD.com, Pinduoduo, 1688, Amazon, Shopify,
 | Understand the workflow | [Routed Production Workflow](#routed-production-workflow) |
 | Taobao product page | [Taobao mobile-detail module example](./examples/taobao-9-16-detail-page.md) |
 | Amazon A+ content | [Amazon A+ example](./examples/amazon-a-plus-example.md) |
-| V1.3 marketplace forward-test evidence | [Forward test report](./tests/FORWARD_TEST_REPORT.md) |
+| Marketplace forward-test evidence | [Forward test report](./tests/FORWARD_TEST_REPORT.md) |
 | Sunglasses or fashion accessories | [Sunglasses example](./examples/sunglasses-detail-page.md) |
 | Use competitor pages safely | [Competitor reference example](./examples/competitor-reference-safe-use.md) |
 | Troubleshooting | [Troubleshooting](./docs/TROUBLESHOOTING.md) |
@@ -116,9 +116,9 @@ Each screen includes:
 
 ### Option 1: Import the `.skill` File
 
-For the complete V1.3 workflow, download the bundle and import `sku-product-core` plus the marketplace packages you need:
+For the complete V1.4 workflow, download the bundle and import `sku-product-core` plus the marketplace packages you need:
 
-[`kero-sku-skills-v1.3-bundle.zip`](./packages/kero-sku-skills-v1.3-bundle.zip)
+[`kero-sku-skills-v1.4-bundle.zip`](./packages/kero-sku-skills-v1.4-bundle.zip)
 
 The legacy [`SKU详情页导演Skill.skill`](./SKU详情页导演Skill/SKU详情页导演Skill.skill) is only the compatibility router and does not contain all marketplace production rules.
 
@@ -147,9 +147,10 @@ Do not ask me to invoke other skills again. Do not produce formal image-generati
 
 | Mode | Best For | Product Handling |
 | --- | --- | --- |
-| A Strict fidelity | Branded products, premium SKUs, appearance-critical products | Use the real product cutout; AI generates only background, scene, lighting, and whitespace |
-| B AI-assisted product image | Slots where the marketplace allows it and sufficient real references exist | Perform limited background or scene changes from the specified real image; fall back to Mode A when identity details drift |
-| C Concept generation | New-product concepts or direction testing | Concept exploration only; never present it as a real SKU image |
+| F0 Evidence original | Main, SKU, packaging, quantity, and claim evidence | Use a real photograph or faithful retouch |
+| F1 Pixel-preserving composite | Identity-sensitive commercial scenes | Preserve real product pixels while rebuilding scene, light, shadow, and layout |
+| F2 Identity-conditioned reconstruction | Allowed secondary, detail, A+, PDP, or lifestyle slots | Use verified multi-view references, masks, and landmarks; require human identity review |
+| F3 Concept exploration | Direction testing | Concept-only; never present it as a real SKU image |
 
 ## Non-Negotiable Rules
 
@@ -190,7 +191,7 @@ website/           Optional static website
 
 ## Version
 
-Current development version: **V1.3.0-dev multi-platform skill suite**
+Current development version: **V1.4.0-dev identity-locked creative director**
 
 Stable baseline: **Lite V1.2.1**, preserved by the `v1.2.1` Git tag.
 

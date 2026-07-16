@@ -36,6 +36,13 @@
 
 定义首屏关键媒体、响应式裁切、图片尺寸、延迟加载和视频加载策略。为变体选择、媒体互动、FAQ、Add to Cart 和购买建立分析事件与假设。
 
+## 槽位级创意机会
+
+- 严格身份槽位：variant media、价格、库存、包含物和 Add to Cart 使用 F0 与真实数据/组件，不把交互烘焙进图片。
+- 受控创意槽位：Gallery、Details、Proof 与变体场景可用 F1/F2，保持实际商品与变体映射。
+- 自由创意槽位：Hero、生活方式、视频、3D/AR、品牌故事和编辑式 Section 可在身份合同内使用 F2；F3 只做方向探索。
+- 视觉语言：允许杂志化、沉浸式和交互式表达，但关键文字保留 HTML，并同时设计桌面、移动裁切、性能和可访问性。
+
 ## 输出结构
 
 ```text
@@ -55,4 +62,3 @@ SEO与Alt Text
 - 产品详情结构：https://help.shopify.com/en/manual/products/details/product-details-page
 - 产品变体：https://help.shopify.com/en/manual/products/variants/add-variants
 - 媒体 Alt Text：https://help.shopify.com/en/manual/products/product-media/add-alt-text
-

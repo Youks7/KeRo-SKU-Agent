@@ -1,4 +1,36 @@
-# KeRo SKU Skills V1.3 Forward Test Report
+# KeRo SKU Skills Forward Test Report
+
+## V1.4 real-sunglasses direction-gate forward test
+
+Test date: 2026-07-16
+
+Execution: independent read-only agent session, no expected answer supplied
+
+Input: three user-authorized external images of one white-frame, smoke-gradient-lens sunglasses SKU; private images stayed outside the repository
+Target: Taobao mobile detail, stopping at direction confirmation
+
+Result: **PASS WITH OUTPUT-FIDELITY LIMITATION**.
+
+- Diagnosed the images instead of treating their filenames as truth. In particular, it corrected the third image from a claimed standard back view to a rear/temple-folded view and kept hidden hinge and inner-temple structure unknown.
+- Established evidence boundaries and an `IDENTITY_CONTRACT` around the frame/lens silhouette, wide bridge, white frame, smoke gradient, ring ornament, horizontal connector, diamond-pattern temple, and curved temple tip.
+- Refused to infer material, gemstone type, optical performance, dimensions, brand, model, fit, packaging, certification, or price.
+- Proposed three directions—identity evidence board, ring-to-diamond detail chain, and urban-wear transition—that differed across thesis, visual world, product role, camera/light, and narrative arc.
+- Routed proof slots to F0, pixel-preserving environments to F1, new-view/wear scenes to F2 `human-review`, and concept work to F3 `direction-only`.
+- Stopped before formal production Prompt because no direction had been selected.
+
+The test found no contract-level failure. It did identify real production constraints: the supplied source may be strongly retouched or rendered; white-on-white extraction risks edge loss; dimensions and optical claims are unavailable; the folded rear view does not prove hidden structure. No actual image-generation tool was run, so this test does not prove F2 output fidelity.
+
+## V1.4 deterministic addendum
+
+- `SKU_CONTEXT V2`, `IDENTITY_CONTRACT`, `CREATIVE_CONTEXT`, F0–F3, reference abstraction, and breakpoint resume are statically validated.
+- All eight platform skills declare strict, controlled, and free creative slots.
+- The sunglasses direction fixture requires three directions that differ across thesis, visual world, product role, camera/light, and narrative arc.
+- The F2 sunglasses fixture binds front, side, and hinge evidence and remains `human-review` until identity landmarks pass.
+- `validate_resume_state.py` proves that the authoritative `SKU_CONTEXT.json` wins over a stale optional index.
+- `validate_real_sku_fixture.py` passed three external 1448×1086 views with independent hashes without copying them into the repository.
+- These checks prove the current contracts, input integrity, and one independent direction-gate execution—not actual image-generation fidelity on every model.
+
+## V1.3 historical report
 
 Test date: 2026-07-12  
 Branch: `codex/multi-platform-skills-v1.3`
@@ -48,7 +80,7 @@ All workflows used the same sanitized sunglasses `SKU_CONTEXT`. The fixture inte
 
 The eight platform outputs were executed sequentially by one agent with a shared fixture. They validate workflow logic and output differentiation, but they do not prove implicit invocation or multi-turn state retention in eight independent clean model sessions.
 
-Production release should therefore remain `v1.3.0-dev` until clean-session testing is completed with an authenticated Codex CLI or equivalent isolated sessions and at least one authorized real-product fixture.
+At that V1.3 test point, the release remained `v1.3.0-dev` pending clean-session testing. V1.4 now adds one independent real-product direction-gate test, while actual F2 generated-output fidelity remains a separate unresolved production check.
 
 ## Per-unit production protocol addendum
 

@@ -9,15 +9,15 @@ description: "Create Pinduoduo-native product image and detail plans while verif
 
 ## 读取规则
 
-开始时完整读取 [`references/common-safety.md`](references/common-safety.md) 和 [`references/platform-rules.md`](references/platform-rules.md)。只有用户确认方向并进入正式生产时，才完整读取 [`references/per-unit-production.md`](references/per-unit-production.md)。平台尺寸和类目要求以商家后台当前提示为准。
+开始时完整读取 [`references/common-safety.md`](references/common-safety.md)、[`references/creative-direction-system.md`](references/creative-direction-system.md) 和 [`references/platform-rules.md`](references/platform-rules.md)。只有用户确认方向并进入正式生产时，才完整读取 [`references/per-unit-production.md`](references/per-unit-production.md)。平台尺寸和类目要求以商家后台当前提示为准。
 
 ## 工作流
 
 1. 继承 `SKU_CONTEXT`；没有上下文时先使用 `$sku-product-core`，未安装时执行最小事实与保真检查，再补充所有变体、价格、数量、套装、赠品和交付内容。
 2. 建立 SKU—价格—图片一致性矩阵，识别最低价 SKU 与曝光商品的差异。
 3. 区分曝光图、轮播图、SKU 图和详情图。
-4. 生成以价值确定性、使用证明或规格清晰为核心的动态方向，不默认做廉价促销风。
-5. 确认方向后，严格按逐屏 / 逐模块生产协议，为每个槽位完整输出 Prompt、Negative Prompt、处理模式、文案位置、后期排版、镜头矩阵、产品一致性质检和通用 Prompt 拦截。
+4. 建立或复用 `CREATIVE_CONTEXT`，生成三个差异化方向，以价值确定性、使用证明或规格清晰为核心，不默认做廉价促销风。
+5. 确认方向后，按槽位创意自由度选择 F0–F3，并严格按逐屏 / 逐模块生产协议，为每个槽位完整输出 Prompt、Negative Prompt、处理模式、文案位置、后期排版、镜头矩阵、产品一致性质检和通用 Prompt 拦截。
 6. 检查品牌、材质、型号、功效、数量和活动标识是否相互一致且有证据。
 
 ## 输出

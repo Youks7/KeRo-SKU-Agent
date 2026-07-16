@@ -6,21 +6,13 @@ from __future__ import annotations
 from pathlib import Path
 
 import yaml
+from project_config import PLATFORM_SKILL_NAMES
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PLATFORMS = (
-    "sku-taobao",
-    "sku-tmall",
-    "sku-pinduoduo",
-    "sku-jd",
-    "sku-1688",
-    "sku-amazon",
-    "sku-shopify",
-    "sku-tiktok-shop",
-)
 EXPECTED_SHARED = {
     "core-safety.md",
+    "creative-direction-system.md",
     "per-unit-production.md",
     "core-qa.md",
     "sku-context-schema.md",
@@ -46,6 +38,11 @@ def main() -> int:
             "不要让用户另开任务或重新粘贴资料",
             "不要只返回 Skill 名称让用户自己再次调用",
             "用户确认方向后",
+            "渐进式收集",
+            "参考详情页语义分段",
+            "三个差异化创意方向",
+            "CREATIVE_CONTEXT",
+            "断点续作",
         ),
         "router",
         errors,
@@ -55,13 +52,14 @@ def main() -> int:
     require(default_prompt, ("$sku-detail-page-director", "同一任务", "不要让我重复调用"), "router default_prompt", errors)
 
     stage_gate = "只有用户确认方向并进入正式生产时，才完整读取"
-    for name in PLATFORMS:
+    for name in PLATFORM_SKILL_NAMES:
         text = (ROOT / "skills" / name / "SKILL.md").read_text(encoding="utf-8-sig")
         require(
             text,
             (
                 stage_gate,
                 "references/per-unit-production.md",
+                "references/creative-direction-system.md",
                 "没有上下文时先使用 `$sku-product-core`",
                 "未安装时执行最小事实与保真检查",
             ),
@@ -76,6 +74,8 @@ def main() -> int:
             "references/core-qa.md",
             "references/sku-context-schema.md",
             "references/competitor-research.md",
+            "IDENTITY_CONTRACT",
+            "F0–F3",
             "只有用户要求竞品扫描",
         ),
         "sku-product-core",

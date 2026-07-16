@@ -57,10 +57,9 @@ def main() -> int:
 
     print(f"[PASS] {len(texts)} marketplace forward-run records")
     print("[PASS] common workflow stages, platform markers, evidence gating, and forbidden-claim checks")
-    print("LIMITATION: single-agent shared-context execution; clean-session model invocation remains unverified")
+    print("LIMITATION: eight historical final-output runs share one agent; V1.4 has one independent direction-gate test, but F2 output fidelity remains unverified")
     return 0
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

@@ -13,7 +13,7 @@
 
 ### Main Image
 
-使用实际售卖产品，默认白底和模式 A。画面只包含买家会收到的商品或允许展示的实际包装。不得添加促销文字、角标、边框、水印、虚假配件或场景道具。按目标类目当前规则核对产品占比、尺寸和文件要求。
+使用实际售卖产品，默认白底和 F0。画面只包含买家会收到的商品或允许展示的实际包装。不得添加促销文字、角标、边框、水印、虚假配件或场景道具。按目标类目当前规则核对产品占比、尺寸和文件要求。
 
 ### Secondary Images
 
@@ -35,6 +35,13 @@
 
 翻译单位、术语、警示和使用场景，不只翻译句子。保留证据含义，不把“可能适用”翻成确定兼容，不把视觉质感翻成材质事实。
 
+## 槽位级创意机会
+
+- 严格身份槽位：Main Image、variation identity 和包装/包含物证据使用 F0，并服从目标站点与类目当前规则。
+- 受控创意槽位：Secondary Images 可用 F1/F2 展示角度、细节、尺度、使用与生活方式；不得改变售卖商品或加入虚假包含物。
+- 自由创意槽位：A+、Premium A+、Brand Story 和视频 Brief 可用 F2 建立品牌世界、模块节奏、热点和比较叙事；F3 只用于提案。
+- 视觉语言：把 Main Image 的客观识别与 A+ 的品牌/教育表达分开，不因主图严格而让整页失去场景、人物和故事。
+
 ## 输出结构
 
 ```text
@@ -55,4 +62,3 @@ Comparison Chart
 - Amazon 商品详情优化：https://advertising.amazon.com/en-gb/library/guides/improve-your-products-for-advertising
 - Amazon A+ 与品牌管理：https://sell.amazon.com/blog/amazon-brand-management
 - Seller Central 产品图片要求：https://sellercentral.amazon.com/seller-forums/discussions/t/4b3c4c39-6f8c-4312-aa0e-99982eb8f5e1
-

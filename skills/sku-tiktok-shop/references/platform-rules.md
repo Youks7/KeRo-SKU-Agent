@@ -33,6 +33,13 @@ Shoppable Photo、短视频、达人内容和直播不是 PDP 主图。内容素
 
 食品、儿童用品、美妆、健康和受限商品先读取当地类目政策、警示和披露要求。缺少法定信息时标记 blocked。
 
+## 槽位级创意机会
+
+- 严格身份槽位：PDP Main Image 和 variation images 使用 F0；已核对政策禁止数字渲染或覆盖元素时不使用 F2。
+- 受控创意槽位：Additional Images 与 Shop Ads 源素材可按当地规则使用 F1/F2 展示角度、细节、尺度、场景和使用。
+- 自由创意槽位：Shoppable Photo、短视频、达人和直播交接允许人物、动作、演示、制作/包装过程和原创故事；F3 只做内容方向。
+- 视觉语言：PDP 负责准确识别，内容线负责前几秒钩子、真实动作、多角度和持续创意变体；两条生产线共享同一身份合同。
+
 ## 输出结构
 
 ```text
@@ -52,4 +59,3 @@ Video/Creator Brief
 - 美国 Product Listing Policy：https://seller-us.tiktok.com/university/essay?knowledge_id=3196690250417921
 - Product Shopping Ads：https://ads.tiktok.com/help/article/how-to-create-product-shopping-ads
 - 英国 Add a New Product：https://seller-uk.tiktok.com/university/essay?knowledge_id=7753824408553217
-

@@ -1,4 +1,4 @@
 interface:
   display_name: "Amazon SKU 页面"
   short_description: "规划 Amazon 主图、附图、A+ 内容、品牌故事与目标站点本地化生产"
-  default_prompt: "请使用 $sku-amazon 根据我的真实产品资料规划目标站点的 Listing Images 与 A+；先核对站点、资格和事实再给方向。"
+  default_prompt: "请使用 $sku-amazon 核对站点、资格和真实商品，建立 CREATIVE_CONTEXT 与三套方向，并分别为 Main、Secondary 和 A+ 选择 F0–F3。"

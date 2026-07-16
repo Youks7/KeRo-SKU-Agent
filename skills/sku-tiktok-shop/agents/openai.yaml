@@ -1,4 +1,4 @@
 interface:
   display_name: "TikTok Shop SKU 页面"
   short_description: "规划 TikTok Shop 合规 PDP 图片、SKU 变体图、购物广告源图与内容素材"
-  default_prompt: "请使用 $sku-tiktok-shop 根据我的真实产品资料规划目标地区 PDP 图片；先区分主图、变体、广告源和内容素材再给方向。"
+  default_prompt: "请使用 $sku-tiktok-shop 区分目标地区 PDP、变体、广告源和内容素材，建立 CREATIVE_CONTEXT 与三套方向，并按槽位选择 F0–F3。"

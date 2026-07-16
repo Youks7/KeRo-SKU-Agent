@@ -1,0 +1,29 @@
+{
+  "sku_context_version": 2,
+  "creative_context": {
+    "selected_direction": "direction-b",
+    "approval_status": "approved"
+  },
+  "workflow_state": {
+    "state_revision": 2,
+    "current_stage": "production",
+    "completed_stages": [
+      "intake",
+      "product_core",
+      "reference_analysis",
+      "platform_planning",
+      "directions",
+      "direction_approval"
+    ],
+    "planned_units": [
+      "taobao-detail-01",
+      "taobao-detail-02"
+    ],
+    "completed_units": [
+      "taobao-detail-01"
+    ],
+    "repair_tasks": [],
+    "human_review_items": [],
+    "resume_from": null
+  }
+}

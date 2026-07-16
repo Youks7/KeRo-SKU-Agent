@@ -1,6 +1,6 @@
 ---
 name: sku-product-core
-description: "Analyze real product images and supplied documents to establish verified SKU identity, evidence boundaries, fidelity mode, product-specific visual memory points, and a reusable SKU_CONTEXT. Use before platform production when facts are not yet normalized, when multiple marketplaces share one product, or when users ask for 产品事实分析、商品图保真、禁止编造、模式 A/B/C、竞品安全参考或跨平台 SKU 上下文。"
+description: "Analyze real product images and supplied documents to establish verified SKU identity, evidence boundaries, an IDENTITY_CONTRACT, multi-view confidence, product-specific visual memory points, and a reusable SKU_CONTEXT V2. Use before platform production when facts are not normalized, when multiple marketplaces share one product, or when users ask for 产品事实分析、身份锁定、商品图保真、F0–F3、禁止编造、参考安全抽象或跨平台 SKU 上下文。"
 ---
 
 # SKU 产品事实核心
@@ -21,11 +21,13 @@ description: "Analyze real product images and supplied documents to establish ve
 
 1. 盘点产品图、包装图、规格表、认证、品牌资产和用户陈述。
 2. 分开记录已确认事实、谨慎推断、禁止主张和缺失证据。
-3. 判断模式 A、B 或 C，并说明允许修改与禁止修改的内容。
-4. 提炼三个有图片或资料证据的产品专属视觉记忆点。
-5. 标记高风险类目和需要人工或法律复核的主张。
-6. 按标准结构输出 `SKU_CONTEXT`。
-7. 每轮只提出真正会改变真实性或平台路线的问题，其他未知项保持为空。
+3. 诊断每张产品图的质量、角色与视角，统一同一 SKU 的多视图并记录 `view_confidence`。
+4. 建立 `IDENTITY_CONTRACT`，分开不可变、有限可变、未知特征及允许/禁止变换。
+5. 提炼三个有图片或资料证据的产品专属视觉记忆点。
+6. 为每个候选平台槽位建议 F0–F3，不用全局模式锁死全部素材。
+7. 标记高风险类目和需要人工或法律复核的主张。
+8. 按标准结构输出 `SKU_CONTEXT V2`，供后续建立 `CREATIVE_CONTEXT`。
+9. 每轮只提出真正会改变真实性或平台路线的问题，其他未知项保持为空。
 
 ## 边界
 

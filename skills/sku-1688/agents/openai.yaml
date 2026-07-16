@@ -1,4 +1,4 @@
 interface:
   display_name: "1688 批发商品页"
   short_description: "规划 1688 批发商品页、阶梯价格、定制能力、生产交付信息与采购转化"
-  default_prompt: "请使用 $sku-1688 根据商家真实资料规划批发采购页，先核对 MOQ、阶梯价、定制和交付证据，不要用行业平均值补空。"
+  default_prompt: "请使用 $sku-1688 核对 MOQ、价格、定制和交付证据，建立 CREATIVE_CONTEXT 与三套采购创意方向；不要用行业平均值补空。"

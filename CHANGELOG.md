@@ -2,6 +2,22 @@
 
 All notable changes to this repository are documented here.
 
+## v1.4.0-dev
+
+- Reframed fidelity from global source-pixel reuse to an explicit SKU identity contract.
+- Added progressive intake, product-image diagnosis, multi-view confidence, reference-page semantic segmentation, reference abstraction, and breakpoint resume.
+- Added `SKU_CONTEXT V2`, `IDENTITY_CONTRACT`, and `CREATIVE_CONTEXT`.
+- Replaced global Mode A/B/C with per-asset-slot F0 evidence, F1 pixel-preserving composite, F2 identity-conditioned reconstruction, and F3 concept exploration.
+- Required three creative directions that differ in at least three of five dimensions: thesis, visual world, product role, camera/light, and narrative arc.
+- Added strict, controlled, and free creative opportunity maps for all eight marketplace skills.
+- Added planning—prompt—generation separation, creative-quality and reference-rights gates, and an identity-anchored sunglasses regression.
+- Made `SKU_CONTEXT.json` the single authoritative persisted state, with revision precedence, atomic write-back guidance, and an executable stale-index recovery test.
+- Added persisted per-platform contexts, active-platform selection, and executable fallback to the first unfinished unit when `resume_from` is empty.
+- Made resume resolution stage-gated so prefilled production units cannot bypass direction approval.
+- Added an external real-sunglasses multi-view input validator and regression record without committing private product images; F2 outputs remain human-reviewed.
+- Expanded the F1 regression from a flat gray background to architectural lighting, environment color matching, contact shadows, perspective, edge spill, and repair routing.
+- Closed single-image F2 routing and made `repair-required` part of the canonical per-unit release-state set.
+
 ## v0.1.0-agent
 
 - Created an independent KeRo SKU Agent repository from the existing Skill suite while leaving the source repository unchanged.

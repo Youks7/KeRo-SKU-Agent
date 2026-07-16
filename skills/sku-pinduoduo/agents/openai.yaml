@@ -1,4 +1,4 @@
 interface:
   display_name: "拼多多 SKU 详情页"
   short_description: "规划拼多多商品素材并核对 SKU、价格、规格、赠品与图片一致性"
-  default_prompt: "请使用 $sku-pinduoduo 规划商品素材并核对 SKU、价格、规格、图片和交付内容；确认方向前不要输出正式生产 Prompt。"
+  default_prompt: "请使用 $sku-pinduoduo 核对 SKU、价格、图片和交付内容，建立 CREATIVE_CONTEXT 与三套差异化方向，确认后再按槽位选择 F0–F3。"

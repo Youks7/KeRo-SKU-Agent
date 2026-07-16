@@ -1,0 +1,23 @@
+{
+  "sku_context_version": 2,
+  "creative_context": {
+    "selected_direction": null,
+    "approval_status": "pending"
+  },
+  "workflow_state": {
+    "state_revision": 4,
+    "current_stage": "direction_approval",
+    "completed_stages": [
+      "intake",
+      "product_core",
+      "reference_analysis",
+      "platform_planning",
+      "directions"
+    ],
+    "planned_units": [
+      "amazon-a-plus-01"
+    ],
+    "completed_units": [],
+    "resume_from": "amazon-a-plus-01"
+  }
+}

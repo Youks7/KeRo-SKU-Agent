@@ -1,0 +1,81 @@
+{
+  "sku_context_version": 2,
+  "product_identity": {
+    "category": "sunglasses"
+  },
+  "platform_contexts": [
+    {
+      "context_id": "taobao-cn",
+      "target": {
+        "platform": "taobao",
+        "marketplace_site": "CN"
+      },
+      "direction_state": {
+        "selected_direction": "direction-a",
+        "approval_status": "approved"
+      },
+      "production": {},
+      "workflow_state": {
+        "current_stage": "qa",
+        "completed_stages": [
+          "intake",
+          "product_core",
+          "reference_analysis",
+          "platform_planning",
+          "directions",
+          "direction_approval",
+          "production"
+        ],
+        "planned_units": [
+          "taobao-detail-01"
+        ],
+        "completed_units": [
+          "taobao-detail-01"
+        ],
+        "resume_from": null
+      },
+      "qa": {}
+    },
+    {
+      "context_id": "amazon-us",
+      "target": {
+        "platform": "amazon",
+        "marketplace_site": "US"
+      },
+      "direction_state": {
+        "selected_direction": "direction-b",
+        "approval_status": "approved"
+      },
+      "production": {},
+      "workflow_state": {
+        "current_stage": "production",
+        "completed_stages": [
+          "intake",
+          "product_core",
+          "reference_analysis",
+          "platform_planning",
+          "directions",
+          "direction_approval"
+        ],
+        "planned_units": [
+          "amazon-a-plus-01",
+          "amazon-a-plus-02"
+        ],
+        "completed_units": [
+          "amazon-a-plus-01"
+        ],
+        "resume_from": null
+      },
+      "qa": {}
+    }
+  ],
+  "active_platform_context_id": "amazon-us",
+  "workflow_state": {
+    "state_revision": 3,
+    "current_stage": "multi_platform",
+    "completed_stages": [],
+    "planned_units": [],
+    "completed_units": [],
+    "resume_from": null
+  }
+}

@@ -1,4 +1,4 @@
 interface:
   display_name: "Shopify SKU 页面"
   short_description: "规划 Shopify 响应式 PDP、产品媒体、变体、SEO、可访问性与转化模块"
-  default_prompt: "请使用 $sku-shopify 根据我的真实产品资料规划响应式 PDP；关键内容使用 HTML 和真实组件，确认方向后再输出媒体生产单元。"
+  default_prompt: "请使用 $sku-shopify 建立 CREATIVE_CONTEXT 与三套响应式 PDP 方向，关键内容使用 HTML 和真实组件，确认后按槽位选择 F0–F3。"

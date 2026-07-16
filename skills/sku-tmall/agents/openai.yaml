@@ -1,4 +1,4 @@
 interface:
   display_name: "天猫 SKU 详情页"
   short_description: "规划天猫品牌商品素材、平台资质、品牌资产一致性与高保真详情页"
-  default_prompt: "请使用 $sku-tmall 根据我的真实产品与品牌资料规划天猫商品页；先核对品牌、资质和 SKU 事实，确认方向后再生产。"
+  default_prompt: "请使用 $sku-tmall 核对真实产品、品牌和资质，建立 CREATIVE_CONTEXT，提出三套天猫品牌方向，并在确认后按槽位选择 F0–F3。"

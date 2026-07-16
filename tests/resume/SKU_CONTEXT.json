@@ -1,0 +1,46 @@
+{
+  "sku_context_version": 2,
+  "product_identity": {
+    "category": "sunglasses",
+    "product_name": "real multi-view regression SKU"
+  },
+  "identity_contract": {
+    "immutable_traits": [
+      "lens outline",
+      "bridge",
+      "hinge",
+      "temple origin",
+      "logo placement",
+      "lens tone"
+    ]
+  },
+  "creative_context": {
+    "selected_direction": "direction-b",
+    "approval_status": "approved"
+  },
+  "workflow_state": {
+    "state_revision": 7,
+    "updated_at": "2026-07-16T00:00:00+08:00",
+    "current_stage": "production",
+    "completed_stages": [
+      "intake",
+      "product_core",
+      "reference_analysis",
+      "platform_planning",
+      "directions",
+      "direction_approval"
+    ],
+    "planned_units": [
+      "taobao-detail-01",
+      "taobao-detail-02"
+    ],
+    "completed_units": [
+      "taobao-detail-01"
+    ],
+    "repair_tasks": [],
+    "human_review_items": [
+      "f2-wear-scene-identity"
+    ],
+    "resume_from": "taobao-detail-02"
+  }
+}

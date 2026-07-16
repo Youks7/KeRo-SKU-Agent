@@ -1,8 +1,14 @@
-sku_context_version: 1
+sku_context_version: 2
 product_identity:
   category: sunglasses
   product_name: null
   source_images: [front.jpg, side.jpg, hinge.jpg, package.jpg]
+  source_image_roles: [front identity, side identity, hinge detail, packaging evidence]
+  view_confidence:
+    front: high
+    side: high
+    hinge: high
+    hidden_back: unknown
   visible_structure: [black full-rim frame, two visible hinges]
   primary_colors: [black frame, dark lenses]
   included_items: []
@@ -26,9 +32,24 @@ facts:
     - lens performance report
     - material specification
   evidence_sources: [front.jpg, side.jpg, hinge.jpg, package.jpg]
+  claim_evidence_map: []
+identity_contract:
+  immutable_traits: [lens outline, bridge geometry, hinge, temple starting point, logo position, lens tint]
+  bounded_traits: [new view only when supported by front and side evidence, environmental reflection cannot shift lens tint]
+  unknown_traits: [hidden back structure, exact material]
+  allowed_transformations: [scene, lighting, camera within view evidence, person, post-production graphics]
+  prohibited_transformations: [frame redesign, lens recolor, invented hinge, moved logo, invented packaging]
+  identity_landmarks: [lens outline, bridge, hinge, temple starting point, logo position, lens tint]
+  variant_delivery_map: []
 production:
-  handling_mode: A
-  handling_reason: real sellable SKU with identity-sensitive frame and lens geometry
+  default_handling_mode: F1
+  handling_reason: use F0 for strict slots, F1 for composites, and reviewed F2 for allowed creative slots
+  creative_freedom_by_slot:
+    strict_identity: {score: 0, mode: F0}
+    controlled_detail: {score: 2, mode: F1}
+    approved_lifestyle: {score: 3, mode: F2}
+  tool_capabilities: [multi-image reference, mask, negative prompt]
+  source_and_mask_plan: []
   allowed_edits: [background, lighting, natural contact shadow, layout-safe negative space]
   prohibited_edits: [frame geometry, lens color, hinge, bridge, logo, packaging text, included-item count]
   fidelity_requirements: [use real product cutout, compare every output to source images]
@@ -42,4 +63,37 @@ visual_memory_points:
   - point: visible hinge geometry
     product_evidence: hinge.jpg
     suitable_uses: [detail proof]
-
+creative_context:
+  business_goal: build recognition and a creative wearing story without unverified optical claims
+  target_audience: null
+  purchase_barrier: whether the frame shape and wearing look are clear
+  desired_customer_feeling: design clarity and confident styling
+  product_truth_to_dramatize: [black full-rim silhouette, frame-to-temple transition, visible hinge]
+  creative_thesis: null
+  product_role: null
+  visual_world: null
+  camera_grammar: []
+  lighting_grammar: []
+  material_grammar: []
+  graphic_system: []
+  narrative_arc: []
+  cliches_to_avoid: [generic black-gold luxury, unsupported UV shield, generic laboratory]
+  reference_abstraction_reports: []
+  directions: []
+  selected_direction: null
+  rejected_directions: []
+  approval_status: pending
+workflow_state:
+  current_stage: creative_direction
+  completed_stages: [intake, image_diagnosis, facts, identity_contract]
+  completed_units: []
+  repair_tasks: []
+  human_review_items: []
+  resume_from: creative_direction
+qa:
+  fact_status: pass
+  identity_status: pending
+  creative_quality_status: pending
+  platform_status: pending
+  reference_rights_status: pending
+  human_review_required: true

@@ -2,7 +2,18 @@
 
 This roadmap tracks possible future improvements for KeRo SKU Skill.
 
-## V1.3 In Progress
+## V1.4 Identity-Locked Creative Director
+
+- [x] Add progressive intake, product-image diagnosis, multi-view alignment, and semantic reference-page segmentation.
+- [x] Add `IDENTITY_CONTRACT`, `CREATIVE_CONTEXT`, reference abstraction, single-authority breakpoint resume, and independent per-platform progress.
+- [x] Replace global Mode A/B/C with per-slot F0–F3 production modes.
+- [x] Require three materially different creative directions and a planning—prompt—generation gate.
+- [x] Add platform-specific strict, controlled, and free creative slots.
+- [x] Add visual-quality gates, an identity-anchored fixture, and a user-authorized external real-sunglasses input regression.
+- [x] Forward-test the V1.4 direction gate in an independent clean agent session with user-authorized real product images.
+- [ ] Run actual F2 image generation across supported tools and record human identity-review outcomes; input validation alone is not output-fidelity proof.
+
+## V1.3 Completed
 
 - [x] Split platform-neutral product facts and fidelity rules into `sku-product-core`.
 - [x] Convert the legacy skill into a compatibility and multi-platform router.

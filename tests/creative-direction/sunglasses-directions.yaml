@@ -1,0 +1,65 @@
+version: 1
+product: 真实黑色全框墨镜
+source_images:
+  - front.jpg
+  - side.jpg
+  - hinge.jpg
+
+facts:
+  verified:
+    - 黑色全框外观
+    - 正面、侧面与铰链视图来自同一 SKU
+  prohibited_claims:
+    - 未验证偏光
+    - 未验证 UV 等级
+    - 未验证防蓝光
+    - 未验证具体材质
+
+identity_contract:
+  immutable_traits:
+    - 镜片外轮廓
+    - 鼻梁
+    - 铰链
+    - 镜腿起点
+    - Logo 位置
+    - 镜片色调
+  bounded_traits:
+    - 只生成有多视图证据支持的新机位
+    - 环境反射不得改变镜片真实色调
+  prohibited_transformations:
+    - 改变镜框比例
+    - 发明隐藏结构
+    - 增删 Logo 或包装
+
+creative_context:
+  directions:
+    - id: D1
+      name: 光学雕塑
+      thesis: 把有证据的镜框轮廓作为可观察的设计对象
+      visual_world: 半透明亚克力、磨砂玻璃与浅色几何台面
+      product_role: 空间中的精密雕塑主体
+      camera_and_light: 英雄斜侧、铰链微距、硬边轮廓光与克制渐变影
+      narrative_arc: 轮廓识别—结构细节—佩戴尺度—收束
+      identity_anchors: [镜片外轮廓, 铰链, 鼻梁]
+      suitable_slots: [淘宝详情模块, Amazon Secondary, Shopify Gallery]
+      unsuitable_slots: [Amazon Main Image, TikTok Shop PDP Main Image]
+    - id: D2
+      name: 城市镜面
+      thesis: 让镜框几何与真实城市建筑线条形成穿搭呼应
+      visual_world: 玻璃幕墙、石材、金属栏杆与城市步行动线
+      product_role: 人物造型中的视觉焦点
+      camera_and_light: 佩戴中景、侧面移动镜头、自然硬日光与真实环境反射
+      narrative_arc: 城市进入—人物佩戴—侧面结构—穿搭回看
+      identity_anchors: [镜片外轮廓, 镜腿起点, Logo 位置]
+      suitable_slots: [天猫轮播, Shopify Hero, TikTok 推广内容]
+      unsuitable_slots: [Amazon Main Image, SKU 属性图]
+    - id: D3
+      name: 旅行日光
+      thesis: 用真实出行时刻表达轻松佩戴氛围而不暗示未验证性能
+      visual_world: 暖色石墙、车窗、海边步道与织物收纳场景
+      product_role: 出行动作中的随身物件
+      camera_and_light: 手持与收纳近景、金色时段侧逆光、柔和接触影
+      narrative_arc: 取出—佩戴—行走—收纳与包装
+      identity_anchors: [镜片色调, 鼻梁, Logo 位置]
+      suitable_slots: [淘宝轮播, Shopify Lifestyle, TikTok 推广内容]
+      unsuitable_slots: [Amazon Main Image, 京东参数证据图]

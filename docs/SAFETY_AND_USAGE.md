@@ -2,13 +2,14 @@
 
 KeRo SKU Skill is designed for real-SKU e-commerce workflows. It should help you plan product pages and prompts without inventing product facts.
 
-V1.3 separates shared product evidence from marketplace production. Run `sku-product-core` once, preserve the resulting `SKU_CONTEXT`, and let each platform skill add only platform-specific fields.
+V1.4 separates product truth from presentation freedom. Run `sku-product-core` once, preserve `SKU_CONTEXT V2` and the `IDENTITY_CONTRACT`, then let the director create a reusable `CREATIVE_CONTEXT` and assign F0–F3 per marketplace asset slot.
 
 ## Core Safety Rules
 
 - Do not invent product specifications.
 - Do not invent material, certification, patent, claim, user review, sales number, or ranking.
-- Do not alter the real SKU's color, structure, logo, packaging, or key details.
+- Lock the real SKU's identity; do not treat the source pixels as the only possible composition.
+- Do not alter the real SKU's color, structure, proportions, logo, packaging, or key details.
 - Do not copy competitor product designs, logos, text, packaging, or brand assets.
 - Do not treat AI-generated images as final commercial assets without human QA.
 - Do not let a platform skill overwrite verified product facts or upgrade an inference without new evidence.
@@ -24,14 +25,24 @@ Only treat information as fact when it is:
 
 If something is uncertain, label it as uncertain or avoid using it.
 
+## Fidelity And Creative Freedom
+
+- F0 uses a real photograph or faithful retouch for evidence-sensitive slots.
+- F1 preserves real product pixels while rebuilding the scene, light, shadow, material world, and layout.
+- F2 uses multiple verified views, masks, and identity landmarks for controlled new views or wearing scenes; it always requires human identity review.
+- F3 is concept-only and cannot be published as a real-SKU asset.
+
+Choose the mode per asset slot. A strict main image does not force secondary images, A+, PDP sections, or approved detail modules to reuse the same cutout.
+
 ## Competitor References
 
-Safe use:
+Safe use after semantic segmentation and a reference-abstraction report:
 
 - Composition rhythm
 - Visual hierarchy
 - Information structure
 - General lighting or background direction
+- Camera grammar, material language, information density, and narrative rhythm
 
 Unsafe use:
 
@@ -40,12 +51,13 @@ Unsafe use:
 - Copying text
 - Copying unique brand visual assets
 - Presenting a similar product as the user's SKU
+- Copying a unique campaign symbol, person identity, or one-to-one module layout
 
 ## Final Commercial QA
 
 Before using any output commercially, check:
 
-1. Product color and shape.
+1. Product identity landmarks, color, shape, and view evidence.
 2. Logo and packaging text.
 3. Material claims.
 4. Functional claims.
@@ -53,6 +65,7 @@ Before using any output commercially, check:
 6. Size, weight, capacity, and compatibility.
 7. CTA and promotional wording.
 8. Platform policy compliance.
+9. Creative direction distinctness and reference-copying risk.
 
 ## High-Risk Categories
 

@@ -32,6 +32,8 @@ jobs:
           python scripts/validate_all_skills.py
           python scripts/validate_trigger_cases.py
           python scripts/validate_orchestration.py
+          python scripts/validate_creative_system.py
+          python scripts/validate_resume_state.py
 
       - name: Validate production contracts and recorded forward runs
         run: |
