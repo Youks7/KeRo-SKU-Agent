@@ -40,6 +40,9 @@ CONTRACTS = {
     ROOT / "shared" / "competitor-research.md": [
         ROOT / "skills" / "sku-product-core" / "references" / "competitor-research.md",
     ],
+    ROOT / "shared" / "reference-migration-system.md": [
+        ROOT / "skills" / "sku-reference-migration" / "references" / "reference-migration-system.md",
+    ],
 }
 
 

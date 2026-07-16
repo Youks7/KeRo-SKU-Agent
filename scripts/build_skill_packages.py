@@ -58,6 +58,7 @@ def main() -> int:
     run("validate_all_skills.py")
     run("validate_orchestration.py")
     run("validate_creative_system.py")
+    run("validate_reference_migration.py")
     run("validate_resume_state.py")
     run("validate_production_protocol.py")
     run("validate_trigger_cases.py")
@@ -69,7 +70,7 @@ def main() -> int:
     sums = PACKAGES / "SHA256SUMS.txt"
     sums.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
-    bundle = PACKAGES / "kero-sku-skills-v1.4-bundle.zip"
+    bundle = PACKAGES / "kero-sku-skills-v1.5-bundle.zip"
     with zipfile.ZipFile(bundle, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as output:
         for source in [*built, sums]:
             info = zipfile.ZipInfo(source.name, FIXED_TIME)

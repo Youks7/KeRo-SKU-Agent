@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="4000" viewBox="0 0 1000 4000" role="img" aria-labelledby="title desc">
+  <title id="title">Synthetic competitor sunglasses long product page</title>
+  <desc id="desc">A self-created four-section product-page fixture for semantic segmentation and migration testing. It contains fictional branding and deliberately unsupported claims that must not be migrated.</desc>
+  <defs>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1018"/>
+      <stop offset="1" stop-color="#26344c"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7c68a"/>
+      <stop offset="1" stop-color="#d66f57"/>
+    </linearGradient>
+    <linearGradient id="lens" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#72829a" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#202734" stop-opacity="0.98"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="30" stdDeviation="24" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+    <style>
+      .sans { font-family: Arial, Helvetica, sans-serif; }
+      .caps { font-family: Arial, Helvetica, sans-serif; font-weight: 700; letter-spacing: 8px; }
+      .small { font-family: Arial, Helvetica, sans-serif; font-size: 25px; letter-spacing: 4px; }
+    </style>
+  </defs>
+
+  <!-- Fictional recognition / hero section -->
+  <rect width="1000" height="920" fill="url(#hero)"/>
+  <text x="70" y="85" class="caps" font-size="26" fill="#f4efe7">NOVA ARC®</text>
+  <text x="70" y="205" class="sans" font-size="88" font-weight="700" fill="#fff">ORBIT</text>
+  <text x="70" y="290" class="sans" font-size="88" font-weight="300" fill="#a9c8ff">SHADE</text>
+  <text x="74" y="345" class="small" fill="#b6c0d0">OWN THE AFTERLIGHT</text>
+  <g transform="translate(120 405)" filter="url(#shadow)">
+    <rect x="0" y="35" width="325" height="215" rx="105" fill="url(#lens)" stroke="#eaf2ff" stroke-width="22"/>
+    <rect x="435" y="35" width="325" height="215" rx="105" fill="url(#lens)" stroke="#eaf2ff" stroke-width="22"/>
+    <path d="M325 112 C365 75 395 75 435 112" fill="none" stroke="#eaf2ff" stroke-width="24"/>
+    <path d="M5 95 L-95 45" fill="none" stroke="#eaf2ff" stroke-width="24" stroke-linecap="round"/>
+    <path d="M755 95 L855 45" fill="none" stroke="#eaf2ff" stroke-width="24" stroke-linecap="round"/>
+  </g>
+  <rect x="70" y="785" width="310" height="66" rx="33" fill="#f4efe7"/>
+  <text x="112" y="828" class="sans" font-size="24" font-weight="700" fill="#121a27">SHOP THE DROP →</text>
+  <text x="740" y="835" class="small" font-size="18" fill="#c5cede">LIMITED 01 / 04</text>
+
+  <!-- Fictional lifestyle-benefit section -->
+  <rect y="920" width="1000" height="980" fill="url(#warm)"/>
+  <circle cx="790" cy="1120" r="245" fill="#ffd991" fill-opacity="0.72"/>
+  <path d="M0 1540 C230 1390 440 1430 620 1550 C790 1660 880 1630 1000 1505 L1000 1900 L0 1900 Z" fill="#5e2d39" fill-opacity="0.92"/>
+  <text x="70" y="1085" class="small" fill="#5b2631">CITY LIGHT / DAY FLOW</text>
+  <text x="70" y="1205" class="sans" font-size="75" font-weight="700" fill="#2d1720">MOVE.</text>
+  <text x="70" y="1280" class="sans" font-size="75" font-weight="700" fill="#2d1720">PAUSE.</text>
+  <text x="70" y="1355" class="sans" font-size="75" font-weight="700" fill="#2d1720">REPEAT.</text>
+  <g transform="translate(230 1380) rotate(-7)" filter="url(#shadow)">
+    <rect x="0" y="0" width="235" height="150" rx="75" fill="#713d49" stroke="#fff1df" stroke-width="16"/>
+    <rect x="320" y="0" width="235" height="150" rx="75" fill="#713d49" stroke="#fff1df" stroke-width="16"/>
+    <path d="M235 55 C270 25 290 25 320 55" fill="none" stroke="#fff1df" stroke-width="18"/>
+    <path d="M550 55 L720 5" fill="none" stroke="#fff1df" stroke-width="18" stroke-linecap="round"/>
+  </g>
+  <text x="70" y="1805" class="sans" font-size="29" fill="#ffe8cf">A NEW ATTITUDE FOR EVERY HOUR.</text>
+
+  <!-- Fictional structure / detail-proof section -->
+  <rect y="1900" width="1000" height="1100" fill="#dceaf1"/>
+  <rect x="0" y="1900" width="330" height="1100" fill="#19384a"/>
+  <text x="55" y="2015" class="small" fill="#b8e7f7">DETAIL INDEX</text>
+  <text x="55" y="2130" class="sans" font-size="55" font-weight="700" fill="#fff">HINGE</text>
+  <text x="55" y="2195" class="sans" font-size="55" font-weight="300" fill="#8bd1e6">STUDY</text>
+  <line x1="55" y1="2260" x2="275" y2="2260" stroke="#8bd1e6" stroke-width="3"/>
+  <text x="55" y="2325" class="small" font-size="20" fill="#d9edf4">A1 / TENSION RING</text>
+  <text x="55" y="2375" class="small" font-size="20" fill="#d9edf4">A2 / ALLOY CORE</text>
+  <text x="55" y="2425" class="small" font-size="20" fill="#d9edf4">A3 / ZERO PLAY</text>
+  <g transform="translate(520 2150)">
+    <circle cx="180" cy="180" r="170" fill="#f5fbfd" stroke="#386c80" stroke-width="28"/>
+    <circle cx="180" cy="180" r="65" fill="#19384a"/>
+    <circle cx="180" cy="180" r="24" fill="#b6d9e5"/>
+    <path d="M180 10 L180 350 M10 180 L350 180" stroke="#7caabb" stroke-width="3" stroke-dasharray="12 12"/>
+  </g>
+  <g transform="translate(420 2560)">
+    <rect x="0" y="0" width="460" height="180" rx="90" fill="#f8fcfd" stroke="#19384a" stroke-width="18"/>
+    <circle cx="95" cy="90" r="54" fill="#83b7c8" stroke="#19384a" stroke-width="12"/>
+    <path d="M170 90 L420 90" stroke="#19384a" stroke-width="22" stroke-linecap="round"/>
+  </g>
+  <text x="410" y="2860" class="sans" font-size="30" fill="#19384a">ENGINEERED FOR 10,000 CYCLES*</text>
+  <text x="410" y="2915" class="sans" font-size="18" fill="#537382">*FICTIONAL SOURCE CLAIM — NOT TARGET EVIDENCE</text>
+
+  <!-- Fictional specs / package / trust section -->
+  <rect y="3000" width="1000" height="1000" fill="#f4f0e8"/>
+  <text x="70" y="3130" class="small" fill="#6e665b">SPEC / PACKAGE / TRUST</text>
+  <text x="70" y="3245" class="sans" font-size="62" font-weight="700" fill="#191817">EVERY DETAIL.</text>
+  <text x="70" y="3310" class="sans" font-size="62" font-weight="300" fill="#8b2e2e">LOCKED IN.</text>
+  <g class="sans" font-size="27" fill="#25211c">
+    <line x1="70" y1="3390" x2="930" y2="3390" stroke="#aaa094" stroke-width="2"/>
+    <text x="80" y="3450">FRAME WIDTH</text><text x="700" y="3450" font-weight="700">145 mm</text>
+    <line x1="70" y1="3490" x2="930" y2="3490" stroke="#c8c0b6" stroke-width="2"/>
+    <text x="80" y="3550">LENS SYSTEM</text><text x="700" y="3550" font-weight="700">UV400 / POLARIZED</text>
+    <line x1="70" y1="3590" x2="930" y2="3590" stroke="#c8c0b6" stroke-width="2"/>
+    <text x="80" y="3650">IN THE BOX</text><text x="700" y="3650" font-weight="700">CASE + CLOTH</text>
+    <line x1="70" y1="3690" x2="930" y2="3690" stroke="#c8c0b6" stroke-width="2"/>
+  </g>
+  <text x="70" y="3785" class="sans" font-size="28" fill="#8b2e2e">★★★★★ 4.9 / 2,418 REVIEWS</text>
+  <text x="70" y="3855" class="caps" font-size="24" fill="#191817">NOVA ARC® ORIGINAL</text>
+  <text x="700" y="3855" class="sans" font-size="42" font-weight="700" fill="#191817">$129</text>
+  <rect x="70" y="3900" width="860" height="70" rx="8" fill="#191817"/>
+  <text x="353" y="3947" class="caps" font-size="23" fill="#fff">ADD TO BAG</text>
+</svg>

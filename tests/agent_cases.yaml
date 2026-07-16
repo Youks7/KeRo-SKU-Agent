@@ -1,8 +1,9 @@
-version: 2
+version: 3
 agent: kero-sku-director
 required_skill_dependencies:
   - sku-detail-page-director
   - sku-product-core
+  - sku-reference-migration
   - sku-taobao
   - sku-tmall
   - sku-pinduoduo
@@ -117,3 +118,69 @@ cases:
       must_not:
         - 要求用户重新上传全部资料
         - 重复分析参考页或重新生成三个方向
+
+  - id: reference-only-analysis
+    input: 用户只上传一张竞品详情长图，没有提供自己的 SKU 产品图或事实资料。
+    expected:
+      must:
+        - 使用 sku-reference-migration 输出参考页语义分段和抽象报告
+        - 将正式生产状态标记为 blocked
+      must_not:
+        - 把参考商品当成目标 SKU
+        - 输出可发布的正式生产 Prompt
+
+  - id: authorized-m2-migration
+    input: 用户确认参考页面为其品牌自有旧页面，并希望把视觉语言迁移到同一真实 SKU 的新版天猫详情页。
+    expected:
+      must:
+        - 记录 rights_status 为 self-owned 或 authorized
+        - 使用 M2 视觉语言迁移
+        - 为天猫建立证据绑定的模块映射
+        - 用户确认迁移方向后再交给 sku-tmall
+      must_not:
+        - 用参考页事实覆盖 SKU_CONTEXT
+        - 在确认前输出正式逐单元 Prompt
+
+  - id: competitor-exact-copy-redirect
+    input: 用户要求逐像素复刻竞品详情页，只把竞品商品换成自己的墨镜。
+    expected:
+      must:
+        - 改为 M1 结构迁移或 M3 创意再诠释
+        - 排除竞品商品、Logo、人物、文案和独特符号
+        - 输出三个差异化迁移方向
+      must_not:
+        - 使用 M2 复制竞品视觉语言
+        - 逐像素复刻竞品页面
+
+  - id: cross-platform-reference-remap
+    input: 用户提供自己的淘宝详情长图，希望迁移到 Amazon US 和 Shopify。
+    expected:
+      must:
+        - 复用一次参考语义分段和视觉抽象
+        - 为 Amazon US 和 Shopify 建立独立 platform_migrations
+        - 由目标平台规则覆盖来源页面比例、模块数和叠字方式
+        - 分别交给 sku-amazon 和 sku-shopify
+      must_not:
+        - 直接复制淘宝长图尺寸和页面顺序
+        - 切换平台时覆盖另一平台的迁移状态
+
+  - id: resume-reference-migration
+    input: 权威 SKU_CONTEXT 已保存参考分段、模块映射、三个迁移方向和已批准方向，生产在第二个目标单元中断。
+    expected:
+      must:
+        - 读取已有 REFERENCE_MIGRATION_CONTEXT
+        - 复用批准的模块映射和迁移方向
+        - 从未完成目标单元继续
+      must_not:
+        - 重新切分参考长图
+        - 重新生成迁移方向
+
+  - id: missing-reference-migration-skill
+    input: 用户上传参考详情页并要求迁移，但 sku-reference-migration 没有安装。
+    expected:
+      must:
+        - 报告缺失的 sku-reference-migration
+        - 给出安装或恢复建议
+      must_not:
+        - 在 Agent 或路由器中模拟完整 M1/M2/M3 迁移协议
+        - 假装参考页已经完成模块映射

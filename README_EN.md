@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="./packages/kero-sku-skills-v1.4-bundle.zip">Download the V1.4 full suite</a> ·
+  <a href="./packages/kero-sku-skills-v1.5-bundle.zip">Download the V1.5 full suite</a> ·
   <a href="./docs/INSTALL.md">Install guide</a> ·
   <a href="./examples/sunglasses-detail-page.md">Examples</a> ·
   <a href="./shared/core-safety.md">Core safety rules</a>
@@ -21,11 +21,11 @@
 
 ## What Is This
 
-KeRo SKU Agent is a Codex custom agent for **real-SKU fact analysis, marketplace routing, product-page planning, and controlled visual production**. It orchestrates the existing ten-Skill suite while keeping the Skills as the source of marketplace rules.
+KeRo SKU Agent is a Codex custom agent for **real-SKU fact analysis, reference-detail-page migration, marketplace routing, product-page planning, and controlled visual production**. It orchestrates eleven Skills while keeping the Skills as the source of specialist rules.
 
 See the [Agent guide](./docs/AGENT.md) for installation, storage boundaries, and invocation examples.
 
-> V1.4 development status: the suite locks real-SKU identity without locking every asset to the same source pixels. It adds progressive intake, multi-view evidence, reference abstraction, three creative directions, and per-slot F0–F3 production.
+> V1.5 adds semantic reference-page segmentation, M1/M2/M3 migration modes, evidence-bound module mapping, three migration directions, cross-platform remapping, and resumable `REFERENCE_MIGRATION_CONTEXT` on top of the V1.4 identity-locked creative system.
 
 It is designed to protect the actual product before generating commercial visuals. The workflow is intentionally staged:
 
@@ -33,6 +33,8 @@ It is designed to protect the actual product before generating commercial visual
 Upload real product images
         ↓
 sku-product-core: verified facts and fidelity boundaries
+   ↓
+sku-reference-migration: reference segmentation, rights, modes, and module mapping
         ↓
 Router: marketplace and asset-slot selection
         ↓
@@ -41,7 +43,7 @@ Dedicated marketplace skill
 Native listing, module, PDP, B2B, prompt, and QA outputs
 ```
 
-V1.4 includes dedicated Taobao, Tmall, JD.com, Pinduoduo, 1688, Amazon, Shopify, and TikTok Shop workflows instead of treating them as style variants.
+V1.5 includes dedicated Taobao, Tmall, JD.com, Pinduoduo, 1688, Amazon, Shopify, and TikTok Shop workflows instead of treating them as style variants.
 
 ## Who It Is For
 
@@ -116,9 +118,9 @@ Each screen includes:
 
 ### Option 1: Import the `.skill` File
 
-For the complete V1.4 workflow, download the bundle and import `sku-product-core` plus the marketplace packages you need:
+For the complete V1.5 workflow, download the bundle and import `sku-product-core`, `sku-reference-migration`, plus the marketplace packages you need:
 
-[`kero-sku-skills-v1.4-bundle.zip`](./packages/kero-sku-skills-v1.4-bundle.zip)
+[`kero-sku-skills-v1.5-bundle.zip`](./packages/kero-sku-skills-v1.5-bundle.zip)
 
 The legacy [`SKU详情页导演Skill.skill`](./SKU详情页导演Skill/SKU详情页导演Skill.skill) is only the compatibility router and does not contain all marketplace production rules.
 
@@ -167,6 +169,7 @@ Do not ask me to invoke other skills again. Do not produce formal image-generati
 - [Taobao mobile-detail module example](./examples/taobao-9-16-detail-page.md)
 - [Amazon A+ example](./examples/amazon-a-plus-example.md)
 - [Competitor-reference safety example](./examples/competitor-reference-safe-use.md)
+- [Reference-detail-page migration example](./examples/reference-detail-page-migration.md)
 
 ## Project Structure
 
@@ -191,7 +194,7 @@ website/           Optional static website
 
 ## Version
 
-Current development version: **V1.4.0-dev identity-locked creative director**
+Current development version: **V1.5.0-dev reference-migration visual director**
 
 Stable baseline: **Lite V1.2.1**, preserved by the `v1.2.1` Git tag.
 

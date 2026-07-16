@@ -14,11 +14,12 @@ description: "Create region-aware TikTok Shop product-detail-page image plans, S
 ## 工作流
 
 1. 继承 `SKU_CONTEXT`；没有上下文时先使用 `$sku-product-core`，未安装时执行最小事实与保真检查，再确认国家、语言、类目、品牌、variations 和目标素材槽位。
-2. 区分 PDP main image、additional images、variation images、Shop Ads source、Shoppable Photo 和视频交接。
-3. 主图和变体图采用 F0；平台禁止数字渲染或覆盖元素时不得使用 F2。
-4. 追加图片可按平台允许范围展示角度、细节、使用、尺寸和场景，不重复相同视角。
-5. 建立或复用 `CREATIVE_CONTEXT`，为 PDP、附图和内容交接提出三个差异化方向；用户确认后按槽位创意自由度选择 F0–F3，并严格按逐屏 / 逐模块生产协议，为每张 PDP / variation 图片完整输出 Prompt、Negative Prompt、处理模式、文案位置与平台覆盖限制、后期排版、镜头矩阵、产品一致性质检和通用 Prompt 拦截。
-6. 视频、达人或直播任务只生成结构化交接 Brief，并转入专用内容工作流；检查 PDP 信息与广告复用素材、SKU、品牌、披露和实际交付一致。
+2. 若有已批准的 `REFERENCE_MIGRATION_CONTEXT`，读取当前平台迁移条目并重排到 TikTok Shop 合法图片槽位；主图、variation、广告源素材和覆盖元素规则覆盖来源页面做法。
+3. 区分 PDP main image、additional images、variation images、Shop Ads source、Shoppable Photo 和视频交接。
+4. 主图和变体图采用 F0；平台禁止数字渲染或覆盖元素时不得使用 F2。
+5. 追加图片可按平台允许范围展示角度、细节、使用、尺寸和场景，不重复相同视角。
+6. 建立或复用 `CREATIVE_CONTEXT`，为 PDP、附图和内容交接提出三个差异化方向；用户确认后按槽位创意自由度选择 F0–F3，并严格按逐屏 / 逐模块生产协议，为每张 PDP / variation 图片完整输出 Prompt、Negative Prompt、处理模式、文案位置与平台覆盖限制、后期排版、镜头矩阵、产品一致性质检和通用 Prompt 拦截。
+7. 视频、达人或直播任务只生成结构化交接 Brief，并转入专用内容工作流；检查 PDP 信息与广告复用素材、SKU、品牌、披露和实际交付一致。
 
 ## 输出
 

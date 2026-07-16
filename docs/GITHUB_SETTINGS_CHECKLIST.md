@@ -45,15 +45,16 @@ Repository Settings -> General -> Social preview
 Create a release only after clean-session model tests and real-product golden fixtures are complete:
 
 ```text
-v1.4.0
+v1.5.0
 ```
 
 Attach:
 
 ```text
-packages/kero-sku-skills-v1.4-bundle.zip
+packages/kero-sku-skills-v1.5-bundle.zip
 packages/SHA256SUMS.txt
 packages/sku-product-core.skill
+packages/sku-reference-migration.skill
 packages/sku-detail-page-director.skill
 packages/sku-taobao.skill
 packages/sku-tmall.skill

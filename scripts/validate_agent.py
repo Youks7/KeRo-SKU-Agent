@@ -10,26 +10,18 @@ from pathlib import Path
 
 import yaml
 
+from project_config import ALL_SKILL_NAMES
+
 
 ROOT = Path(__file__).resolve().parents[1]
 AGENT_FILE = ROOT / ".codex" / "agents" / "kero-sku-director.toml"
 CASES_FILE = ROOT / "tests" / "agent_cases.yaml"
 INSTALLER_FILE = ROOT / "scripts" / "install_kero_sku.ps1"
-EXPECTED_SKILLS = (
-    "sku-detail-page-director",
-    "sku-product-core",
-    "sku-taobao",
-    "sku-tmall",
-    "sku-pinduoduo",
-    "sku-jd",
-    "sku-1688",
-    "sku-amazon",
-    "sku-shopify",
-    "sku-tiktok-shop",
-)
+EXPECTED_SKILLS = ALL_SKILL_NAMES
 REQUIRED_INSTRUCTION_MARKERS = (
     "SKU_CONTEXT",
     "CREATIVE_CONTEXT",
+    "REFERENCE_MIGRATION_CONTEXT",
     "IDENTITY_CONTRACT",
     "F0",
     "F1",
@@ -37,6 +29,9 @@ REQUIRED_INSTRUCTION_MARKERS = (
     "F3",
     "渐进式",
     "参考详情页语义分段",
+    "M1",
+    "M2",
+    "M3",
     "断点续作",
     "方向确认",
     "不得编造",
@@ -54,6 +49,12 @@ REQUIRED_CASE_MARKERS = {
     "identity-not-pixels": ("锁定商品身份", "不锁死原图像素", "F0–F3"),
     "three-creative-directions": ("三个差异化方向", "创意命题", "场景世界", "镜头与光线"),
     "resume-creative-project": ("读取已有 CREATIVE_CONTEXT", "从当前阶段继续", "重复分析参考页"),
+    "reference-only-analysis": ("sku-reference-migration", "blocked", "参考商品", "正式生产 Prompt"),
+    "authorized-m2-migration": ("rights_status", "M2 视觉语言迁移", "证据绑定的模块映射", "sku-tmall"),
+    "competitor-exact-copy-redirect": ("M1 结构迁移", "M3 创意再诠释", "排除竞品商品", "逐像素复刻"),
+    "cross-platform-reference-remap": ("platform_migrations", "目标平台规则覆盖", "sku-amazon", "sku-shopify"),
+    "resume-reference-migration": ("REFERENCE_MIGRATION_CONTEXT", "复用批准的模块映射", "未完成目标单元", "重新切分参考长图"),
+    "missing-reference-migration-skill": ("缺失的 sku-reference-migration", "安装或恢复建议", "模拟完整 M1/M2/M3", "假装参考页"),
 }
 
 
@@ -123,16 +124,16 @@ def validate_cases(errors: list[str]) -> None:
     if not isinstance(data, dict):
         errors.append("agent cases root must be a mapping")
         return
-    if data.get("version") != 2:
-        errors.append("agent cases version must be 2")
+    if data.get("version") != 3:
+        errors.append("agent cases version must be 3")
     if data.get("agent") != "kero-sku-director":
         errors.append("agent cases target must be kero-sku-director")
     if tuple(data.get("required_skill_dependencies", ())) != EXPECTED_SKILLS:
         errors.append("agent cases Skill dependency list is incomplete or out of order")
 
     cases = data.get("cases")
-    if not isinstance(cases, list) or len(cases) < 10:
-        errors.append("agent cases must define at least ten scenarios")
+    if not isinstance(cases, list) or len(cases) < 16:
+        errors.append("agent cases must define at least sixteen scenarios")
         return
 
     ids: set[str] = set()
@@ -211,7 +212,7 @@ def main() -> int:
         return 1
 
     print("[PASS] custom agent TOML contains the required identity and orchestration rules")
-    print("[PASS] all ten Skill dependencies exist and are explicitly declared")
+    print(f"[PASS] all {len(EXPECTED_SKILLS)} Skill dependencies exist and are explicitly declared")
     print("[PASS] behavioral contract covers routing, approval, recovery, and file isolation")
     print("[PASS] installer declares the Agent and all Skill dependencies")
     return 0

@@ -14,11 +14,12 @@ description: "Create Amazon marketplace-specific main image, secondary image, vi
 ## 工作流
 
 1. 继承 `SKU_CONTEXT`；没有上下文时先使用 `$sku-product-core`，未安装时执行最小事实与保真检查，再确认站点、语言、类目、ASIN 状态、Brand Registry 和可用模块。
-2. 区分 Main Image、secondary images、video brief、A+、Premium A+ 和 Brand Story。
-3. Main Image 使用 F0；场景、细节和故事放入允许使用 F1/F2 的 Secondary、A+ 或 Brand Story。
-4. 建立或复用 `CREATIVE_CONTEXT`，根据主要购买疑虑生成三个差异化方向，并让图片、bullet 和 A+ 使用同一事实证据。
-5. 用户确认后，按槽位创意自由度选择 F0–F3，并严格按逐屏 / 逐模块生产协议，为每张图片和每个 A+ / Brand Story 模块完整输出 Prompt、Negative Prompt、处理模式、文案位置、后期排版、镜头矩阵、alt text、产品一致性质检和通用 Prompt 拦截。
-6. 检查语言、单位、比较、环保、兼容性、功效和认证声明。
+2. 若有已批准的 `REFERENCE_MIGRATION_CONTEXT`，读取当前平台迁移条目并重排到 Amazon 合法槽位；Amazon Main Image、A+ 和 Brand Story 规则覆盖来源页面比例、模块数和叠字方式。
+3. 区分 Main Image、secondary images、video brief、A+、Premium A+ 和 Brand Story。
+4. Main Image 使用 F0；场景、细节和故事放入允许使用 F1/F2 的 Secondary、A+ 或 Brand Story。
+5. 建立或复用 `CREATIVE_CONTEXT`，根据主要购买疑虑生成三个差异化方向，并让图片、bullet 和 A+ 使用同一事实证据。
+6. 用户确认后，按槽位创意自由度选择 F0–F3，并严格按逐屏 / 逐模块生产协议，为每张图片和每个 A+ / Brand Story 模块完整输出 Prompt、Negative Prompt、处理模式、文案位置、后期排版、镜头矩阵、alt text、产品一致性质检和通用 Prompt 拦截。
+7. 检查语言、单位、比较、环保、兼容性、功效和认证声明。
 
 ## 输出
 

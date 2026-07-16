@@ -8,6 +8,7 @@ Use the exact platform Skill name:
 $sku-amazon
 $sku-1688
 $sku-shopify
+$sku-reference-migration
 ```
 
 Use `$sku-detail-page-director` when the platform is unknown or several platforms are requested. Confirm that the selected `.skill` package is installed.
@@ -64,9 +65,18 @@ Use generated text only for preview. For final commercial use, add:
 Use this correction:
 
 ```text
-竞品图只参考构图节奏和信息结构。
-不要复制竞品产品、Logo、文字、包装、配色和品牌资产。
-请重写方向，让首屏构图、背景材质和视觉记忆点明显不同。
+请使用 $sku-reference-migration，把来源标记为 competitor-analysis。
+只允许 M1 结构迁移或 M3 创意再诠释，不允许 M2。
+排除竞品产品、人物、Logo、文字、包装、专属配色组合和独特品牌资产。
+请重写三个迁移方向，并确保任意两个方向至少有三个创意维度不同。
+```
+
+## Reference Page Was Copied Into The Wrong Platform Shape
+
+```text
+不要继承参考页的平台比例、模块数量、长图长度或叠字方式。
+请先把参考模块还原为购买问题，再建立目标平台的 module_mapping。
+目标平台规则必须写入 platform_override；每个非 discard 单元绑定真实 SKU 证据。
 ```
 
 ## Platform Output Looks Like a Generic Long Page

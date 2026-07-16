@@ -1,5 +1,30 @@
 # KeRo SKU Skills Forward Test Report
 
+## V1.5 reference-detail-page migration forward test
+
+Test date: 2026-07-16
+
+Execution: two independent read-only agent sessions using the installed-source `sku-reference-migration` instructions, without an expected answer
+
+Scenario: one real-sunglasses SKU described as having front, side, and hinge views; one competitor Taobao long-page reference; targets Amazon US and Shopify; the user requested a close influence without direct copying
+
+Visual input: the second session was forbidden from reading the worked example, YAML migration cases, or this report. It used `view_image` to inspect the actual pixels of the repository-owned [`synthetic-competitor-long-page.png`](./reference-page/synthetic-competitor-long-page.png), a 1000 × 4000 RGB long-page fixture. The self-created fixture contains no third-party assets but is deliberately treated as `competitor-analysis` to exercise the stricter boundary.
+
+Result: **PASS FOR ACTUAL LONG-IMAGE INTAKE AND PLANNING; USER PAGE AND OUTPUT REVIEW STILL REQUIRED**.
+
+- The visual session actually recognized `ORBIT SHADE`, `HINGE STUDY`, `ENGINEERED FOR 10,000 CYCLES*`, `UV400 / POLARIZED`, `4.9 / 2,418 REVIEWS`, and `$129` from the PNG pixels.
+- It segmented eight purchasing-question modules instead of mechanically treating the four color regions as four modules: identity, lifestyle relevance, hinge structure, durability claim, dimensions/optics, package contents, social proof, and transaction.
+- Correctly classified the reference as `competitor-analysis`, prohibited M2, allowed M1/M3, and recommended M3.
+- Kept the fictional source product, `NOVA ARC®` brand, copy, parameters, package, reviews, price, CTA, target-like structure diagrams, unique color/layout system, and Taobao long-page dimensions out of the target plan.
+- Bound Amazon and Shopify media units to front, side, or hinge evidence and blocked dimensions, materials, performance, packaging, commerce, and qualification fields that lacked evidence.
+- Remapped Amazon Main Image to F0 and separated Secondary/A+; remapped Shopify into responsive Hero, Gallery, Editorial, Proof, and real HTML commerce components instead of slicing a Taobao long page.
+- Produced three directions that differed across all six tested dimensions: thesis, visual world, product role, camera/light, graphic system, and narrative rhythm.
+- Preserved independent Amazon and Shopify migration states and stopped before formal Prompt, generation, or final delivery.
+
+The first audit exposed five contract ambiguities: platform planning versus production handoff timing, target-native units with no source module, shared versus per-platform direction approval, uncontrolled workflow stage names, and initial revision semantics. V1.5 now resolves them by separating pre-approval platform planning from post-approval production, adding `platform_native_units`, allowing one structured multi-platform direction assignment with independent persisted approvals, defining the standard stage vocabulary, and setting the first persisted authority to `state_revision: 1`. It also states that M1/M2/M3 are workflow risk controls rather than legal conclusions.
+
+The first no-image protocol session could not test visual segmentation and was not counted as proof of that capability; it only helped expose contract gaps. The second session closes the actual-pixel intake gap with an auditable synthetic long-page artifact. It still cannot prove behavior on every user-uploaded layout, verify that three unseen product files are one SKU, confirm current Seller Central/theme capabilities, or prove generated-image identity and originality. Those checks remain `human-review` until user files, current platform context, and actual outputs are available.
+
 ## V1.4 real-sunglasses direction-gate forward test
 
 Test date: 2026-07-16

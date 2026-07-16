@@ -33,6 +33,7 @@ jobs:
           python scripts/validate_trigger_cases.py
           python scripts/validate_orchestration.py
           python scripts/validate_creative_system.py
+          python scripts/validate_reference_migration.py
           python scripts/validate_resume_state.py
 
       - name: Validate production contracts and recorded forward runs

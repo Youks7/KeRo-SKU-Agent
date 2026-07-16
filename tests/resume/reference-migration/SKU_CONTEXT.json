@@ -1,0 +1,109 @@
+{
+  "sku_context_version": 2,
+  "product_identity": {
+    "category": "sunglasses",
+    "source_images": ["front.jpg", "side.jpg", "hinge.jpg"]
+  },
+  "facts": {
+    "verified": ["FACT-COLOR"],
+    "evidence_sources": ["IMG-FRONT", "IMG-SIDE", "IMG-HINGE"]
+  },
+  "reference_migration_context": {
+    "version": 1,
+    "source": {
+      "files": ["competitor-taobao-long-page.jpg"],
+      "source_platform": "Taobao",
+      "rights_status": "competitor-analysis",
+      "reference_role": "analysis-only"
+    },
+    "semantic_modules": [
+      {
+        "source_module_id": "REF-01",
+        "module_role": "recognition"
+      },
+      {
+        "source_module_id": "REF-02",
+        "module_role": "proof"
+      }
+    ],
+    "reference_visual_tokens": {
+      "narrative_grammar": ["recognition-to-proof"]
+    },
+    "excluded_elements": ["competitor product", "competitor logo", "competitor copy"],
+    "platform_migrations": [
+      {
+        "migration_id": "MIG-AMZ-001",
+        "target_platform_context_id": "amazon-us",
+        "migration_mode": "M3",
+        "module_mapping": [
+          {
+            "source_module_id": "REF-01",
+            "target_unit_id": "amazon-main-01",
+            "action": "replace",
+            "target_evidence_ids": ["IMG-FRONT"],
+            "handling_mode": "F0",
+            "status": "produced"
+          },
+          {
+            "source_module_id": "REF-02",
+            "target_unit_id": "amazon-secondary-02",
+            "action": "adapt",
+            "target_evidence_ids": ["IMG-SIDE", "IMG-HINGE"],
+            "handling_mode": "F1",
+            "status": "planned"
+          }
+        ],
+        "migration_directions": ["D1", "D2", "D3"],
+        "selected_direction": "D2",
+        "rejected_directions": ["D1", "D3"],
+        "approval_status": "approved",
+        "qa": {
+          "rights_status": "pass",
+          "evidence_binding_status": "pass",
+          "originality_status": "human-review"
+        }
+      }
+    ]
+  },
+  "platform_contexts": [
+    {
+      "context_id": "amazon-us",
+      "target": {
+        "platform": "amazon",
+        "marketplace_site": "US"
+      },
+      "creative_context_overrides": {
+        "selected_direction": "D2"
+      },
+      "direction_state": {
+        "selected_direction": "D2",
+        "approval_status": "approved"
+      },
+      "production": {},
+      "workflow_state": {
+        "current_stage": "production",
+        "completed_stages": [
+          "intake",
+          "product_core",
+          "reference_analysis",
+          "platform_planning",
+          "directions",
+          "direction_approval"
+        ],
+        "planned_units": ["amazon-main-01", "amazon-secondary-02"],
+        "completed_units": ["amazon-main-01"],
+        "resume_from": null
+      },
+      "qa": {}
+    }
+  ],
+  "active_platform_context_id": "amazon-us",
+  "workflow_state": {
+    "state_revision": 5,
+    "current_stage": "production",
+    "completed_stages": [],
+    "planned_units": [],
+    "completed_units": [],
+    "resume_from": null
+  }
+}

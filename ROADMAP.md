@@ -2,6 +2,17 @@
 
 This roadmap tracks possible future improvements for KeRo SKU Skill.
 
+## V1.5 Reference Detail-Page Migration
+
+- [x] Add `sku-reference-migration` as a dedicated capability instead of overloading the router.
+- [x] Add source rights, semantic modules, reference visual tokens, and excluded-element controls.
+- [x] Add M1 structure migration, M2 authorized visual-language migration, and M3 creative reinterpretation.
+- [x] Add evidence-bound module mappings, target-platform overrides, and per-unit migration provenance.
+- [x] Add three differentiated migration directions and block formal prompts until approval.
+- [x] Persist one global reference analysis with independent per-platform migrations in `SKU_CONTEXT.json`.
+- [x] Add regression fixtures, CI validation, installation packaging, documentation, and a worked example.
+- [ ] Run image-output migration tests with user-approved reference pages and record human originality and SKU-identity reviews.
+
 ## V1.4 Identity-Locked Creative Director
 
 - [x] Add progressive intake, product-image diagnosis, multi-view alignment, and semantic reference-page segmentation.

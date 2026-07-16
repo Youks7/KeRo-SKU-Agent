@@ -1,0 +1,4 @@
+interface:
+  display_name: "参考详情页迁移"
+  short_description: "拆解参考详情页并安全迁移为真实 SKU 的平台化视觉方案"
+  default_prompt: "请使用 $sku-reference-migration 分析我提供的参考详情页，建立模块映射、迁移模式和三个差异化方向，再交给目标平台 Skill。"

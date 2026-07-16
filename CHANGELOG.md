@@ -2,6 +2,16 @@
 
 All notable changes to this repository are documented here.
 
+## v1.5.0-dev
+
+- Added `sku-reference-migration` as the eleventh Skill for user-owned, authorized, competitor, and unknown-source reference detail pages.
+- Added semantic long-page segmentation, explicit reference-rights status, M1 structure migration, M2 authorized visual-language migration, and M3 creative reinterpretation.
+- Added `REFERENCE_MIGRATION_CONTEXT` inside the single authoritative `SKU_CONTEXT.json`, with reusable source segmentation and independent `platform_migrations` for multi-platform work.
+- Added evidence-bound `keep / adapt / replace / discard` module mapping, platform overrides, per-unit migration provenance, excluded elements, and originality QA.
+- Routed the custom Agent and compatibility director through the new Skill while keeping platform rules in the eight specialist Skills.
+- Added four executable migration fixtures covering authorized M2, competitor M3, Taobao-to-Amazon remapping, and the three-direction approval gate.
+- Expanded the installer, deterministic packages, CI, trigger corpus, Agent behavior contract, examples, and documentation to eleven Skills.
+
 ## v1.4.0-dev
 
 - Reframed fidelity from global source-pixel reuse to an explicit SKU identity contract.
@@ -21,7 +31,7 @@ All notable changes to this repository are documented here.
 ## v0.1.0-agent
 
 - Created an independent KeRo SKU Agent repository from the existing Skill suite while leaving the source repository unchanged.
-- Added the `kero-sku-director` custom Agent as a thin orchestration layer over all ten Skills.
+- Added the `kero-sku-director` custom Agent as a thin orchestration layer over the original ten Skills.
 - Added a conflict-safe Windows installer with idempotence checks and timestamped backups before forced updates.
 - Added a static Agent validator and seven-scenario behavioral contract covering routing, approval gates, recovery, and project-file isolation.
 - Added Agent documentation, invocation examples, storage guidance, and CI validation.

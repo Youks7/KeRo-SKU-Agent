@@ -72,7 +72,7 @@
   "active_platform_context_id": "amazon-us",
   "workflow_state": {
     "state_revision": 3,
-    "current_stage": "multi_platform",
+    "current_stage": "production",
     "completed_stages": [],
     "planned_units": [],
     "completed_units": [],

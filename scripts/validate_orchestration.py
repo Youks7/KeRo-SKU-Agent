@@ -17,6 +17,7 @@ EXPECTED_SHARED = {
     "core-qa.md",
     "sku-context-schema.md",
     "competitor-research.md",
+    "reference-migration-system.md",
 }
 
 
@@ -39,7 +40,7 @@ def main() -> int:
             "不要只返回 Skill 名称让用户自己再次调用",
             "用户确认方向后",
             "渐进式收集",
-            "参考详情页语义分段",
+            "`$sku-reference-migration`",
             "三个差异化创意方向",
             "CREATIVE_CONTEXT",
             "断点续作",
@@ -82,6 +83,23 @@ def main() -> int:
         errors,
     )
 
+    migration = (ROOT / "skills" / "sku-reference-migration" / "SKILL.md").read_text(encoding="utf-8-sig")
+    require(
+        migration,
+        (
+            "references/reference-migration-system.md",
+            "REFERENCE_MIGRATION_CONTEXT",
+            "M1",
+            "M2",
+            "M3",
+            "三个差异化迁移方向",
+            "用户确认迁移方向前",
+            "$sku-product-core",
+        ),
+        "sku-reference-migration",
+        errors,
+    )
+
     actual_shared = {path.name for path in (ROOT / "shared").glob("*.md")}
     if actual_shared != EXPECTED_SHARED:
         errors.append(
@@ -96,7 +114,7 @@ def main() -> int:
 
     print("[PASS] one-entry router continues through core and marketplace direction stages")
     print("[PASS] all eight platform skills defer the full production contract until direction approval")
-    print("[PASS] canonical shared sources are explicit and orphan-free")
+    print("[PASS] canonical shared sources, including reference migration, are explicit and orphan-free")
     return 0
 
 

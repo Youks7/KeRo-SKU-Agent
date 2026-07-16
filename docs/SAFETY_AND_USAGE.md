@@ -2,7 +2,7 @@
 
 KeRo SKU Skill is designed for real-SKU e-commerce workflows. It should help you plan product pages and prompts without inventing product facts.
 
-V1.4 separates product truth from presentation freedom. Run `sku-product-core` once, preserve `SKU_CONTEXT V2` and the `IDENTITY_CONTRACT`, then let the director create a reusable `CREATIVE_CONTEXT` and assign F0–F3 per marketplace asset slot.
+V1.5 separates product truth, reference method, and final presentation. Run `sku-product-core` once, preserve `SKU_CONTEXT V2` and the `IDENTITY_CONTRACT`, then use `sku-reference-migration` when a reference page is supplied. The director stores `REFERENCE_MIGRATION_CONTEXT`, creates a reusable `CREATIVE_CONTEXT`, and assigns F0–F3 per marketplace asset slot.
 
 ## Core Safety Rules
 
@@ -52,6 +52,14 @@ Unsafe use:
 - Copying unique brand visual assets
 - Presenting a similar product as the user's SKU
 - Copying a unique campaign symbol, person identity, or one-to-one module layout
+
+### Reference migration modes
+
+- M1 structure migration reuses purchasing questions, module roles, and narrative order while redesigning the visual expression.
+- M2 visual-language migration is limited to self-owned or explicitly authorized pages. It reuses abstract composition, camera, light, material, and graphic grammar, never source-product facts.
+- M3 creative reinterpretation keeps only the commercial problem and emotional goal, then creates a different visual world. Use it by default for competitor or unknown sources.
+
+Every non-discarded target module must bind to real SKU evidence. Target marketplace rules override source-page dimensions, module counts, overlays, and publishing behavior.
 
 ## Final Commercial QA
 

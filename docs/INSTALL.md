@@ -1,6 +1,6 @@
 # Installation Guide
 
-This guide explains how to install and start KeRo SKU Agent and its ten Skill dependencies in Codex.
+This guide explains how to install and start KeRo SKU Agent and its eleven Skill dependencies in Codex.
 
 ## Recommended Complete Agent Install
 
@@ -18,6 +18,7 @@ The installer deploys:
 %CODEX_HOME%\agents\kero-sku-director.toml
 %CODEX_HOME%\skills\sku-detail-page-director\
 %CODEX_HOME%\skills\sku-product-core\
+%CODEX_HOME%\skills\sku-reference-migration\
 %CODEX_HOME%\skills\sku-taobao\
 %CODEX_HOME%\skills\sku-tmall\
 %CODEX_HOME%\skills\sku-pinduoduo\
@@ -48,17 +49,18 @@ Product images, `SKU_CONTEXT`, prompts, generated images, and QA reports belong 
 
 ## Agent-Only Versus Skill-Only Installation
 
-Installing only `.codex/agents/kero-sku-director.toml` is incomplete: the Agent orchestrates the ten Skills but does not contain their detailed rules. The methods below remain available for Skill-only use, packaging tests, or selective marketplace installation.
+Installing only `.codex/agents/kero-sku-director.toml` is incomplete: the Agent orchestrates the eleven Skills but does not contain their detailed rules. The methods below remain available for Skill-only use, packaging tests, or selective marketplace installation.
 
-## V1.4 Skill Selection
+## V1.5 Skill Selection
 
-V1.4 is a multi-skill suite with identity-locked creative direction. Install `sku-product-core` plus the platform skills you need. Install `sku-detail-page-director` for the progressive one-entry workflow, platform selection, reference abstraction, or multi-platform routing.
+V1.5 is a multi-skill suite with identity-locked creative direction and reference-detail-page migration. Install `sku-product-core` and `sku-reference-migration` plus the platform skills you need. Install `sku-detail-page-director` for the progressive one-entry workflow, platform selection, reference migration, or multi-platform routing.
 
 Prebuilt packages are in `packages/`:
 
 ```text
 sku-detail-page-director.skill
 sku-product-core.skill
+sku-reference-migration.skill
 sku-taobao.skill
 sku-tmall.skill
 sku-pinduoduo.skill
@@ -67,24 +69,25 @@ sku-1688.skill
 sku-amazon.skill
 sku-shopify.skill
 sku-tiktok-shop.skill
-kero-sku-skills-v1.4-bundle.zip
+kero-sku-skills-v1.5-bundle.zip
 ```
 
 The bundle contains the standalone `.skill` files; import the ones you want. Each platform package is self-contained.
 
-## Method 1: Import the Complete V1.4 Suite
+## Method 1: Import the Complete V1.5 Suite
 
 Download the bundle:
 
-[`kero-sku-skills-v1.4-bundle.zip`](../packages/kero-sku-skills-v1.4-bundle.zip)
+[`kero-sku-skills-v1.5-bundle.zip`](../packages/kero-sku-skills-v1.5-bundle.zip)
 
-Extract it, then import `sku-product-core.skill` plus the marketplace `.skill` files you need. Import `sku-detail-page-director.skill` when you want platform selection, multi-platform routing, or legacy invocation.
+Extract it, then import `sku-product-core.skill`, `sku-reference-migration.skill`, plus the marketplace `.skill` files you need. Import `sku-detail-page-director.skill` when you want platform selection, multi-platform routing, or legacy invocation.
 
 For the complete eight-marketplace workflow, the installed Skill names should include:
 
 ```text
 sku-detail-page-director
 sku-product-core
+sku-reference-migration
 sku-taobao
 sku-tmall
 sku-pinduoduo
@@ -104,6 +107,7 @@ Copy the core, router, and required marketplace directories into your Codex skil
 ```text
 SKU详情页导演Skill/sku-detail-page-director/
 skills/sku-product-core/
+skills/sku-reference-migration/
 skills/sku-taobao/
 ...the marketplace directories you need
 ```

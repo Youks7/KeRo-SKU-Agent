@@ -57,7 +57,7 @@ def main() -> int:
 
     print(f"[PASS] {len(texts)} marketplace forward-run records")
     print("[PASS] common workflow stages, platform markers, evidence gating, and forbidden-claim checks")
-    print("LIMITATION: eight historical final-output runs share one agent; V1.4 has one independent direction-gate test, but F2 output fidelity remains unverified")
+    print("LIMITATION: eight historical final-output runs share one agent; V1.4 direction gating and V1.5 migration planning were independently tested, but actual F2 fidelity and real-image migration outputs remain unverified")
     return 0
 
 

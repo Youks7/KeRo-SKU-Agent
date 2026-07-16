@@ -36,6 +36,7 @@ $skillSources = @(
         Source = $routerSource
     },
     [pscustomobject]@{ Name = "sku-product-core"; Source = Join-Path $repoRoot "skills\sku-product-core" },
+    [pscustomobject]@{ Name = "sku-reference-migration"; Source = Join-Path $repoRoot "skills\sku-reference-migration" },
     [pscustomobject]@{ Name = "sku-taobao"; Source = Join-Path $repoRoot "skills\sku-taobao" },
     [pscustomobject]@{ Name = "sku-tmall"; Source = Join-Path $repoRoot "skills\sku-tmall" },
     [pscustomobject]@{ Name = "sku-pinduoduo"; Source = Join-Path $repoRoot "skills\sku-pinduoduo" },

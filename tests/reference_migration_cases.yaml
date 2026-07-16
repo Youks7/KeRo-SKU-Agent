@@ -1,0 +1,156 @@
+version: 1
+
+target_sku_evidence:
+  IMG-FRONT: {source_type: real-sku-image}
+  IMG-SIDE: {source_type: real-sku-image}
+  IMG-HINGE: {source_type: real-sku-image}
+  IMG-TEMPLE: {source_type: real-sku-image}
+  FACT-COLOR: {source_type: verified-fact}
+  FACT-HINGE: {source_type: verified-fact}
+  FACT-MATERIAL: {source_type: verified-document}
+
+cases:
+  - id: authorized-page-m2
+    source:
+      rights_status: authorized
+      source_platform: Shopify
+      source_page_type: brand-owned-pdp
+    migration:
+      migration_mode: M2
+      target_platform: Tmall
+      excluded_elements:
+        - original product pixels
+        - source logo
+        - source copy
+      module_mapping:
+        - source_module_id: REF-01
+          target_unit_id: TM-HERO-01
+          action: adapt
+          target_evidence_ids: [IMG-FRONT, FACT-COLOR]
+          handling_mode: F1
+          transferable_abstract_features: [asymmetric hero composition, side rim light]
+        - source_module_id: REF-02
+          target_unit_id: TM-DETAIL-02
+          action: replace
+          target_evidence_ids: [IMG-HINGE, FACT-HINGE]
+          handling_mode: F0
+          transferable_abstract_features: [macro evidence rhythm]
+    expected:
+      mode_allowed: true
+      every_target_binds_evidence: true
+
+  - id: competitor-page-m3
+    source:
+      rights_status: competitor-analysis
+      source_platform: Taobao
+      source_page_type: competitor-long-page
+    migration:
+      migration_mode: M3
+      target_platform: Taobao
+      excluded_elements:
+        - competitor product
+        - competitor logo
+        - competitor model
+        - competitor copy
+        - unique symbol system
+      module_mapping:
+        - source_module_id: REF-01
+          target_unit_id: TB-HERO-01
+          action: replace
+          target_evidence_ids: [IMG-FRONT, FACT-COLOR]
+          handling_mode: F1
+          transferable_abstract_features: [high-contrast opening promise]
+        - source_module_id: REF-04
+          target_unit_id: TB-DETAIL-03
+          action: adapt
+          target_evidence_ids: [IMG-TEMPLE, IMG-HINGE]
+          handling_mode: F0
+          transferable_abstract_features: [detail-to-proof narrative]
+    expected:
+      mode_allowed: true
+      pixel_replication_allowed: false
+      protected_elements_excluded: true
+
+  - id: taobao-to-amazon-remap
+    source:
+      rights_status: self-owned
+      source_platform: Taobao
+      source_page_type: mobile-long-page
+    migration:
+      migration_mode: M1
+      target_platform: Amazon-US
+      copied_source_constraints: false
+      platform_native_units:
+        - target_unit_id: AMZ-QUALIFICATION-CHECK
+          target_slot: Amazon A+ eligibility
+          reason: target-platform requirement, not a migrated reference module
+          target_evidence_ids: []
+          status: human-review
+      module_mapping:
+        - source_module_id: REF-01
+          target_unit_id: AMZ-MAIN-01
+          action: replace
+          target_slot: Amazon Main Image
+          target_evidence_ids: [IMG-FRONT]
+          handling_mode: F0
+          platform_override: white-background-and-no-overlay
+        - source_module_id: REF-02
+          target_unit_id: AMZ-SECONDARY-02
+          action: adapt
+          target_slot: Amazon secondary image
+          target_evidence_ids: [IMG-FRONT, IMG-SIDE]
+          handling_mode: F1
+          platform_override: target-slot-ratio-and-safe-area
+        - source_module_id: REF-03
+          target_unit_id: AMZ-A+-03
+          action: adapt
+          target_slot: Amazon A+ module
+          target_evidence_ids: [IMG-HINGE, FACT-MATERIAL]
+          handling_mode: F1
+          platform_override: approved-a-plus-module
+    expected:
+      source_dimensions_copied: false
+      target_platform_overrides_source: true
+
+  - id: direction-approval-gate
+    source:
+      rights_status: competitor-analysis
+      source_platform: JD
+      source_page_type: competitor-detail-page
+    migration:
+      migration_mode: M3
+      target_platform: Shopify
+      approval_status: pending
+      formal_prompt_allowed: false
+      module_mapping:
+        - source_module_id: REF-01
+          target_unit_id: SHOP-HERO-01
+          action: replace
+          target_evidence_ids: [IMG-FRONT]
+          handling_mode: F1
+      migration_directions:
+        - id: D1
+          creative_thesis: precision-in-motion
+          visual_world: architectural-shadow
+          product_role: engineered-object
+          camera_and_light: long-lens-hard-rim
+          graphic_system: measured-grid
+          narrative_rhythm: reveal-proof-resolve
+        - id: D2
+          creative_thesis: effortless-daily-adaptation
+          visual_world: warm-urban-morning
+          product_role: daily-companion
+          camera_and_light: close-natural-window
+          graphic_system: editorial-caption
+          narrative_rhythm: moment-benefit-detail
+        - id: D3
+          creative_thesis: material-sensory-study
+          visual_world: abstract-material-lab
+          product_role: tactile-specimen
+          camera_and_light: macro-raking-light
+          graphic_system: sparse-specimen-labels
+          narrative_rhythm: texture-structure-identity
+    expected:
+      direction_count: 3
+      minimum_pairwise_dimension_difference: 3
+      production_blocked_until_approved: true
